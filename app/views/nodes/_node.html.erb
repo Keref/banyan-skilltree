@@ -1,0 +1,9 @@
+<li id="node-<%= node.id %>">
+  <%= link_to gravatar_for(node.user, size: 50), node.user %>
+  <span class="user"><%= link_to node.user.name, node.user %></span>
+  <span class="name"><%= node.name %></span>
+  <span class="content"><%= node.content %></span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(node.created_at) %> ago.
+  </span>
+</li>

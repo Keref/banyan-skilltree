@@ -1,32 +1,25 @@
 <!DOCTYPE html>
 
 <html>
-
   <head>
-
     <title><%= full_title(yield(:title)) %></title>
-
     <%= stylesheet_link_tag "application", media: "all",
-
                                            "data-turbolinks-track" => true %>
-
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "jquery.js" %>
+    <%= javascript_include_tag "jquery-ui.min.js" %>
+    <%= javascript_include_tag "jquery.jsPlumb.js" %>
 
     <%= csrf_meta_tags %>
-
     <%= render 'layouts/shim' %>
-
   </head>
 
   <body>
-
     <%= render 'layouts/header' %>
 
     <div class="container">
       <% flash.each do |message_type, message| %>
-
         <div class="alert alert-<%= message_type %>"><%= message %></div>
-
       <% end %>
 
       <%= yield %>
@@ -34,7 +27,7 @@
       <%= render 'layouts/footer' %>
       <%= debug(params) if Rails.env.development? %>
     </div>
-
   </body>
 
+    <%= javascript_include_tag "banyanTree.js" %>
 </html>

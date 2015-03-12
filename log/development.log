@@ -232,3 +232,1571 @@ Processing by UsersController#new as HTML
   Rendered layouts/_header.html.erb (0.2ms)
   Rendered layouts/_footer.html.erb (0.1ms)
 Completed 200 OK in 140ms (Views: 139.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2015-03-09 17:42:10 +0700
+Processing by UsersController#new as HTML
+  Rendered shared/_error_messages.html.erb (0.4ms)
+  Rendered users/_fields.html.erb (2.4ms)
+  Rendered users/new.html.erb within layouts/application (3.9ms)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  Rendered layouts/_header.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 99ms (Views: 98.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contact" for 127.0.0.1 at 2015-03-09 17:42:14 +0700
+Processing by StaticPagesController#contact as HTML
+  Rendered static_pages/contact.html.erb within layouts/application (0.0ms)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  Rendered layouts/_header.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 87ms (Views: 86.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/help" for 127.0.0.1 at 2015-03-09 17:42:17 +0700
+Processing by StaticPagesController#help as HTML
+  Rendered static_pages/help.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 124ms (Views: 123.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-03-10 19:47:20 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (22.2ms)
+  Rendered layouts/_shim.html.erb (0.2ms)
+  Rendered layouts/_header.html.erb (3.2ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 340ms (Views: 326.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/account_activations-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for 127.0.0.1 at 2015-03-10 19:47:20 +0700
+
+
+Started GET "/assets/custom-8af709f3358f0f6a6c3389d281c802a0.css?body=1" for 127.0.0.1 at 2015-03-10 19:47:20 +0700
+
+
+Started GET "/assets/password_resets-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for 127.0.0.1 at 2015-03-10 19:47:20 +0700
+
+
+Started GET "/assets/sessions-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for 127.0.0.1 at 2015-03-10 19:47:20 +0700
+
+
+Started GET "/assets/users-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for 127.0.0.1 at 2015-03-10 19:47:20 +0700
+
+
+Started GET "/assets/static_pages-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for 127.0.0.1 at 2015-03-10 19:47:20 +0700
+
+
+Started GET "/assets/application-797088282df5a2822f7c02bf4dfffec6.css?body=1" for 127.0.0.1 at 2015-03-10 19:47:20 +0700
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for 127.0.0.1 at 2015-03-10 19:47:20 +0700
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for 127.0.0.1 at 2015-03-10 19:47:20 +0700
+
+
+Started GET "/assets/bootstrap-52ddc9e5c6743cc001357411d58d99c0.js?body=1" for 127.0.0.1 at 2015-03-10 19:47:20 +0700
+
+
+Started GET "/assets/turbolinks-d9dcd5206ee131f11181e8ca09537148.js?body=1" for 127.0.0.1 at 2015-03-10 19:47:20 +0700
+
+
+Started GET "/assets/account_activations-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 127.0.0.1 at 2015-03-10 19:47:20 +0700
+
+
+Started GET "/assets/password_resets-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 127.0.0.1 at 2015-03-10 19:47:20 +0700
+
+
+Started GET "/assets/sessions-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 127.0.0.1 at 2015-03-10 19:47:20 +0700
+
+
+Started GET "/assets/static_pages-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 127.0.0.1 at 2015-03-10 19:47:20 +0700
+
+
+Started GET "/assets/users-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 127.0.0.1 at 2015-03-10 19:47:20 +0700
+
+
+Started GET "/assets/application-b215c12cd796dcac63e0ba0c049eb42b.js?body=1" for 127.0.0.1 at 2015-03-10 19:47:20 +0700
+
+
+Started GET "/assets/rails-be2e3e66a18126c4042f84cd4aae4cb3.png" for 127.0.0.1 at 2015-03-10 19:47:20 +0700
+
+
+Started GET "/" for 127.0.0.1 at 2015-03-10 19:47:23 +0700
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 93ms (Views: 91.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2015-03-10 19:47:24 +0700
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (329.6ms)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  Rendered layouts/_header.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 461ms (Views: 460.5ms | ActiveRecord: 0.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateNodes (20150312045857)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "nodes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" text, "content" text, "user_id" integer, "type" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mCREATE  INDEX "index_nodes_on_user_id" ON "nodes" ("user_id")[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150312045857"]]
+  [1m[36m (96.2ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_nodes_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_nodes_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateNodes (20150312045857)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  DROP TABLE "nodes"
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20150312045857"]]
+  [1m[35m (64.8ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateNodes (20150312051429)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "nodes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" text, "content" text, "user_id" integer, "nodetype" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mCREATE  INDEX "index_nodes_on_user_id" ON "nodes" ("user_id")[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150312051429"]]
+  [1m[36m (48.2ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_nodes_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_nodes_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+
+
+Started GET "/" for 127.0.0.1 at 2015-03-12 13:09:37 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (7.4ms)
+  Rendered layouts/_shim.html.erb (0.2ms)
+  Rendered layouts/_header.html.erb (3.0ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 307ms (Views: 292.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/account_activations-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for 127.0.0.1 at 2015-03-12 13:09:38 +0700
+
+
+Started GET "/assets/custom-8af709f3358f0f6a6c3389d281c802a0.css?body=1" for 127.0.0.1 at 2015-03-12 13:09:38 +0700
+
+
+Started GET "/assets/sessions-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for 127.0.0.1 at 2015-03-12 13:09:38 +0700
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for 127.0.0.1 at 2015-03-12 13:09:38 +0700
+
+
+Started GET "/assets/users-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for 127.0.0.1 at 2015-03-12 13:09:38 +0700
+
+
+Started GET "/assets/static_pages-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for 127.0.0.1 at 2015-03-12 13:09:38 +0700
+
+
+Started GET "/assets/application-797088282df5a2822f7c02bf4dfffec6.css?body=1" for 127.0.0.1 at 2015-03-12 13:09:38 +0700
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for 127.0.0.1 at 2015-03-12 13:09:38 +0700
+
+
+Started GET "/assets/password_resets-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for 127.0.0.1 at 2015-03-12 13:09:38 +0700
+
+
+Started GET "/assets/bootstrap-52ddc9e5c6743cc001357411d58d99c0.js?body=1" for 127.0.0.1 at 2015-03-12 13:09:38 +0700
+
+
+Started GET "/assets/turbolinks-d9dcd5206ee131f11181e8ca09537148.js?body=1" for 127.0.0.1 at 2015-03-12 13:09:38 +0700
+
+
+Started GET "/assets/account_activations-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 127.0.0.1 at 2015-03-12 13:09:38 +0700
+
+
+Started GET "/assets/password_resets-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 127.0.0.1 at 2015-03-12 13:09:38 +0700
+
+
+Started GET "/assets/sessions-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 127.0.0.1 at 2015-03-12 13:09:38 +0700
+
+
+Started GET "/assets/static_pages-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 127.0.0.1 at 2015-03-12 13:09:38 +0700
+
+
+Started GET "/assets/users-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 127.0.0.1 at 2015-03-12 13:09:38 +0700
+
+
+Started GET "/assets/application-b215c12cd796dcac63e0ba0c049eb42b.js?body=1" for 127.0.0.1 at 2015-03-12 13:09:38 +0700
+
+
+Started GET "/assets/rails-be2e3e66a18126c4042f84cd4aae4cb3.png" for 127.0.0.1 at 2015-03-12 13:09:38 +0700
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+
+
+Started GET "/signup" for 127.0.0.1 at 2015-03-12 13:10:50 +0700
+Processing by UsersController#new as HTML
+  Rendered shared/_error_messages.html.erb (1.6ms)
+  Rendered users/_fields.html.erb (241.3ms)
+  Rendered users/new.html.erb within layouts/application (243.5ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 353ms (Views: 343.3ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2015-03-12 13:11:00 +0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gZ7XXUU0AjjiRpcj4yx66NpXG2dkNaqq6jXRpzM3dRRkrvhMpXHl7sQbb7r6vrKRU/AhV9nhDEJsBdKqupJhTA==", "user"=>{"name"=>"toto", "email"=>"toto@mailinator.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my account"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('toto@mailinator.com') LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at", "activation_digest") VALUES (?, ?, ?, ?, ?, ?)  [["name", "toto"], ["email", "toto@mailinator.com"], ["password_digest", "$2a$10$3o1ewEF5IYSlXPutjdBbseiT6MqGKsJAh./.bjKDQJv3DOaxxWzMq"], ["created_at", "2015-03-12 06:11:00.967847"], ["updated_at", "2015-03-12 06:11:00.967847"], ["activation_digest", "$2a$10$9LQHkkAK2W68IjwAKeIaJOV1butFbcoUsUcOKkUasy1Re9HFcSwbm"]]
+  [1m[36m (44.5ms)[0m  [1mcommit transaction[0m
+  Rendered user_mailer/account_activation.html.erb within layouts/mailer (2.0ms)
+  Rendered user_mailer/account_activation.text.erb within layouts/mailer (3.5ms)
+
+UserMailer#account_activation: processed outbound mail in 190.8ms
+
+Sent mail to toto@mailinator.com (5.6ms)
+Date: Thu, 12 Mar 2015 13:11:01 +0700
+From: noreply@example.com
+To: toto@mailinator.com
+Message-ID: <55012df558af6_17d13fbf6d082ebc14458@keref.mail>
+Subject: Account activation
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_55012df557661_17d13fbf6d082ebc14368";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_55012df557661_17d13fbf6d082ebc14368
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Hi toto,
+
+
+
+Welcome to the Sample App! Click on the link below to activate your account:
+
+
+
+http://rails-tutorial-keref.c9.io/account_activations/YUq45TaghHMB80P6cRGbJw/edit?email=toto%40mailinator.com
+
+
+----==_mimepart_55012df557661_17d13fbf6d082ebc14368
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <h1>Sample App</h1>
+
+<p>Hi toto,</p>
+
+<p>
+Welcome to the Sample App! Click on the link below to activate your account:
+</p>
+
+<a href="http://rails-tutorial-keref.c9.io/account_activations/YUq45TaghHMB80P6cRGbJw/edit?email=toto%40mailinator.com">Activate</a></p>
+
+  </body>
+</html>
+
+----==_mimepart_55012df557661_17d13fbf6d082ebc14368--
+
+Redirected to http://localhost:3000/
+Completed 302 Found in 480ms (ActiveRecord: 45.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-03-12 13:11:01 +0700
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_shim.html.erb (0.1ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 91ms (Views: 90.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/account_activations/YUq45TaghHMB80P6cRGbJw/edit?email=toto%40mailinator.com" for 127.0.0.1 at 2015-03-12 13:11:35 +0700
+Processing by AccountActivationsController#edit as HTML
+  Parameters: {"email"=>"toto@mailinator.com", "id"=>"YUq45TaghHMB80P6cRGbJw"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "toto@mailinator.com"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "activated" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["activated", "t"], ["updated_at", "2015-03-12 06:11:35.999871"], ["id", 1]]
+  [1m[36m (37.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "activated_at" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["activated_at", "2015-03-12 06:11:36.039022"], ["updated_at", "2015-03-12 06:11:36.039688"], ["id", 1]]
+  [1m[35m (39.6ms)[0m  commit transaction
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 160ms (ActiveRecord: 77.7ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2015-03-12 13:11:36 +0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mNode Exists (0.1ms)[0m  SELECT  1 AS one FROM "nodes" WHERE "nodes"."user_id" = ? LIMIT 1  [["user_id", 1]]
+  Rendered users/show.html.erb within layouts/application (12.5ms)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 125ms (Views: 123.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-03-12 13:11:40 +0700
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" LIMIT 30 OFFSET 0
+  Rendered users/_user.html.erb (0.9ms)
+  Rendered users/index.html.erb within layouts/application (4.0ms)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 126ms (Views: 125.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2015-03-12 13:11:42 +0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mNode Exists (0.1ms)[0m  SELECT  1 AS one FROM "nodes" WHERE "nodes"."user_id" = ? LIMIT 1  [["user_id", 1]]
+  Rendered users/show.html.erb within layouts/application (1.4ms)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 90ms (Views: 89.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-03-12 13:12:11 +0700
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered layouts/_header.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 84ms (Views: 83.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-03-12 13:23:48 +0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" LIMIT 30 OFFSET 0[0m
+  Rendered users/_user.html.erb (0.4ms)
+  Rendered users/index.html.erb within layouts/application (2.5ms)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 130ms (Views: 127.5ms | ActiveRecord: 0.5ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+
+
+Started GET "/users" for 127.0.0.1 at 2015-03-12 13:25:10 +0700
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" LIMIT 30 OFFSET 0
+  Rendered users/_user.html.erb (1.3ms)
+  Rendered users/index.html.erb within layouts/application (6.3ms)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  Rendered layouts/_header.html.erb (47.7ms)
+Completed 500 Internal Server Error in 154ms
+
+NameError (undefined local variable or method `nodes_path' for #<#<Class:0x007f7ed8030120>:0x007f7ebd215758>):
+  app/views/layouts/_header.html.erb:10:in `_app_views_layouts__header_html_erb__2978456380519418132_65129000'
+  app/views/layouts/application.html.erb:23:in `_app_views_layouts_application_html_erb___4535855684638436060_41590640'
+
+
+  Rendered /home/keref/.gem/ruby/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/_source.erb (4.8ms)
+  Rendered /home/keref/.gem/ruby/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /home/keref/.gem/ruby/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/keref/.gem/ruby/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.6ms)
+  Rendered /home/keref/.gem/ruby/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/diagnostics.html.erb within rescues/layout (31.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-03-12 13:42:24 +0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" LIMIT 30 OFFSET 0[0m
+  Rendered users/_user.html.erb (0.6ms)
+  Rendered users/index.html.erb within layouts/application (2.5ms)
+  Rendered layouts/_shim.html.erb (0.1ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 149ms (Views: 140.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/nodes" for 127.0.0.1 at 2015-03-12 13:42:27 +0700
+
+ActionController::RoutingError (uninitialized constant NodesController):
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:261:in `const_get'
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:261:in `block in constantize'
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:259:in `each'
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:259:in `inject'
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:259:in `constantize'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:69:in `controller_reference'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:59:in `controller'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:38:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  web-console (2.0.0.beta3) lib/action_dispatch/debug_exceptions.rb:18:in `middleware_call'
+  web-console (2.0.0.beta3) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  puma (2.11.1) lib/puma/server.rb:507:in `handle_request'
+  puma (2.11.1) lib/puma/server.rb:375:in `process_client'
+  puma (2.11.1) lib/puma/server.rb:262:in `block in run'
+  puma (2.11.1) lib/puma/thread_pool.rb:104:in `call'
+  puma (2.11.1) lib/puma/thread_pool.rb:104:in `block in spawn_thread'
+
+
+  Rendered /home/keref/.gem/ruby/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /home/keref/.gem/ruby/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/routing_error.html.erb within rescues/layout (16.9ms)
+
+
+Started GET "/nodes" for 127.0.0.1 at 2015-03-12 13:42:27 +0700
+
+ActionController::RoutingError (uninitialized constant NodesController):
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:261:in `const_get'
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:261:in `block in constantize'
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:259:in `each'
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:259:in `inject'
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:259:in `constantize'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:69:in `controller_reference'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:59:in `controller'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:38:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  web-console (2.0.0.beta3) lib/action_dispatch/debug_exceptions.rb:18:in `middleware_call'
+  web-console (2.0.0.beta3) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  puma (2.11.1) lib/puma/server.rb:507:in `handle_request'
+  puma (2.11.1) lib/puma/server.rb:375:in `process_client'
+  puma (2.11.1) lib/puma/server.rb:262:in `block in run'
+  puma (2.11.1) lib/puma/thread_pool.rb:104:in `call'
+  puma (2.11.1) lib/puma/thread_pool.rb:104:in `block in spawn_thread'
+
+
+  Rendered /home/keref/.gem/ruby/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /home/keref/.gem/ruby/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/routing_error.html.erb within rescues/layout (16.5ms)
+
+
+Started GET "/nodes" for 127.0.0.1 at 2015-03-12 13:43:58 +0700
+
+ActionController::RoutingError (uninitialized constant NodesController):
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:261:in `const_get'
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:261:in `block in constantize'
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:259:in `each'
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:259:in `inject'
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:259:in `constantize'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:69:in `controller_reference'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:59:in `controller'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:38:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  web-console (2.0.0.beta3) lib/action_dispatch/debug_exceptions.rb:18:in `middleware_call'
+  web-console (2.0.0.beta3) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  puma (2.11.1) lib/puma/server.rb:507:in `handle_request'
+  puma (2.11.1) lib/puma/server.rb:375:in `process_client'
+  puma (2.11.1) lib/puma/server.rb:262:in `block in run'
+  puma (2.11.1) lib/puma/thread_pool.rb:104:in `call'
+  puma (2.11.1) lib/puma/thread_pool.rb:104:in `block in spawn_thread'
+
+
+  Rendered /home/keref/.gem/ruby/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /home/keref/.gem/ruby/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/routing_error.html.erb within rescues/layout (17.0ms)
+
+
+Started GET "/nodes" for 127.0.0.1 at 2015-03-12 13:44:00 +0700
+
+ActionController::RoutingError (uninitialized constant NodesController):
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:261:in `const_get'
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:261:in `block in constantize'
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:259:in `each'
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:259:in `inject'
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:259:in `constantize'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:69:in `controller_reference'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:59:in `controller'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:38:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  web-console (2.0.0.beta3) lib/action_dispatch/debug_exceptions.rb:18:in `middleware_call'
+  web-console (2.0.0.beta3) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  puma (2.11.1) lib/puma/server.rb:507:in `handle_request'
+  puma (2.11.1) lib/puma/server.rb:375:in `process_client'
+  puma (2.11.1) lib/puma/server.rb:262:in `block in run'
+  puma (2.11.1) lib/puma/thread_pool.rb:104:in `call'
+  puma (2.11.1) lib/puma/thread_pool.rb:104:in `block in spawn_thread'
+
+
+  Rendered /home/keref/.gem/ruby/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /home/keref/.gem/ruby/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/routing_error.html.erb within rescues/layout (15.9ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-03-12 13:44:19 +0700
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" LIMIT 30 OFFSET 0
+  Rendered users/_user.html.erb (0.5ms)
+  Rendered users/index.html.erb within layouts/application (3.2ms)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 167ms (Views: 165.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/nodes" for 127.0.0.1 at 2015-03-12 13:44:24 +0700
+
+ActionController::RoutingError (uninitialized constant NodesController):
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:261:in `const_get'
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:261:in `block in constantize'
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:259:in `each'
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:259:in `inject'
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:259:in `constantize'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:69:in `controller_reference'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:59:in `controller'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:38:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  web-console (2.0.0.beta3) lib/action_dispatch/debug_exceptions.rb:18:in `middleware_call'
+  web-console (2.0.0.beta3) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  puma (2.11.1) lib/puma/server.rb:507:in `handle_request'
+  puma (2.11.1) lib/puma/server.rb:375:in `process_client'
+  puma (2.11.1) lib/puma/server.rb:262:in `block in run'
+  puma (2.11.1) lib/puma/thread_pool.rb:104:in `call'
+  puma (2.11.1) lib/puma/thread_pool.rb:104:in `block in spawn_thread'
+
+
+  Rendered /home/keref/.gem/ruby/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /home/keref/.gem/ruby/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/routing_error.html.erb within rescues/layout (16.0ms)
+
+
+Started GET "/nodes" for 127.0.0.1 at 2015-03-12 13:44:24 +0700
+
+ActionController::RoutingError (uninitialized constant NodesController):
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:261:in `const_get'
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:261:in `block in constantize'
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:259:in `each'
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:259:in `inject'
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:259:in `constantize'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:69:in `controller_reference'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:59:in `controller'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:38:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  web-console (2.0.0.beta3) lib/action_dispatch/debug_exceptions.rb:18:in `middleware_call'
+  web-console (2.0.0.beta3) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  puma (2.11.1) lib/puma/server.rb:507:in `handle_request'
+  puma (2.11.1) lib/puma/server.rb:375:in `process_client'
+  puma (2.11.1) lib/puma/server.rb:262:in `block in run'
+  puma (2.11.1) lib/puma/thread_pool.rb:104:in `call'
+  puma (2.11.1) lib/puma/thread_pool.rb:104:in `block in spawn_thread'
+
+
+  Rendered /home/keref/.gem/ruby/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /home/keref/.gem/ruby/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/routing_error.html.erb within rescues/layout (17.5ms)
+
+
+Started GET "/nodes" for 127.0.0.1 at 2015-03-12 14:01:56 +0700
+Processing by NodesController#index as HTML
+  [1m[36mNode Load (0.2ms)[0m  [1mSELECT "nodes".* FROM "nodes"[0m
+  Rendered nodes/index.html.erb within layouts/application (1.6ms)
+  Rendered layouts/_shim.html.erb (0.1ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered layouts/_header.html.erb (9.0ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 690ms (Views: 687.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/account_activations-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for 127.0.0.1 at 2015-03-12 14:01:56 +0700
+
+
+Started GET "/assets/custom-8af709f3358f0f6a6c3389d281c802a0.css?body=1" for 127.0.0.1 at 2015-03-12 14:01:56 +0700
+
+
+Started GET "/assets/nodes-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for 127.0.0.1 at 2015-03-12 14:01:56 +0700
+
+
+Started GET "/assets/scaffolds-3e8b0aa7e98e3d9ba96cba82f706f96e.css?body=1" for 127.0.0.1 at 2015-03-12 14:01:56 +0700
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for 127.0.0.1 at 2015-03-12 14:01:56 +0700
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for 127.0.0.1 at 2015-03-12 14:01:56 +0700
+
+
+Started GET "/assets/static_pages-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for 127.0.0.1 at 2015-03-12 14:01:56 +0700
+
+
+Started GET "/assets/application-7bc69e2b8e62b922c90949e9cd0acfa7.css?body=1" for 127.0.0.1 at 2015-03-12 14:01:56 +0700
+
+
+Started GET "/assets/users-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for 127.0.0.1 at 2015-03-12 14:01:56 +0700
+
+
+Started GET "/assets/nodes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 127.0.0.1 at 2015-03-12 14:01:56 +0700
+
+
+Started GET "/assets/sessions-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for 127.0.0.1 at 2015-03-12 14:01:56 +0700
+
+
+Started GET "/assets/bootstrap-52ddc9e5c6743cc001357411d58d99c0.js?body=1" for 127.0.0.1 at 2015-03-12 14:01:56 +0700
+
+
+Started GET "/assets/turbolinks-d9dcd5206ee131f11181e8ca09537148.js?body=1" for 127.0.0.1 at 2015-03-12 14:01:56 +0700
+
+
+Started GET "/assets/account_activations-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 127.0.0.1 at 2015-03-12 14:01:56 +0700
+
+
+Started GET "/assets/password_resets-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for 127.0.0.1 at 2015-03-12 14:01:56 +0700
+
+
+Started GET "/assets/password_resets-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 127.0.0.1 at 2015-03-12 14:01:56 +0700
+
+
+Started GET "/assets/sessions-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 127.0.0.1 at 2015-03-12 14:01:56 +0700
+
+
+Started GET "/assets/static_pages-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 127.0.0.1 at 2015-03-12 14:01:56 +0700
+
+
+Started GET "/assets/users-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 127.0.0.1 at 2015-03-12 14:01:56 +0700
+
+
+Started GET "/assets/application-e94cf4c4695c8066496efbd7787abd46.js?body=1" for 127.0.0.1 at 2015-03-12 14:01:56 +0700
+
+
+Started GET "/nodes/new" for 127.0.0.1 at 2015-03-12 14:02:00 +0700
+Processing by NodesController#new as HTML
+  Rendered nodes/_form.html.erb (37.4ms)
+  Rendered nodes/new.html.erb within layouts/application (38.5ms)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 177ms (Views: 173.7ms | ActiveRecord: 0.2ms)
+  [1m[36mNode Load (0.2ms)[0m  [1mSELECT  "nodes".* FROM "nodes" WHERE "nodes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mNode Load (0.1ms)[0m  SELECT  "nodes".* FROM "nodes" WHERE "nodes"."id" = NULL LIMIT 1
+  [1m[36mNode Load (0.3ms)[0m  [1mSELECT  "nodes".* FROM "nodes" WHERE "nodes"."id" = ? LIMIT 1[0m  [["id", 0]]
+
+
+Started GET "/nodes/new" for 127.0.0.1 at 2015-03-12 14:21:03 +0700
+Processing by NodesController#new as HTML
+  Rendered nodes/_form.html.erb (1.5ms)
+  Rendered nodes/new.html.erb within layouts/application (2.2ms)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered layouts/_header.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 98ms (Views: 97.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/nodes" for 127.0.0.1 at 2015-03-12 14:27:04 +0700
+Processing by NodesController#index as HTML
+  [1m[36mNode Load (0.1ms)[0m  [1mSELECT "nodes".* FROM "nodes"[0m
+  Rendered nodes/index.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_shim.html.erb (0.1ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 238ms (Views: 236.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/account_activations-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for 127.0.0.1 at 2015-03-12 14:27:04 +0700
+
+
+Started GET "/assets/custom-8af709f3358f0f6a6c3389d281c802a0.css?body=1" for 127.0.0.1 at 2015-03-12 14:27:04 +0700
+
+
+Started GET "/assets/nodes-0145b33308bbf192974112f93ac9c309.css?body=1" for 127.0.0.1 at 2015-03-12 14:27:04 +0700
+
+
+Started GET "/assets/password_resets-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for 127.0.0.1 at 2015-03-12 14:27:04 +0700
+
+
+Started GET "/assets/static_pages-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for 127.0.0.1 at 2015-03-12 14:27:04 +0700
+
+
+Started GET "/assets/application-86fb6717f712e052d1f49e249f756c22.css?body=1" for 127.0.0.1 at 2015-03-12 14:27:04 +0700
+
+
+Started GET "/assets/users-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for 127.0.0.1 at 2015-03-12 14:27:04 +0700
+
+
+Started GET "/assets/sessions-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for 127.0.0.1 at 2015-03-12 14:27:04 +0700
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for 127.0.0.1 at 2015-03-12 14:27:04 +0700
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for 127.0.0.1 at 2015-03-12 14:27:04 +0700
+
+
+Started GET "/assets/jquery-ui.min-ba766e41135c03631722fc22a3cd0bfc.js?body=1" for 127.0.0.1 at 2015-03-12 14:27:04 +0700
+
+
+Started GET "/assets/jquery.jsPlumb-1.6.3-min-03544d15ce089373934f6c508acf7042.js?body=1" for 127.0.0.1 at 2015-03-12 14:27:04 +0700
+
+
+Started GET "/assets/account_activations-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 127.0.0.1 at 2015-03-12 14:27:04 +0700
+
+
+Started GET "/assets/banyanTree-427c223e78611583657b84550bff874e.js?body=1" for 127.0.0.1 at 2015-03-12 14:27:04 +0700
+
+
+Started GET "/assets/jquery-2.1.1.min-22853b520eb67b6cad6505c4d759308d.js?body=1" for 127.0.0.1 at 2015-03-12 14:27:04 +0700
+
+
+Started GET "/assets/bootstrap-52ddc9e5c6743cc001357411d58d99c0.js?body=1" for 127.0.0.1 at 2015-03-12 14:27:04 +0700
+
+
+Started GET "/assets/turbolinks-d9dcd5206ee131f11181e8ca09537148.js?body=1" for 127.0.0.1 at 2015-03-12 14:27:04 +0700
+
+
+Started GET "/assets/password_resets-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 127.0.0.1 at 2015-03-12 14:27:04 +0700
+
+
+Started GET "/assets/scaffolds-3e8b0aa7e98e3d9ba96cba82f706f96e.css?body=1" for 127.0.0.1 at 2015-03-12 14:27:04 +0700
+
+
+Started GET "/assets/sessions-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 127.0.0.1 at 2015-03-12 14:27:04 +0700
+
+
+Started GET "/assets/users-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 127.0.0.1 at 2015-03-12 14:27:04 +0700
+
+
+Started GET "/assets/application-f1298a5c3ab78b57cf6e3fe463b88613.js?body=1" for 127.0.0.1 at 2015-03-12 14:27:04 +0700
+
+
+Started GET "/assets/nodes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 127.0.0.1 at 2015-03-12 14:27:04 +0700
+
+
+Started GET "/assets/static_pages-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 127.0.0.1 at 2015-03-12 14:27:04 +0700
+
+
+Started GET "/nodes" for 127.0.0.1 at 2015-03-12 14:40:37 +0700
+Processing by NodesController#index as HTML
+  [1m[36mNode Load (0.1ms)[0m  [1mSELECT "nodes".* FROM "nodes"[0m
+  Rendered nodes/index.html.erb within layouts/application (0.5ms)
+Completed 500 Internal Server Error in 219ms
+
+Sprockets::Rails::Helper::AssetFilteredError (Asset filtered out and will not be served: add `Rails.application.config.assets.precompile += %w( jquery.js )` to `config/initializers/assets.rb` and restart your server):
+  app/views/layouts/application.html.erb:9:in `_app_views_layouts_application_html_erb___4535855684638436060_41797960'
+
+
+  Rendered /home/keref/.gem/ruby/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/_source.erb (5.0ms)
+  Rendered /home/keref/.gem/ruby/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /home/keref/.gem/ruby/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /home/keref/.gem/ruby/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.6ms)
+  Rendered /home/keref/.gem/ruby/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/diagnostics.html.erb within rescues/layout (17.3ms)
+
+
+Started GET "/nodes" for 127.0.0.1 at 2015-03-12 14:40:53 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by NodesController#index as HTML
+  [1m[35mNode Load (0.1ms)[0m  SELECT "nodes".* FROM "nodes"
+  Rendered nodes/index.html.erb within layouts/application (2.3ms)
+Completed 500 Internal Server Error in 235ms
+
+Sprockets::Rails::Helper::AssetFilteredError (Asset filtered out and will not be served: add `Rails.application.config.assets.precompile += %w( jquery.js )` to `config/initializers/assets.rb` and restart your server):
+  app/views/layouts/application.html.erb:9:in `_app_views_layouts_application_html_erb__1193157380123653646_33933480'
+
+
+  Rendered /home/keref/.gem/ruby/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/_source.erb (4.2ms)
+  Rendered /home/keref/.gem/ruby/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /home/keref/.gem/ruby/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/keref/.gem/ruby/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.8ms)
+  Rendered /home/keref/.gem/ruby/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/diagnostics.html.erb within rescues/layout (17.4ms)
+
+
+Started GET "/nodes" for 127.0.0.1 at 2015-03-12 14:42:26 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by NodesController#index as HTML
+  [1m[35mNode Load (0.1ms)[0m  SELECT "nodes".* FROM "nodes"
+  Rendered nodes/index.html.erb within layouts/application (2.3ms)
+  Rendered layouts/_shim.html.erb (0.2ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_header.html.erb (17.1ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 272ms (Views: 260.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/nodes-c7097fa8b5eb1c36b19a1e09880f95a0.css?body=1" for 127.0.0.1 at 2015-03-12 14:42:26 +0700
+
+
+Started GET "/assets/application-47a49e7e4ec7fc4149742d5988d61227.css?body=1" for 127.0.0.1 at 2015-03-12 14:42:26 +0700
+
+
+Started GET "/assets/jquery-22853b520eb67b6cad6505c4d759308d.js?body=1" for 127.0.0.1 at 2015-03-12 14:42:26 +0700
+
+
+Started GET "/assets/jquery.jsPlumb-03544d15ce089373934f6c508acf7042.js?body=1" for 127.0.0.1 at 2015-03-12 14:42:26 +0700
+
+
+Started GET "/assets/application-cf49c81cefb1a6c76b39a02998016760.js?body=1" for 127.0.0.1 at 2015-03-12 14:42:26 +0700
+
+
+Started GET "/assets/scaffolds-3e8b0aa7e98e3d9ba96cba82f706f96e.css?body=1" for 127.0.0.1 at 2015-03-12 14:42:26 +0700
+
+
+Started GET "/assets/nodes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 127.0.0.1 at 2015-03-12 14:42:26 +0700
+
+
+Started GET "/nodes/1" for 127.0.0.1 at 2015-03-12 14:44:34 +0700
+Processing by NodesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mNode Load (0.1ms)[0m  SELECT  "nodes".* FROM "nodes" WHERE "nodes"."id" = ? LIMIT 1  [["id", 1]]
+Completed 404 Not Found in 2ms
+
+ActiveRecord::RecordNotFound (Couldn't find Node with 'id'=1):
+  app/controllers/nodes_controller.rb:67:in `set_node'
+
+
+  Rendered /home/keref/.gem/ruby/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/_source.erb (3.4ms)
+  Rendered /home/keref/.gem/ruby/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /home/keref/.gem/ruby/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/keref/.gem/ruby/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.6ms)
+  Rendered /home/keref/.gem/ruby/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/diagnostics.html.erb within rescues/layout (16.0ms)
+
+
+Started GET "/nodes/new" for 127.0.0.1 at 2015-03-12 14:45:18 +0700
+Processing by NodesController#new as HTML
+  Rendered nodes/_form.html.erb (183.7ms)
+  Rendered nodes/new.html.erb within layouts/application (184.8ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 356ms (Views: 353.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/nodes" for 127.0.0.1 at 2015-03-12 14:45:20 +0700
+Processing by NodesController#index as HTML
+  [1m[35mNode Load (0.1ms)[0m  SELECT "nodes".* FROM "nodes"
+  Rendered nodes/index.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 177ms (Views: 176.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/nodes/new" for 127.0.0.1 at 2015-03-12 14:46:12 +0700
+Processing by NodesController#new as HTML
+  Rendered nodes/_form.html.erb (1.5ms)
+  Rendered nodes/new.html.erb within layouts/application (2.6ms)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 174ms (Views: 173.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/nodes/new" for 127.0.0.1 at 2015-03-12 14:47:41 +0700
+Processing by NodesController#new as HTML
+  Rendered nodes/_form.html.erb (2.8ms)
+  Rendered nodes/new.html.erb within layouts/application (4.1ms)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 212ms (Views: 211.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/banyanTree-c91c508c6565fdde2bdf9219c2255621.js?body=1" for 127.0.0.1 at 2015-03-12 14:47:41 +0700
+
+
+Started GET "/assets/application-81544884d3c56e5270ae3e7073ec29f7.js?body=1" for 127.0.0.1 at 2015-03-12 14:47:41 +0700
+
+
+Started GET "/nodes/new" for 127.0.0.1 at 2015-03-12 14:55:10 +0700
+Processing by NodesController#new as HTML
+  Rendered nodes/_form.html.erb (2.5ms)
+  Rendered nodes/new.html.erb within layouts/application (3.6ms)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 173ms (Views: 172.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/jquery-22853b520eb67b6cad6505c4d759308d.js?body=1" for 127.0.0.1 at 2015-03-12 14:55:10 +0700
+
+
+Started GET "/assets/jquery-ui.min-ba766e41135c03631722fc22a3cd0bfc.js?body=1" for 127.0.0.1 at 2015-03-12 14:55:10 +0700
+
+
+Started GET "/assets/jquery.jsPlumb-03544d15ce089373934f6c508acf7042.js?body=1" for 127.0.0.1 at 2015-03-12 14:55:10 +0700
+
+
+Started GET "/assets/scaffolds-3e8b0aa7e98e3d9ba96cba82f706f96e.css?body=1" for 127.0.0.1 at 2015-03-12 14:55:10 +0700
+
+
+Started GET "/assets/account_activations-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for 127.0.0.1 at 2015-03-12 14:55:10 +0700
+
+
+Started GET "/assets/custom-8af709f3358f0f6a6c3389d281c802a0.css?body=1" for 127.0.0.1 at 2015-03-12 14:55:10 +0700
+
+
+Started GET "/assets/nodes-c7097fa8b5eb1c36b19a1e09880f95a0.css?body=1" for 127.0.0.1 at 2015-03-12 14:55:10 +0700
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for 127.0.0.1 at 2015-03-12 14:55:10 +0700
+
+
+Started GET "/assets/static_pages-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for 127.0.0.1 at 2015-03-12 14:55:10 +0700
+
+
+Started GET "/assets/sessions-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for 127.0.0.1 at 2015-03-12 14:55:10 +0700
+
+
+Started GET "/assets/users-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for 127.0.0.1 at 2015-03-12 14:55:10 +0700
+
+
+Started GET "/assets/application-47a49e7e4ec7fc4149742d5988d61227.css?body=1" for 127.0.0.1 at 2015-03-12 14:55:10 +0700
+
+
+Started GET "/assets/password_resets-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for 127.0.0.1 at 2015-03-12 14:55:10 +0700
+
+
+Started GET "/assets/bootstrap-52ddc9e5c6743cc001357411d58d99c0.js?body=1" for 127.0.0.1 at 2015-03-12 14:55:10 +0700
+
+
+Started GET "/assets/turbolinks-d9dcd5206ee131f11181e8ca09537148.js?body=1" for 127.0.0.1 at 2015-03-12 14:55:10 +0700
+
+
+Started GET "/assets/account_activations-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 127.0.0.1 at 2015-03-12 14:55:10 +0700
+
+
+Started GET "/assets/banyanTree-c91c508c6565fdde2bdf9219c2255621.js?body=1" for 127.0.0.1 at 2015-03-12 14:55:10 +0700
+
+
+Started GET "/assets/jquery-2.1.1.min-22853b520eb67b6cad6505c4d759308d.js?body=1" for 127.0.0.1 at 2015-03-12 14:55:10 +0700
+
+
+Started GET "/assets/jquery.jsPlumb-1.6.3-min-03544d15ce089373934f6c508acf7042.js?body=1" for 127.0.0.1 at 2015-03-12 14:55:10 +0700
+
+
+Started GET "/assets/application-81544884d3c56e5270ae3e7073ec29f7.js?body=1" for 127.0.0.1 at 2015-03-12 14:55:10 +0700
+
+
+Started GET "/assets/password_resets-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 127.0.0.1 at 2015-03-12 14:55:10 +0700
+
+
+Started GET "/assets/sessions-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 127.0.0.1 at 2015-03-12 14:55:10 +0700
+
+
+Started GET "/assets/static_pages-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 127.0.0.1 at 2015-03-12 14:55:10 +0700
+
+
+Started GET "/assets/users-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 127.0.0.1 at 2015-03-12 14:55:10 +0700
+
+
+Started GET "/assets/nodes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 127.0.0.1 at 2015-03-12 14:55:10 +0700
+
+
+Started GET "/assets/jquery-22853b520eb67b6cad6505c4d759308d.js?body=1" for 127.0.0.1 at 2015-03-12 14:55:10 +0700
+
+
+Started GET "/assets/jquery-ui.min-ba766e41135c03631722fc22a3cd0bfc.js?body=1" for 127.0.0.1 at 2015-03-12 14:55:10 +0700
+
+
+Started GET "/assets/jquery.jsPlumb-03544d15ce089373934f6c508acf7042.js?body=1" for 127.0.0.1 at 2015-03-12 14:55:10 +0700
+
+
+Started GET "/nodes/new" for 127.0.0.1 at 2015-03-12 14:56:04 +0700
+Processing by NodesController#new as HTML
+  Rendered nodes/_form.html.erb (2.7ms)
+  Rendered nodes/new.html.erb within layouts/application (4.1ms)
+  Rendered layouts/_shim.html.erb (0.1ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 500 Internal Server Error in 179ms
+
+Sprockets::Rails::Helper::AssetFilteredError (Asset filtered out and will not be served: add `Rails.application.config.assets.precompile += %w( banyanTree.js )` to `config/initializers/assets.rb` and restart your server):
+  app/views/layouts/application.html.erb:32:in `_app_views_layouts_application_html_erb___3245830152352207990_69932719630520'
+
+
+  Rendered /home/keref/.gem/ruby/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/_source.erb (5.1ms)
+  Rendered /home/keref/.gem/ruby/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /home/keref/.gem/ruby/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/keref/.gem/ruby/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.7ms)
+  Rendered /home/keref/.gem/ruby/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/diagnostics.html.erb within rescues/layout (19.3ms)
+
+
+Started GET "/nodes/new" for 127.0.0.1 at 2015-03-12 14:58:31 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by NodesController#new as HTML
+  Rendered nodes/_form.html.erb (190.7ms)
+  Rendered nodes/new.html.erb within layouts/application (195.4ms)
+  Rendered layouts/_shim.html.erb (0.2ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered layouts/_header.html.erb (21.0ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 563ms (Views: 547.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/jquery-ui.min-ba766e41135c03631722fc22a3cd0bfc.js?body=1" for 127.0.0.1 at 2015-03-12 14:58:32 +0700
+
+
+Started GET "/assets/custom-8af709f3358f0f6a6c3389d281c802a0.css?body=1" for 127.0.0.1 at 2015-03-12 14:58:32 +0700
+
+
+Started GET "/assets/password_resets-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for 127.0.0.1 at 2015-03-12 14:58:32 +0700
+
+
+Started GET "/assets/nodes-c7097fa8b5eb1c36b19a1e09880f95a0.css?body=1" for 127.0.0.1 at 2015-03-12 14:58:32 +0700
+
+
+Started GET "/assets/account_activations-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for 127.0.0.1 at 2015-03-12 14:58:32 +0700
+
+
+Started GET "/assets/scaffolds-3e8b0aa7e98e3d9ba96cba82f706f96e.css?body=1" for 127.0.0.1 at 2015-03-12 14:58:32 +0700
+
+
+Started GET "/assets/sessions-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for 127.0.0.1 at 2015-03-12 14:58:32 +0700
+
+
+Started GET "/assets/jquery-22853b520eb67b6cad6505c4d759308d.js?body=1" for 127.0.0.1 at 2015-03-12 14:58:32 +0700
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for 127.0.0.1 at 2015-03-12 14:58:32 +0700
+
+
+Started GET "/assets/users-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for 127.0.0.1 at 2015-03-12 14:58:32 +0700
+
+
+Started GET "/assets/application-47a49e7e4ec7fc4149742d5988d61227.css?body=1" for 127.0.0.1 at 2015-03-12 14:58:32 +0700
+
+
+Started GET "/assets/bootstrap-52ddc9e5c6743cc001357411d58d99c0.js?body=1" for 127.0.0.1 at 2015-03-12 14:58:32 +0700
+
+
+Started GET "/assets/static_pages-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for 127.0.0.1 at 2015-03-12 14:58:32 +0700
+
+
+Started GET "/assets/turbolinks-d9dcd5206ee131f11181e8ca09537148.js?body=1" for 127.0.0.1 at 2015-03-12 14:58:32 +0700
+
+
+Started GET "/assets/account_activations-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 127.0.0.1 at 2015-03-12 14:58:32 +0700
+
+
+Started GET "/assets/banyanTree-c91c508c6565fdde2bdf9219c2255621.js?body=1" for 127.0.0.1 at 2015-03-12 14:58:32 +0700
+
+
+Started GET "/assets/jquery-2.1.1.min-22853b520eb67b6cad6505c4d759308d.js?body=1" for 127.0.0.1 at 2015-03-12 14:58:32 +0700
+
+
+Started GET "/assets/jquery.jsPlumb-1.6.3-min-03544d15ce089373934f6c508acf7042.js?body=1" for 127.0.0.1 at 2015-03-12 14:58:32 +0700
+
+
+Started GET "/assets/jquery.jsPlumb-03544d15ce089373934f6c508acf7042.js?body=1" for 127.0.0.1 at 2015-03-12 14:58:32 +0700
+
+
+Started GET "/assets/nodes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 127.0.0.1 at 2015-03-12 14:58:32 +0700
+
+
+Started GET "/assets/password_resets-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 127.0.0.1 at 2015-03-12 14:58:32 +0700
+
+
+Started GET "/assets/sessions-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 127.0.0.1 at 2015-03-12 14:58:32 +0700
+
+
+Started GET "/assets/static_pages-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 127.0.0.1 at 2015-03-12 14:58:32 +0700
+
+
+Started GET "/assets/users-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 127.0.0.1 at 2015-03-12 14:58:32 +0700
+
+
+Started GET "/assets/application-81544884d3c56e5270ae3e7073ec29f7.js?body=1" for 127.0.0.1 at 2015-03-12 14:58:32 +0700
+
+
+Started GET "/assets/jquery-22853b520eb67b6cad6505c4d759308d.js?body=1" for 127.0.0.1 at 2015-03-12 14:58:32 +0700
+
+
+Started GET "/assets/jquery-ui.min-ba766e41135c03631722fc22a3cd0bfc.js?body=1" for 127.0.0.1 at 2015-03-12 14:58:32 +0700
+
+
+Started GET "/assets/jquery.jsPlumb-03544d15ce089373934f6c508acf7042.js?body=1" for 127.0.0.1 at 2015-03-12 14:58:32 +0700
+
+
+Started GET "/assets/banyanTree-c91c508c6565fdde2bdf9219c2255621.js?body=1" for 127.0.0.1 at 2015-03-12 14:58:32 +0700
+
+
+Started GET "/nodes/new" for 127.0.0.1 at 2015-03-12 15:00:47 +0700
+Processing by NodesController#new as HTML
+  Rendered nodes/_form.html.erb (2.9ms)
+  Rendered nodes/new.html.erb within layouts/application (4.7ms)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_header.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 192ms (Views: 191.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/jquery-ui.min-ba766e41135c03631722fc22a3cd0bfc.js?body=1" for 127.0.0.1 at 2015-03-12 15:00:47 +0700
+
+
+Started GET "/assets/jquery.jsPlumb-03544d15ce089373934f6c508acf7042.js?body=1" for 127.0.0.1 at 2015-03-12 15:00:47 +0700
+
+
+Started GET "/assets/account_activations-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for 127.0.0.1 at 2015-03-12 15:00:47 +0700
+
+
+Started GET "/assets/custom-8af709f3358f0f6a6c3389d281c802a0.css?body=1" for 127.0.0.1 at 2015-03-12 15:00:47 +0700
+
+
+Started GET "/assets/nodes-c7097fa8b5eb1c36b19a1e09880f95a0.css?body=1" for 127.0.0.1 at 2015-03-12 15:00:47 +0700
+
+
+Started GET "/assets/password_resets-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for 127.0.0.1 at 2015-03-12 15:00:47 +0700
+
+
+Started GET "/assets/scaffolds-3e8b0aa7e98e3d9ba96cba82f706f96e.css?body=1" for 127.0.0.1 at 2015-03-12 15:00:47 +0700
+
+
+Started GET "/assets/static_pages-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for 127.0.0.1 at 2015-03-12 15:00:47 +0700
+
+
+Started GET "/assets/sessions-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for 127.0.0.1 at 2015-03-12 15:00:47 +0700
+
+
+Started GET "/assets/users-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for 127.0.0.1 at 2015-03-12 15:00:47 +0700
+
+
+Started GET "/assets/application-47a49e7e4ec7fc4149742d5988d61227.css?body=1" for 127.0.0.1 at 2015-03-12 15:00:47 +0700
+
+
+Started GET "/assets/jquery-22853b520eb67b6cad6505c4d759308d.js?body=1" for 127.0.0.1 at 2015-03-12 15:00:47 +0700
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for 127.0.0.1 at 2015-03-12 15:00:47 +0700
+
+
+Started GET "/assets/bootstrap-52ddc9e5c6743cc001357411d58d99c0.js?body=1" for 127.0.0.1 at 2015-03-12 15:00:47 +0700
+
+
+Started GET "/assets/account_activations-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 127.0.0.1 at 2015-03-12 15:00:47 +0700
+
+
+Started GET "/assets/turbolinks-d9dcd5206ee131f11181e8ca09537148.js?body=1" for 127.0.0.1 at 2015-03-12 15:00:47 +0700
+
+
+Started GET "/assets/banyanTree-c91c508c6565fdde2bdf9219c2255621.js?body=1" for 127.0.0.1 at 2015-03-12 15:00:47 +0700
+
+
+Started GET "/assets/jquery-2.1.1.min-22853b520eb67b6cad6505c4d759308d.js?body=1" for 127.0.0.1 at 2015-03-12 15:00:47 +0700
+
+
+Started GET "/assets/jquery.jsPlumb-1.6.3-min-03544d15ce089373934f6c508acf7042.js?body=1" for 127.0.0.1 at 2015-03-12 15:00:47 +0700
+
+
+Started GET "/assets/nodes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 127.0.0.1 at 2015-03-12 15:00:47 +0700
+
+
+Started GET "/assets/password_resets-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 127.0.0.1 at 2015-03-12 15:00:47 +0700
+
+
+Started GET "/assets/static_pages-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 127.0.0.1 at 2015-03-12 15:00:47 +0700
+
+
+Started GET "/assets/sessions-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 127.0.0.1 at 2015-03-12 15:00:47 +0700
+
+
+Started GET "/assets/users-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 127.0.0.1 at 2015-03-12 15:00:47 +0700
+
+
+Started GET "/assets/application-81544884d3c56e5270ae3e7073ec29f7.js?body=1" for 127.0.0.1 at 2015-03-12 15:00:47 +0700
+
+
+Started GET "/assets/jquery-22853b520eb67b6cad6505c4d759308d.js?body=1" for 127.0.0.1 at 2015-03-12 15:00:47 +0700
+
+
+Started GET "/assets/jquery-ui.min-ba766e41135c03631722fc22a3cd0bfc.js?body=1" for 127.0.0.1 at 2015-03-12 15:00:47 +0700
+
+
+Started GET "/assets/jquery.jsPlumb-03544d15ce089373934f6c508acf7042.js?body=1" for 127.0.0.1 at 2015-03-12 15:00:47 +0700
+
+
+Started GET "/assets/banyanTree-c91c508c6565fdde2bdf9219c2255621.js?body=1" for 127.0.0.1 at 2015-03-12 15:00:47 +0700
+
+
+Started GET "/nodes/new" for 127.0.0.1 at 2015-03-12 15:02:03 +0700
+Processing by NodesController#new as HTML
+  Rendered nodes/_form.html.erb (3.2ms)
+  Rendered nodes/new.html.erb within layouts/application (5.1ms)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 178ms (Views: 177.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/nodes-c7097fa8b5eb1c36b19a1e09880f95a0.css?body=1" for 127.0.0.1 at 2015-03-12 15:02:03 +0700
+
+
+Started GET "/assets/banyanTree-c91c508c6565fdde2bdf9219c2255621.js?body=1" for 127.0.0.1 at 2015-03-12 15:02:03 +0700
+
+
+Started GET "/assets/jquery-ui.min-ba766e41135c03631722fc22a3cd0bfc.js?body=1" for 127.0.0.1 at 2015-03-12 15:02:03 +0700
+
+
+Started GET "/assets/jquery.jsPlumb-03544d15ce089373934f6c508acf7042.js?body=1" for 127.0.0.1 at 2015-03-12 15:02:03 +0700
+
+
+Started GET "/assets/custom-8af709f3358f0f6a6c3389d281c802a0.css?body=1" for 127.0.0.1 at 2015-03-12 15:02:03 +0700
+
+
+Started GET "/assets/account_activations-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for 127.0.0.1 at 2015-03-12 15:02:03 +0700
+
+
+Started GET "/assets/password_resets-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for 127.0.0.1 at 2015-03-12 15:02:03 +0700
+
+
+Started GET "/assets/scaffolds-3e8b0aa7e98e3d9ba96cba82f706f96e.css?body=1" for 127.0.0.1 at 2015-03-12 15:02:03 +0700
+
+
+Started GET "/assets/sessions-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for 127.0.0.1 at 2015-03-12 15:02:03 +0700
+
+
+Started GET "/assets/users-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for 127.0.0.1 at 2015-03-12 15:02:03 +0700
+
+
+Started GET "/assets/static_pages-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for 127.0.0.1 at 2015-03-12 15:02:03 +0700
+
+
+Started GET "/assets/application-47a49e7e4ec7fc4149742d5988d61227.css?body=1" for 127.0.0.1 at 2015-03-12 15:02:03 +0700
+
+
+Started GET "/assets/jquery-22853b520eb67b6cad6505c4d759308d.js?body=1" for 127.0.0.1 at 2015-03-12 15:02:03 +0700
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for 127.0.0.1 at 2015-03-12 15:02:03 +0700
+
+
+Started GET "/assets/nodes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 127.0.0.1 at 2015-03-12 15:02:03 +0700
+
+
+Started GET "/assets/turbolinks-d9dcd5206ee131f11181e8ca09537148.js?body=1" for 127.0.0.1 at 2015-03-12 15:02:03 +0700
+
+
+Started GET "/assets/jquery-2.1.1.min-22853b520eb67b6cad6505c4d759308d.js?body=1" for 127.0.0.1 at 2015-03-12 15:02:03 +0700
+
+
+Started GET "/assets/account_activations-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 127.0.0.1 at 2015-03-12 15:02:03 +0700
+
+
+Started GET "/assets/jquery.jsPlumb-1.6.3-min-03544d15ce089373934f6c508acf7042.js?body=1" for 127.0.0.1 at 2015-03-12 15:02:03 +0700
+
+
+Started GET "/assets/bootstrap-52ddc9e5c6743cc001357411d58d99c0.js?body=1" for 127.0.0.1 at 2015-03-12 15:02:03 +0700
+
+
+Started GET "/assets/password_resets-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 127.0.0.1 at 2015-03-12 15:02:03 +0700
+
+
+Started GET "/assets/static_pages-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 127.0.0.1 at 2015-03-12 15:02:03 +0700
+
+
+Started GET "/assets/sessions-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 127.0.0.1 at 2015-03-12 15:02:03 +0700
+
+
+Started GET "/assets/users-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 127.0.0.1 at 2015-03-12 15:02:03 +0700
+
+
+Started GET "/assets/application-81544884d3c56e5270ae3e7073ec29f7.js?body=1" for 127.0.0.1 at 2015-03-12 15:02:03 +0700
+
+
+Started GET "/assets/jquery-22853b520eb67b6cad6505c4d759308d.js?body=1" for 127.0.0.1 at 2015-03-12 15:02:04 +0700
+
+
+Started GET "/assets/jquery-ui.min-ba766e41135c03631722fc22a3cd0bfc.js?body=1" for 127.0.0.1 at 2015-03-12 15:02:04 +0700
+
+
+Started GET "/assets/jquery.jsPlumb-03544d15ce089373934f6c508acf7042.js?body=1" for 127.0.0.1 at 2015-03-12 15:02:04 +0700
+
+
+Started GET "/assets/banyanTree-c91c508c6565fdde2bdf9219c2255621.js?body=1" for 127.0.0.1 at 2015-03-12 15:02:04 +0700
