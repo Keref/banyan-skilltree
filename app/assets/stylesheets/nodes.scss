@@ -3,18 +3,18 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-      .item {
-	position: absolute;
-        border: 1px solid black;
-        background-color: #ddddff;
-#display: inline-block;
-      }
+	.itemSkill {
+		position: absolute;
+		border: 1px solid black;
+		background-color: #ddddff;
+		#display: inline-block;
+	}
 
-      #graphContainer {
-        border: 1px solid gray;
-        width: 500px;
-        height: 500px;
-      }
+	#graphContainer {
+		border: 1px solid gray;
+		width: 500px;
+		height: 500px;
+	}
 	  
 	.title {
 	  padding: 10px;

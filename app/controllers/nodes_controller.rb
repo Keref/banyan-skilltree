@@ -1,5 +1,6 @@
 class NodesController < ApplicationController
-  before_action :set_node, only: [:show, :edit, :update, :destroy]
+  #before_action :set_node, only: [:show, :edit, :update, :destroy]
+	before_action :logged_in_user, only: [:create, :destroy, :update]
 
   # GET /nodes
   # GET /nodes.json
@@ -10,6 +11,7 @@ class NodesController < ApplicationController
   # GET /nodes/1
   # GET /nodes/1.json
   def show
+		@user = Node.find(params[:id])
   end
 
   # GET /nodes/new
@@ -24,16 +26,14 @@ class NodesController < ApplicationController
   # POST /nodes
   # POST /nodes.json
   def create
-    @node = Node.new(node_params)
-
-    respond_to do |format|
-      if @node.save
-        format.html { redirect_to @node, notice: 'Node was successfully created.' }
-        format.json { render :show, status: :created, location: @node }
-      else
-        format.html { render :new }
-        format.json { render json: @node.errors, status: :unprocessable_entity }
-      end
+		tree = Node.new
+		tree.createNodeTree(current_user, node_params)
+		if tree.save_tree
+			flash[:success] = "New tree saved"
+			redirect_to tree
+		else
+			flash[:warning] = "An error happened on saving this new graph"
+			render :new
     end
   end
 
@@ -67,8 +67,14 @@ class NodesController < ApplicationController
       @node = Node.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+		def tree_param
+			params.except
+		end
+
     def node_params
-      params.require(:node).permit(:name, :content, :user_id, :nodetype)
+      #TODO: check strong parameter security
+      #we accept everything because the parameters are strongly parsed to created the tree, which does not
+      #allow for security failure by attr_update
+      params.except("utf8").except("authenticity_token").permit!()
     end
 end

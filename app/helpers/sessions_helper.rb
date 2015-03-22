@@ -5,6 +5,15 @@ module SessionsHelper
     session[:user_id] = user.id
   end
 
+	# Confirms a logged-in user.
+	def logged_in_user
+		unless logged_in?
+			store_location
+			flash[:danger] = "Please log in."
+			redirect_to login_url
+		end
+	end
+    
   # Returns the current logged-in user (if any).
   def current_user
     if (user_id = session[:user_id])
@@ -17,6 +26,7 @@ module SessionsHelper
       end
     end
   end
+  
 
   # Returns true if the user is logged in, false otherwise.
   def logged_in?

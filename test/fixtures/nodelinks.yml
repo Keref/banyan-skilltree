@@ -1,13 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  Node: MyString
   name: MyText
   content: MyText
-  user_id: 0
-  nodetype: MyText
+  linktype: MyText
+  node_id: 
+  targetnode_id: 
 
 two:
+  Node: MyString
   name: MyText
   content: MyText
-  user_id: 0
-  nodetype: MyText
+  linktype: MyText
+  node_id: 
+  targetnode_id: 

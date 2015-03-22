@@ -31,7 +31,6 @@ class User < ActiveRecord::Base
   end
 
   # Returns true if the given token matches the digest.
-  # Returns true if the given token matches the digest.
 
   def authenticated?(attribute, token)
     digest = send("#{attribute}_digest")

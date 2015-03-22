@@ -11,7 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150312051429) do
+ActiveRecord::Schema.define(version: 20150313133302) do
+
+  create_table "nodelinks", force: :cascade do |t|
+    t.string   "Node"
+    t.text     "name"
+    t.text     "content"
+    t.text     "linktype"
+    t.integer  "node_id"
+    t.integer  "targetnode_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "nodelinks", ["node_id"], name: "index_nodelinks_on_node_id"
+  add_index "nodelinks", ["targetnode_id"], name: "index_nodelinks_on_targetnode_id"
 
   create_table "nodes", force: :cascade do |t|
     t.text     "name"
@@ -20,6 +34,8 @@ ActiveRecord::Schema.define(version: 20150312051429) do
     t.text     "nodetype"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "offsetTop"
+    t.integer  "offsetLeft"
   end
 
   add_index "nodes", ["user_id"], name: "index_nodes_on_user_id"
