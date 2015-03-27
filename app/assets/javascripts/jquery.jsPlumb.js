@@ -1,1 +1,1 @@
-jquery.jsPlumb-1.6.3-min.js
+jquery.jsPlumb-1.7.4-min.js

@@ -1,0 +1,42 @@
+<% 
+# Creating the tree by adding elements to the jsPlumb container
+
+#the tree node should contain all the subnodes and all the links, it's just a matter of looping
+jscript_code = ""
+#looping through node to display them
+node.node_hash.each do |node_div_name, n|
+	if n.nodetype != "graph"
+		jscript_code += "createNode( { name: '#{n.name}',
+					node_div_name: '#{node_div_name}',
+					nodeid: '#{n.id.to_s}',
+					content: '#{n.content}',
+					offsetTop: '#{n.offsetTop.to_s}',
+					offsetLeft: '#{n.offsetLeft.to_s}',
+					draggable: #{drag} } );
+					" 	
+	end
+end
+#looping through links
+node.link_hash.each do |lkey, l|
+	if l.linktype != "include"
+		jscript_code += "createLink( { name: '#{l.name}',
+					source_node: 'load_state#{l.node_id.to_s}',
+					target_node: 'load_state#{l.targetnode_id.to_s}',
+					content: '#{l.content}',
+					link_id: '#{l.id}' } );
+		"
+	end
+end
+
+%>
+
+function filltree(){
+<!-- detach all conections otherwise problems appear on browser back button//doesnot work
+jsPlumb.detachEveryConnection(); //>
+<%= raw jscript_code %>
+};
+
+$( function (){
+	filltree();
+});
+

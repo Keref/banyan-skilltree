@@ -5,13 +5,14 @@ class NodesController < ApplicationController
   # GET /nodes
   # GET /nodes.json
   def index
-    @nodes = Node.all
+    @nodes = Node.where(nodetype: "graph")
   end
 
   # GET /nodes/1
   # GET /nodes/1.json
   def show
-		@user = Node.find(params[:id])
+		@node = Node.find(params[:id])
+		@node.recoverTree
   end
 
   # GET /nodes/new
@@ -21,40 +22,54 @@ class NodesController < ApplicationController
 
   # GET /nodes/1/edit
   def edit
+		@node = Node.find(params[:id])
+		@node.recoverTree
   end
 
   # POST /nodes
   # POST /nodes.json
   def create
-		tree = Node.new
-		tree.createNodeTree(current_user, node_params)
-		if tree.save_tree
-			flash[:success] = "New tree saved"
-			redirect_to tree
+		graph = Node.new(user: current_user)
+		graph.createNodeTree(current_user, node_params)
+		if graph.save_tree
+			#flash[:success] = "New tree saved"
+			#redirect_to tree
+			#TODO: render error message, success or failure
+			redirect_to 'show'
 		else
-			flash[:warning] = "An error happened on saving this new graph"
-			render :new
+			#flash[:warning] = "An error happened on saving this new graph"
+			#render :new
+			render :json => { :success => false, :message => "An error occurred while saving this graph." }
     end
   end
 
   # PATCH/PUT /nodes/1
   # PATCH/PUT /nodes/1.json
   def update
-    respond_to do |format|
-      if @node.update(node_params)
-        format.html { redirect_to @node, notice: 'Node was successfully updated.' }
-        format.json { render :show, status: :ok, location: @node }
-      else
-        format.html { render :edit }
-        format.json { render json: @node.errors, status: :unprocessable_entity }
-      end
-    end
+		graph = Node.find(params[:id])
+		if graph.updateTree(current_user, node_params )
+			render :json => { success: true, message: "Success boy!" }
+  # => 'form', :locals => { success: "true" }
+		else
+			render :json => { success: false, message: "An error occurred while saving this graph." }
+		end
+  
+    #respond_to do |format|
+      #if @node.update(node_params)
+      #  format.html { redirect_to @node, notice: 'Node was successfully updated.' }
+      #  format.json { render :show, status: :ok, location: @node }
+      #else
+      #  format.html { render :edit }
+      #  format.json { render json: @node.errors, status: :unprocessable_entity }
+      #end
+    #end
   end
 
   # DELETE /nodes/1
   # DELETE /nodes/1.json
   def destroy
-    @node.destroy
+    @node = Node.find(params[:id])
+		@node.destroy
     respond_to do |format|
       format.html { redirect_to nodes_url, notice: 'Node was successfully destroyed.' }
       format.json { head :no_content }
