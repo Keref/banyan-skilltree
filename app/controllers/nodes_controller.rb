@@ -47,11 +47,12 @@ class NodesController < ApplicationController
   # PATCH/PUT /nodes/1.json
   def update
 		graph = Node.find(params[:id])
-		if graph.updateTree(current_user, node_params )
-			render :json => { success: true, message: "Success boy!" }
+		graph.updateTree(current_user, node_params )
+		if graph.save_error == nil
+			render :json => { status: "success", message: "Success boy!" }
   # => 'form', :locals => { success: "true" }
 		else
-			render :json => { success: false, message: "An error occurred while saving this graph." }
+			render :json => { status: "danger", message: graph.save_error }
 		end
   
     #respond_to do |format|

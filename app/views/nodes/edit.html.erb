@@ -1,19 +1,22 @@
 <% provide(:title, @node.name) %>
+<div id="fMessages"></div>
+
 
 <h1><%= @node.name %></h1>
-			<div class="alert" id="fMessages"></div>
+
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
+  <div class="col-md-8">
     <%= form_tag do  %>
     <%= label_tag(:_node_name, "Name:") %>
 		<%= text_field_tag(:node_name, @node.name) %>
 		<%= hidden_field(:graph, "id", {:value => @node.id}) %>
 		<% end %>
+		
+		<div id="graphContainer"></div>
 	</div>
 </div>
 
-<div id="graphContainer">
-</div>
+
 
 <button onclick="postNewGraph()">Save</button> 
 

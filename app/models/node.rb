@@ -3,7 +3,7 @@ class Node < ActiveRecord::Base
   has_many :nodelinks #, :dependent => :destroy
   validates :user_id, presence: true
   validates :name, presence: true, length: { maximum: 80 }
-  attr_accessor :link_hash, :node_hash, :update_key
+  attr_accessor :link_hash, :node_hash, :update_key, :save_error
   after_initialize :init_default_vars
 
 
@@ -168,8 +168,8 @@ class Node < ActiveRecord::Base
 			if node.update_key == "destroy"
 				node.delete
 			elsif !node.valid?
-				puts "invalid node"
-				node.save!
+				puts "invalid node", node.errors.full_messages
+				@save_error = node.errors.full_messages
 				raise ActiveRecord::Rollback
 			else
 				node.save
@@ -190,7 +190,7 @@ class Node < ActiveRecord::Base
 				link.targetnode_id ||= link.target_node.id
 				if !link.valid?
 					puts "invalid link"
-					link.save!
+					@save_error = link.errors.full_messages
 					raise ActiveRecord::Rollback
 				end
 			link.save
