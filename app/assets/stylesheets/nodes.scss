@@ -2,34 +2,69 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+	#graphContainer {
+			-moz-user-select: none; 
+		-khtml-user-select: none; 
+		-webkit-user-select: none; 
+		-o-user-select: none; 
+		border: 1px solid gray;
+		position: relative;
+		width: 500px;
+		height: 500px;
+		resize:both;
+    overflow:auto;
+	}
 
 	.skill_node {
 		position: absolute;
-		border: 1px solid black;
-		background-color: #ddddff;
-		min-width: 50px;
-		height: 60px;
+		border: 1px solid gray;
+		background-color: #ebeced;
+		width: 130px;
+		height: 48px;
 		#display: inline-block;
 		border-radius: 5px;
+		font-size: 0em;
+		
 	}
 
-	#graphContainer {
-		border: 1px solid gray;
-		width: 500px;
-		height: 500px;
-	}
 	  
 	.skill_node_title {
-	  padding: 15px;
-	  cursor: move;
+		display: inline-block;
+	  #padding: 15px 4px;
+	  padding-left: 4px;
+	  #padding-bottom: 0px;
+	  #cursor: move;
+	  line-height: normal;
+	  width: 80px;
+	  height: 38px;
+	  font-size: small;
+	  vertical-align: middle;
+	  margin-top: 0px;
+	}
+
+		
+	.skill_node_icon {
+		display: inline-block;
+		vertical-align: top;
+		width:48px;
+		height: 48px;
+		border: 1px solid gray;
+		border-radius: 5px 0 0 5px;
+		background-color: #dcdee0;
+		line-height: normal;
+		margin-left: -1px;
+		margin-top: -1px;
+		vertical-align: middle;
 	}
 		
 	.skill_node_connect {
-	  width: 100%;
+	  width: 40%;
 	  height: 10px;
-	  background-color: white;
+	  background-color: black;
 	  cursor: pointer;
 	  border-radius: 0 0 5px 5px;
+	  margin-top: 0px;
+	  margin-left: 10px;
 	}
 	
 	.skill_desc {
@@ -47,4 +82,20 @@
 	.skill_desc_content{
 		width: 100%;
 		height: 75%;
+	}
+	
+	.skill_desc_top{
+		display: inline-block;
+	}
+
+	.skill_desc_icon{
+		display: inline-block;
+		vertical-align: middle;
+	}
+	.skill_desc_title{
+		width: 80%;
+		display: inline-block;
+		vertical-align: middle;
+		padding-left: 30px;
+		padding-top: 10px;
 	}

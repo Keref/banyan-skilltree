@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150313133302) do
+ActiveRecord::Schema.define(version: 20150331085747) do
 
   create_table "nodelinks", force: :cascade do |t|
     t.string   "Node"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20150313133302) do
     t.datetime "updated_at", null: false
     t.integer  "offsetTop"
     t.integer  "offsetLeft"
+    t.string   "icon"
   end
 
   add_index "nodes", ["user_id"], name: "index_nodes_on_user_id"

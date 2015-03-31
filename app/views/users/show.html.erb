@@ -11,9 +11,9 @@
   </aside>
   <div class="col-md-8">
     <% if @user.nodes.any? %>
-      <h3>Graphs (<%= @user.nodes.count %>)</h3>
+      <h3>Trees</h3>
       <ol class="nodes">
-        <%= render 'nodes', nodes: @user.nodes %>
+        <%= render 'nodes/listnodes', nodes: @user.nodes %>
       </ol>
     <% end %>
   </div>

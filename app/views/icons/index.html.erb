@@ -1,0 +1,17 @@
+<%= will_paginate %>
+
+<ul class="icons">
+  <% @icons.each do |icon| %>
+		<i><img src="/assets<%= icon %>"/></i>
+	<% end %>
+</ul>
+
+<%= will_paginate %>
+
+<script>
+	$(".paginate a").each(function(i,link){
+		var hr = link.href;
+		link.href = '#';
+		link.attr('target',hr);
+	});
+</script>

@@ -1,6 +1,7 @@
 class NodesController < ApplicationController
   #before_action :set_node, only: [:show, :edit, :update, :destroy]
 	before_action :logged_in_user, only: [:create, :destroy, :update]
+	  #before_action :correct_user,   only: [:edit, :update, :destroy]
 
   # GET /nodes
   # GET /nodes.json
@@ -47,14 +48,16 @@ class NodesController < ApplicationController
   # PATCH/PUT /nodes/1.json
   def update
 		graph = Node.find(params[:id])
-		graph.updateTree(current_user, node_params )
-		if graph.save_error == nil
-			render :json => { status: "success", message: "Success boy!" }
-  # => 'form', :locals => { success: "true" }
+		if graph.user == current_user 
+			graph.updateTree(current_user, node_params )
+			if graph.save_error == nil
+				render :json => { status: "success", message: "The graph was succesfully saved." }
+			else
+				render :json => { status: "danger", message: graph.save_error }
+			end
 		else
-			render :json => { status: "danger", message: graph.save_error }
+			redirect_to 'show'
 		end
-  
     #respond_to do |format|
       #if @node.update(node_params)
       #  format.html { redirect_to @node, notice: 'Node was successfully updated.' }

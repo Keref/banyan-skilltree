@@ -12,8 +12,10 @@
 
 <%= link_to 'Back', nodes_path %>
 
-<script>
 
-  <%= render 'filltree', :node => @node, :drag => false %>
+<div id="savestate"></div>
+<script>
+  jsPlumb.ready(init_jsplumb);
+  <%= render 'filltree', :node => @node, :edit => false %>
 </script>
 

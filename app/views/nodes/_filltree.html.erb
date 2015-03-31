@@ -10,9 +10,10 @@ node.node_hash.each do |node_div_name, n|
 					node_div_name: \"#{node_div_name}\",
 					nodeid: \"#{n.id.to_s}\",
 					content: \"#{n.content}\",
+					icon: \"#{n.icon}\",
 					offsetTop: \"#{n.offsetTop.to_s}\",
 					offsetLeft: \"#{n.offsetLeft.to_s}\",
-					draggable: #{drag} } );
+					editable: #{edit} } );
 					" 	
 	end
 end
@@ -29,6 +30,10 @@ node.link_hash.each do |lkey, l|
 end
 
 %>
+
+$("#graphContainer").height(<%= node.offsetTop %>);
+$("#graphContainer").width(<%= node.offsetLeft %>);
+
 
 function filltree(){
 <!-- detach all conections otherwise problems appear on browser back button//doesnot work

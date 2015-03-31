@@ -1,0 +1,31 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Content</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% nodes.each do |node| %>
+			<% if node.nodetype == 'graph' %>
+				<tr>
+					<td><%= node.name %></td>
+					<td><%= node.content %></td>
+					<td><%= link_to 'Show', node %></td>
+					<% if current_user &&  (current_user.admin? || current_user?(node.user) ) %>
+						<td><%= link_to 'Edit', edit_node_path(node) %></td>
+						<td><%= link_to 'Destroy', node, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+					<% else %>
+						<td> </td><td> </td>
+					<% end %>
+				</tr>
+			<% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Node', new_node_path %>

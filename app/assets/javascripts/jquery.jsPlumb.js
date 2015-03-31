@@ -1,1 +1,0 @@
-jquery.jsPlumb-1.7.4-min.js

@@ -4,24 +4,27 @@
  * return array( node%int: { textContent, offsetTop, offsetLeft }, link%int: { sourceNode, targetNode, linkType } )
  */
 function listContainer(){
-        jsPlumb.setContainer($('#graphContainer'));
+        //jsPlumb.setContainer($('#graphContainer'));
         var trace = document.getElementById('savestate');
         trace.innerHTML = "";
         var treeSave = {node: {}, link: {} };
-        var itemList = document.getElementsByClassName("itemSkill");
-        var gCont = document.getElementById('graphContainer').getElementsByTagName("div");
         
         //blocks position is absolute, and we need relative position to the container
         var shiftLeft = document.getElementById('graphContainer').offsetLeft;
         var shiftTop = document.getElementById('graphContainer').offsetTop;
+        var cont = $("#graphContainer");
+        treeSave["width"] = cont.width();
+        treeSave["height"] = cont.height();
         
 				$('div').filter(function() {
 					return /^(new|load)_state\d+$/.test(this.id);
 				}).each(function() {
+					var pos=$(this).position();
 					treeSave["node"][this.id] = { title: encodeURI($("#desc_area_title_"+this.id).val()),
 																			content: encodeURI($("#desc_area_"+this.id).val()),
-																		offsetTop: this.offsetTop - shiftTop,
-																		offsetLeft: this.offsetLeft - shiftLeft};
+																				 icon: $('#icon_'+this.id).attr('src'),
+																		offsetTop: pos.top,
+																		offsetLeft: pos.left};
 				});
 				
 
@@ -90,6 +93,7 @@ function postNewGraph(){
 							$("#fMessages").addClass("alert alert-"+response.status);
 							$("#fMessages").text(response.message);
             }
+            jsPlumb.recalculateOffsets("graphContainer");
 					},
 					error: function (data, error){
 						$("#fMessages").removeClass();
@@ -144,7 +148,7 @@ var dynamicAnchors = [ "Top", "Right", "Bottom", "Left"],
 		targetEndpoint = {
 			anchor: dynamicAnchors,
 				endpoint: "Dot",
-				paintStyle: { fillStyle: "#7AB02C", radius: 2 },
+				paintStyle: { fillStyle: "#7AB02C", radius: 0.1 },
 				hoverPaintStyle: endpointHoverStyle,
 				maxConnections: -1,
 				dropOptions: { hoverClass: "hover", activeClass: "active" },
@@ -169,110 +173,159 @@ var dynamicAnchors = [ "Top", "Right", "Bottom", "Left"],
 					offsetLeft:'335' }
  */
 function createNode(param){
-
+	
 	displayTrace(param);
+	var icon_path = '/assets/icon-pignon-128.png';
+	if ( param["icon"] !== null ) icon_path = param["icon"];
+	console.log(icon_path);
 	var node_div_id = param["node_div_name"];
 	var skill_node = $('<div>').attr('id', node_div_id).addClass('skill_node');
 	var skill_node_title = $('<div>').addClass('skill_node_title');
+	//var skill_node_title_content = $('<p>');
+	var skill_node_icon = $('<img>').attr('id','icon_'+node_div_id).attr('src', icon_path).attr('width','40').attr('height','40').addClass('skill_node_icon');
 	var skill_node_connect = $('<div>').attr('id', "connect_" + node_div_id).addClass('skill_node_connect');
 	var desc_skill = $('<div>').attr('id', "desc_" + node_div_id).addClass('skill_desc');
-
-	skill_node_title.css({ "background-image": "url('/assets/skill-1-48.png')"});
+	var	desc_top = $("<div>").attr('id','desc_area_titleline_'+node_div_id).addClass('skill_desc_top');
+	var desc_icon = $('<img>').attr('src', icon_path).attr('width','48').attr('height','48').addClass('skill_desc_icon');
+	desc_skill.append(desc_top);
+	desc_top.append(desc_icon);
+	var desc_content,	desc_title, desc_title_input;
+	
+	skill_node.append(skill_node_icon);
 	skill_node.append(skill_node_title);
 	
-	//TODO: set the new title on the fly while we type it
-	var desc_title = $("<input>").attr('id', 'desc_area_title_' + node_div_id).attr("type", "text");
-	var desc_content = $('<textarea>').attr('id', 'desc_area_' + node_div_id).addClass('skill_desc_content');
-	if ( param["content"] === null ){ desc_content.val ("Skill description") ; }
-	else { desc_content.val( decodeURI(param["content"]));}
 	
-	desc_skill.append("Skill name").append(desc_title);
-	desc_skill.append("Description").append(desc_content);
+	var name = decodeURI(param["name"]);
+	desc_skill.attr("title",name);
+	skill_node_title.text(name);
 	
-	if ( param["name"] === null ){
-		//if the name is not set, i.e new node
-		skill_node_title.text("0");
-		skill_node.css({
-			'top': param["offsetTop"] + "px",
-			'left': param["offsetLeft"] +"px",
-			'position': 'absolute'
-		});
+	//if editable, the desc_box is an textarea, else just a regular div
+	if  ( param["editable"] == true ){
+		desc_title = $("<div>").addClass("skill_desc_title");
+		desc_title_input = $("<input>").attr('id', 'desc_area_title_' + node_div_id).attr("type", "text").attr("maxlength", "26").val(name);
+		desc_title.append("Skill name").append(desc_title_input);
+
+		desc_content = $('<textarea>').attr('id', 'desc_area_' + node_div_id).addClass('skill_desc_content');
+		desc_skill.append("Description").append(desc_content);
+		desc_content.val(decodeURI(param["content"]));
+		skill_node.append(skill_node_connect);
+		
+		
+		var icon_handler = $("<div>").attr('id', "icon_handler");
+		//defining a function to display 
+		function load_desc_icon(url){
+			icon_handler.load(url);
+			icon_handler.click(function (event) {
+				event.preventDefault();
+				var is_clicked = $(event.target);
+				if ( is_clicked.is('a') ){
+					//if a link is clicked we load the new page in the div
+					load_desc_icon( is_clicked.attr('href') );
+				}
+				else if  (is_clicked.is('img')) {
+					//if an image is clicked, we change the icons
+					skill_node_icon.attr("src",is_clicked.attr('src'));
+					desc_icon.attr("src",is_clicked.attr('src'));
+				}
+			});
+		}
+		//click the icon to change it
+		desc_icon.click(function(e) {
+			icon_handler.dialog({
+            open: function (){
+							load_desc_icon("/icons/");
+            },   
+            width: 400,
+            title: 'Choose a new icon'
+        });
+			});
 	}
 	else {
-		var name = decodeURI(param["name"]);
-		desc_title.val(name);
-		desc_skill.attr("title",name);
-		//if the node is loaded, we rectify the relative position to the container
-		var pTop = parseInt(param["offsetTop"], 10) + document.getElementById('graphContainer').offsetTop;
-		var pLeft= parseInt(param["offsetLeft"], 10) + document.getElementById('graphContainer').offsetLeft;
-		skill_node.css({
-			'top': pTop + "px",
-			'left': pLeft + "px",
-			'position': 'absolute'
-		});
-		skill_node_title.text(name);
+		desc_title = $("<div>").attr('id', 'desc_area_title_' + node_div_id);
+		desc_content = $('<p>').attr('id', 'desc_area_' + node_div_id).addClass('skill_desc_content');
+		desc_skill.append(desc_content);
+		desc_content.append( decodeURI(param["content"]));
 	}
-	skill_node.append(skill_node_connect);
+	desc_top.append(desc_title);
+
+	//try to align to see //alignmet problem on chrome
+	var altop = param["offsetTop"] - (param["offsetTop"] % 40);
+	var alleft = param["offsetLeft"] - (param["offsetLeft"] % 40);
+		
+	skill_node.css({
+		'top': altop + "px",
+		'left': alleft +"px",
+		'position': 'absolute'
+	});
+
 	
 	$('#graphContainer').append(skill_node);
 	$('#graphContainer').append(desc_skill);
 	//jsPlumb.addEndpoint(node_div_id, sourceEndpoint);	
 	
-	jsPlumb.makeTarget(node_div_id, targetEndpoint);
-	
-	jsPlumb.makeSource(skill_node_connect, {
-		  parent: skill_node,
-		  anchor: 'Continuous',
-		  				endpoint: "Dot",
-				paintStyle: {
-						strokeStyle: "#7AB02C",
-						fillStyle: "transparent",
-						radius: 2,
-						lineWidth: 3
-				},
-				connector: [ "Flowchart", { stub: [10, 10], gap: 5, cornerRadius: 10 } ],
-				connectorStyle: connectorPaintStyle,
-				hoverPaintStyle: endpointHoverStyle,
-				connectorHoverStyle: connectorHoverStyle,
-				dragOptions: {},
-				overlays: [ [ "Arrow", { width:15, length:15, location:1 }	] ]
-		}, sourceEndpoint );
-	
 	//creates a dialog box with the skill content on click the box
 	skill_node.click(function(e) {
-
 		hide_desc();
 			
 		var s = document.getElementById(node_div_id);
 		var l = s.offsetLeft + 80;
-		//we move the desc box next to the skill box (in cas it's been dragged)
+		//TODO: we move the desc box next to the skill box (in cas it's been dragged)
 		//$("#desc_" + node_div_id).css({"visibility":"visible", "top": s.offsetTop+"px", "left": l+"px"});
 		$("#desc_" + node_div_id).dialog({
 			title: desc_title.val(),
 			dialogClass: 'ui-alert',
-			maxHeight: 600
+			maxHeight: 600,
+			close: function(){
+				if ( param["editable"] === true ) {
+					skill_node_title.text(desc_title_input.val());
+				}
+			}
 		}).enableSelection();
 	});	
 	
-	//makes the skill draggable, and prevent dragging from propagating
-	if ( param["draggable"] === true ){
+	
+	if  ( param["editable"] == true ){
+		jsPlumb.makeTarget(node_div_id, targetEndpoint);
+		
+		jsPlumb.makeSource(skill_node_connect, {
+				parent: skill_node,
+				anchor: 'Continuous',
+								endpoint: "Dot",
+					paintStyle: {
+							strokeStyle: "#7AB02C",
+							fillStyle: "transparent",
+							radius: 2,
+							lineWidth: 3
+					},
+					connector: [ "Flowchart", { stub: [10, 10], gap: 5, cornerRadius: 10 } ],
+					connectorStyle: connectorPaintStyle,
+					hoverPaintStyle: endpointHoverStyle,
+					connectorHoverStyle: connectorHoverStyle,
+					dragOptions: {},
+					overlays: [ [ "Arrow", { width:15, length:15, location:1 }	] ]
+			}, sourceEndpoint );
+		
+		//makes the skill draggable, and prevent dragging from propagating
 		jsPlumb.draggable(skill_node, {
 			containment: 'parent',
 			stop: function(event, ui) {
-        // event.toElement is the element that was responsible
-        // for triggering this event. The handle, in case of a draggable.
-        $( event.toElement ).one('click', function(e){ e.stopImmediatePropagation(); }) }
-			/*,
-			grid: [40, 40]*/
+				// event.toElement is the element that was responsible
+				// for triggering this event. The handle, in case of a draggable.
+				$( event.toElement ).one('click', function(e){ e.stopImmediatePropagation(); }) }
+			,
+			grid: [40, 40]
 		});
-	}
 
-	//suppress a node on dblclick it
-	skill_node.dblclick(function(e) {
-		jsPlumb.detachAllConnections($(this));
-		$(this).remove();
-		e.stopPropagation();
-	});	
+		//suppress a node on dblclick it
+		skill_node.dblclick(function(e) {
+			jsPlumb.detachAllConnections($(this));
+			jsPlumb.removeAllEndpoints($(this));
+			$(this).remove();
+			desc_skill.remove();
+			e.stopImmediatePropagation();
+		});	
+		
+	}
 	hide_desc();
 }
 
@@ -280,13 +333,13 @@ function createNode(param){
 /* hide_desc: hides the description boxes
  */
 function hide_desc(){
+	$(".ui-dialog-content").dialog("close");
 	$('div').filter(function() {
-		return /^desc_/.test(this.id);
+		return /^desc_(new|load)/.test(this.id);
 	}).each(function() {
 		$("#"+this.id).css({"display":"none"});
 	});
 }
-
 
 /*
  *  createLink: creates a link
@@ -355,7 +408,7 @@ function init_jsplumb() {
 						radius: 2,
 						lineWidth: 3
 				},
-				connector: [ "Flowchart", { stub: [10, 10], gap: 5, cornerRadius: 10 } ],
+				connector: [ "Flowchart", { stub: [5, 10], gap: 5, cornerRadius: 10 } ],
 				connectorStyle: connectorPaintStyle,
 				hoverPaintStyle: endpointHoverStyle,
 				connectorHoverStyle: connectorHoverStyle,
@@ -373,14 +426,17 @@ function init_jsplumb() {
 
 
 	  $('#graphContainer').dblclick(function(e) {
-			createNode({ name: null,
+			createNode({ name: "New Skill",
 										node_div_name: "new_state" + i,
 										nodeid: null,
 										content: "",
-										offsetTop: e.pageY,
-										offsetLeft: e.pageX,
-										draggable: true });
+										offsetTop: e.pageY - this.offsetLeft,
+										offsetLeft: e.pageX - this.offsetTop,
+										editable: true });
 			i++;    
 		});
 
+
 }
+
+

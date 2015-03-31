@@ -12,11 +12,11 @@
 		<%= hidden_field(:graph, "id", {:value => @node.id}) %>
 		<% end %>
 		
-		<div id="graphContainer"></div>
+		
 	</div>
 </div>
 
-
+<div id="graphContainer"></div>
 
 <button onclick="postNewGraph()">Save</button> 
 
@@ -26,7 +26,11 @@
 <div id="savestate"></div>
 
 <script>
+
+
   jsPlumb.ready(init_jsplumb);
-  <%= render 'filltree', :node => @node, :drag => true %>
+  <%= render 'filltree', :node => @node, :edit => true %>
+  
+
 </script>
 

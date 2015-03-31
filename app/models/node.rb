@@ -2,7 +2,7 @@ class Node < ActiveRecord::Base
   belongs_to :user
   has_many :nodelinks #, :dependent => :destroy
   validates :user_id, presence: true
-  validates :name, presence: true, length: { maximum: 80 }
+  validates :name, presence: true, length: { maximum: 26 }
   attr_accessor :link_hash, :node_hash, :update_key, :save_error
   after_initialize :init_default_vars
 
@@ -21,6 +21,8 @@ class Node < ActiveRecord::Base
 		self.nodetype = "graph"
 		self.content = "default"
 		self.update_key = "save"
+		self.offsetTop = params["height"]
+		self.offsetLeft = params["width"]
 
 		#default main node, also called the Tree!
 		@node_hash["graph"] = self
@@ -32,6 +34,7 @@ class Node < ActiveRecord::Base
 					n = Node.new(content: oneNode[:content]	, 
 													name: oneNode[:title]			, 
 											nodetype: oneNode[:nodetype]	, 
+													icon: oneNode[:icon],
 													user: user		)
 					#we also create an include link in that case
 					#basically, this is what a graph is, a node including a tree of nodes
@@ -43,7 +46,8 @@ class Node < ActiveRecord::Base
 					#update the node
 					n.content = oneNode[:content]
 					n.name = oneNode[:title]
-					nodetype = oneNode[:nodetype]
+					n.nodetype = oneNode[:nodetype]
+					n.icon = oneNode[:icon]
 					print "#### self id: ", self.id, "targetnodeid: ", id, "\n"
 					l = Nodelink.where(:node_id => self.id, :targetnode_id => id).first
 					puts "------------ link_#{id}",l 
@@ -211,5 +215,6 @@ class Node < ActiveRecord::Base
 			self.link_hash ||= {}
 			self.content ||= " "
 			self.update_key ||= "save"
+			self.icon ||= "icons/setting_tools.png"
 		end
 end
