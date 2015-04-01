@@ -20,9 +20,11 @@ function listContainer(){
 					return /^(new|load)_state\d+$/.test(this.id);
 				}).each(function() {
 					var pos=$(this).position();
+					var icon_name = $('#icon_'+this.id).attr('src').replace(/.*\//g,'').replace(/-[0-9a-f]*.png$/, '.png');
+
 					treeSave["node"][this.id] = { title: encodeURI($("#desc_area_title_"+this.id).val()),
 																			content: encodeURI($("#desc_area_"+this.id).val()),
-																				 icon: $('#icon_'+this.id).attr('src'),
+																				 icon: icon_name,
 																		offsetTop: pos.top,
 																		offsetLeft: pos.left};
 				});

@@ -2,7 +2,7 @@
 
 <ul class="icons">
   <% @icons.each do |icon| %>
-		<i><img src="<%= image_path('/assets' + icon) %>" width="32" height="32"/></i>
+		<i><%= image_tag(image_url(icon), width: "32", height: "32" ) %></i>
 	<% end %>
 </ul>
 

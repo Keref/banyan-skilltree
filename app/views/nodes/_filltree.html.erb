@@ -10,7 +10,7 @@ node.node_hash.each do |node_div_name, n|
 					node_div_name: \"#{node_div_name}\",
 					nodeid: \"#{n.id.to_s}\",
 					content: \"#{n.content}\",
-					icon: \"#{n.icon}\",
+					icon: \"#{image_url(n.icon )}\",
 					offsetTop: \"#{n.offsetTop.to_s}\",
 					offsetLeft: \"#{n.offsetLeft.to_s}\",
 					editable: #{edit} } );
