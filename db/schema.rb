@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20150331085747) do
   end
 
   add_index "nodelinks", ["node_id"], name: "index_nodelinks_on_node_id"
-  add_index "nodelinks", ["targetnode_id"], name: "index_nodelinks_on_targetnode_id"
+#  add_index "nodelinks", ["targetnode_id"], name: "index_nodelinks_on_targetnode_id"
 
   create_table "nodes", force: :cascade do |t|
     t.text     "name"
