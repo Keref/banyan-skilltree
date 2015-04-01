@@ -206,9 +206,10 @@ function createNode(param){
 		//desc_title.append("Skill name")
 		desc_title.append(desc_title_input);
 
-		desc_content = $('<textarea>').attr('id', 'desc_area_' + node_div_id).addClass('skill_desc_content');
-		desc_skill.append("<br>Description").append(desc_content);
+		desc_content = $('<textarea>').attr('id', 'desc_area_' + node_div_id).addClass('skill_desc_content').addClass('jqte-test');
+		desc_skill.append("<br><br>Description").append(desc_content);
 		desc_content.val(decodeURI(param["content"]));
+
 		skill_node.append(skill_node_connect);
 		
 		
@@ -272,10 +273,12 @@ function createNode(param){
 		var l = s.offsetLeft + 80;
 		//TODO: we move the desc box next to the skill box (in cas it's been dragged)
 		//$("#desc_" + node_div_id).css({"visibility":"visible", "top": s.offsetTop+"px", "left": l+"px"});
+		$('#desc_area_' + node_div_id).jqte();
 		$("#desc_" + node_div_id).dialog({
 			title: desc_title.val(),
 			dialogClass: 'ui-alert',
 			maxHeight: 600,
+			width: 600,
 			close: function(){
 				if ( param["editable"] === true ) {
 					skill_node_title.text(desc_title_input.val());
