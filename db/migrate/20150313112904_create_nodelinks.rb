@@ -11,6 +11,6 @@ class CreateNodelinks < ActiveRecord::Migration
       t.timestamps null: false
     end
     add_foreign_key :nodelinks, :nodes
-    add_foreign_key :nodelinks, :targetnodes
+#    add_foreign_key :nodelinks, :targetnodes
   end
 end
