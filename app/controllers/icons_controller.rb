@@ -5,7 +5,7 @@ class IconsController < ApplicationController
 		icon_files.each do |i|
 			i.gsub!("#{Rails.root}/app/assets/images", "")
 		end
-		@icons = icon_files.paginate(per_page: 50, page: params[:page])
+		@icons = icon_files.paginate(per_page: 100, page: params[:page])
 		render :layout => false
   end
 

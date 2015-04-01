@@ -110,34 +110,34 @@ function postNewGraph(){
 // this is the paint style for the connecting lines..
 var dynamicAnchors = [ "Top", "Right", "Bottom", "Left"],
 		connectorPaintStyle = {
-				lineWidth: 4,
-				strokeStyle: "#61B7CF",
+				lineWidth: 2,
+				strokeStyle: "#aaaaaa",
 				joinstyle: "round",
 				outlineColor: "white",
 				outlineWidth: 2
 		},
 // .. and this is the hover style.
 		connectorHoverStyle = {
-				lineWidth: 4,
-				strokeStyle: "#216477",
+				lineWidth: 2,
+				strokeStyle: "#444444",
 				outlineWidth: 2,
 				outlineColor: "white"
 		},
 		endpointHoverStyle = {
-				fillStyle: "#216477",
-				strokeStyle: "#216477"
+				fillStyle: "#555555",
+				strokeStyle: "#434f55"
 		},
 // the definition of source endpoints (the small blue ones)
 		sourceEndpoint = {
 				anchor: dynamicAnchors,
 				endpoint: "Dot",
 				paintStyle: {
-						strokeStyle: "#7AB02C",
+						strokeStyle: "#aaaaaa",
 						fillStyle: "transparent",
-						radius: 2,
-						lineWidth: 3
+						radius: 6,
+						lineWidth: 2
 				},
-				connector: [ "Flowchart", { stub: [10, 10], gap: 5, cornerRadius: 10 } ],
+				connector: [ "Flowchart", { stub: [15, 10], gap: 5, cornerRadius: 10 } ],
 				connectorStyle: connectorPaintStyle,
 				hoverPaintStyle: endpointHoverStyle,
 				connectorHoverStyle: connectorHoverStyle,
@@ -148,7 +148,7 @@ var dynamicAnchors = [ "Top", "Right", "Bottom", "Left"],
 		targetEndpoint = {
 			anchor: dynamicAnchors,
 				endpoint: "Dot",
-				paintStyle: { fillStyle: "#7AB02C", radius: 0.1 },
+				paintStyle: { fillStyle: "#bbbbbb", radius: 3 },
 				hoverPaintStyle: endpointHoverStyle,
 				maxConnections: -1,
 				dropOptions: { hoverClass: "hover", activeClass: "active" },
@@ -202,11 +202,12 @@ function createNode(param){
 	//if editable, the desc_box is an textarea, else just a regular div
 	if  ( param["editable"] == true ){
 		desc_title = $("<div>").addClass("skill_desc_title");
-		desc_title_input = $("<input>").attr('id', 'desc_area_title_' + node_div_id).attr("type", "text").attr("maxlength", "26").val(name);
-		desc_title.append("Skill name").append(desc_title_input);
+		desc_title_input = $("<textarea>").attr('id', 'desc_area_title_' + node_div_id).attr('wrap','soft').attr("cols", "10").attr("rows","2").attr("type", "text").attr("maxlength", "26").val(name);
+		//desc_title.append("Skill name")
+		desc_title.append(desc_title_input);
 
 		desc_content = $('<textarea>').attr('id', 'desc_area_' + node_div_id).addClass('skill_desc_content');
-		desc_skill.append("Description").append(desc_content);
+		desc_skill.append("<br>Description").append(desc_content);
 		desc_content.val(decodeURI(param["content"]));
 		skill_node.append(skill_node_connect);
 		
@@ -290,19 +291,19 @@ function createNode(param){
 		jsPlumb.makeSource(skill_node_connect, {
 				parent: skill_node,
 				anchor: 'Continuous',
-								endpoint: "Dot",
-					paintStyle: {
-							strokeStyle: "#7AB02C",
-							fillStyle: "transparent",
-							radius: 2,
-							lineWidth: 3
-					},
-					connector: [ "Flowchart", { stub: [10, 10], gap: 5, cornerRadius: 10 } ],
-					connectorStyle: connectorPaintStyle,
-					hoverPaintStyle: endpointHoverStyle,
-					connectorHoverStyle: connectorHoverStyle,
-					dragOptions: {},
-					overlays: [ [ "Arrow", { width:15, length:15, location:1 }	] ]
+				endpoint: "Dot",
+				paintStyle: {
+						strokeStyle: "#aaaaaa",
+						fillStyle: "transparent",
+						radius: 5,
+						lineWidth: 2
+				},
+				connector: [ "Flowchart", { stub: [15, 15], gap: 5, cornerRadius: 10 } ],
+				connectorStyle: connectorPaintStyle,
+				hoverPaintStyle: endpointHoverStyle,
+				connectorHoverStyle: connectorHoverStyle,
+				dragOptions: {},
+				overlays: [ [ "Arrow", { width:15, length:15, location:1 }	] ]
 			}, sourceEndpoint );
 		
 		//makes the skill draggable, and prevent dragging from propagating
