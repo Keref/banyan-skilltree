@@ -18,6 +18,8 @@
 							<li><%= link_to "Browse all", nodes_path %></li>
 							<li><%= link_to "Search", nodes_path( :q => "")  %></li>
 							<li><%= link_to "My Trees", nodes_path(:my => "true") %></li>
+							<li class="divider"></li>
+							<li><%= link_to "Create a new tree", new_node_path %></li>
 						</ul>
           <li><%= link_to "Users", users_path %></li>
           <li class="dropdown">
