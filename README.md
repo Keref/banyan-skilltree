@@ -9,15 +9,20 @@ TODO list
 it expands faster than reduces...
 not sorted yet
 
+- check why pages need to be actualized for jsplumb to display links properly
+
 - Transfer dev database to prod
 
 - Rework the interface
-	- add a banyan tree skill
+	- do a nice logo
 	- define a graphic charter
+	- fix the top navbar
+		- align elements (logo, a quick search form)
 
 - export
 	- add a JSON export button
 	- export as a nice SVG
+	- copy a tree to another account (examples: to modify it, to easily make stubs...)
 	
 - share on social media
 	
@@ -28,12 +33,15 @@ not sorted yet
 - search function
 	- make it better
 	- merge searching on tags and on name and description
+	
 - add an arborescence for browsing
 	- define where to display other than the main page
 	
 - add a news/blog system for the front page?
 
-- fill in the README.md
+- add content
+	- fill in the README.md
+	- add some dummy graphs
 
 - add containers to the skill trees to make zones
 	- drag skills inside the container
@@ -41,12 +49,12 @@ not sorted yet
 - on saving, update the name of the div, because now on every save, new divs are replacing themselves (causing a destroy create every time until the page is refreshed and the grap loaded properly)
 	- forcing a refresh is the easy way but would not be nice for the user
 	
-- publishing trees //TODO IMPORTANT FOR TESTING IN PROD WITH REAL USERS
-	- tree is private until published, once published he can't be private again but can still be modified (by who)
-	
-- copy a whole tree to another account (example: to modify it)
-- set tags non clickable with jquery when displaying a graph (and the categories)
+- make trees private or public
+	- tree is private until published, once published he can't be private again but can still be modified (by who?)
 
--add glyphicons to menus
+- tags
+	- set tags non clickable with jquery when displaying a graph (and the categories)
+	- properly display tags on "show" page
+
 
 
