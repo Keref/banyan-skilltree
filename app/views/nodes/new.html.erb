@@ -6,6 +6,8 @@
     <%= form_tag do  %>
     <%= label_tag(:_node_name, "Name:") %>
 		<%= text_field_tag(:node_name) %>
+		<%= label_tag(:_node_tags, "Tags:") %>
+		<input type="text" value="<%= @node.tag_list %>" data-role="tagsinput" id="tree_tags"/>
 		<% end %>
 	</div>
 </div>
@@ -22,4 +24,5 @@
 <script>
 
   jsPlumb.ready(init_jsplumb);
+  icon_selector_dialog($('#tree_icon'));
 </script>

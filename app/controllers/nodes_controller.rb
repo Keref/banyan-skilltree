@@ -10,6 +10,9 @@ class NodesController < ApplicationController
 		if  params[:my] != nil
 			#displays only current user's graph
 			@nodes = Node.where(nodetype: "graph", user: current_user)
+		elsif params[:tags] != nil
+			#we display the trees having the tags requested. In particular this is used to display categories
+			@nodes = Node.tagged_with(params[:tags], :match_all => true)
 		elsif params[:q] != nil && params[:q] != ''
 			@search = true
 			@search_value = params[:q]

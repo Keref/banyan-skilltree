@@ -1,0 +1,101 @@
+<!-- The menu is fixed and matches predefined categories -->
+
+<ul class="nav nav-stacked" id="menu_accordion">				
+</ul>
+        
+<style>
+	.menucat {
+		margin-bottom: 0;
+		border: none;
+	}
+</style>        
+<script>
+var menuList = {};
+menuList["Academics"] = { tag: "academics",
+"Social Science": "socialscience",
+"Math": "maths",
+"Science" : "science",
+"Humanities":"humanities"
+};
+menuList["Language"] = {tag: "language",
+"English": "english",
+"Spanish": "spanish",
+"German": "german",
+"French": "french",
+"Japanese": "japanese",
+"Portuguese": "portuguese",
+"Chinese": "chinese",
+"Russian": "russian",
+"Latin": "latin",
+"Arabic": "arabic",
+"Hebrew": "hebrew",
+"Italian": "italian"
+};
+menuList["Health & Fitness"] = { tag: "health",
+"Fitness": "fitness",
+"General Health": "general",
+"Sports": "sport",
+"Nutrition": "nutrition",
+"Yoga": "yoga",
+"Mental Health": "mental",
+"Dieting": "diet",
+"Self Defense": "selfdefense",
+"Safety & First Aid": "safety",
+"Dance": "dance",
+"Meditation": "meditation"
+};
+menuList["Personal Development"] = { tag: "selfdev",
+"Personal Transformation": "selftransformation",
+"Productivity": "productivity",
+"Leadership": "leadership",
+"Career Development": "careerdev",
+"Parenting & Relationships": "relationship",
+"Happiness": "hapiness",
+"Religion & Spirituality": "spirituality",
+"Personal Brand Building": "selfbrand",
+"Creativity": "creativity",
+"Self Esteem": "selfesteem",
+"Stress Management": "stress",
+"Memory & Study Skills": "study"
+}
+menuList["Lifestyle"] = { tag: "lifestyle",
+"Arts & Crafts": "arts",
+"Food & Beverage": "food",
+"Beauty & Makeup": "beauty",
+"Travel": "travel",
+"Gaming": "gaming",
+"Home Improvement": "home",
+"Pet Care & Training": "pet"
+}
+menuList["Information & Technology"] = { tag: "it",
+"Web Development": "webdev",
+"Mobile Apps": "mobilapp",
+"Programming Languages": "prog",
+"Game Development": "gamedev",
+"Databases": "db",
+"Software Engineering": "software",
+"Development Tools": "devtools",
+"E-Commerce": "ecommerce"
+}
+
+function displayMenu(){
+	var menu_html = "";
+	for (var ncat in menuList){
+		var cat = menuList[ncat];
+		var tagcat = menuList[ncat]["tag"];
+		menu_html += '<li class="panel menucat"><a data-toggle="collapse" data-parent="#menu_accordion" href="#'
+									+tagcat+'">'+ ncat +'</a><ul id="' + tagcat + '" class="collapse panel-collapse">';
+		for (var subncat in cat){
+			var tagsubcat = cat[subncat];
+			if ( subncat != "tag") {
+				menu_html += '<li><a href="/nodes?tags='+tagcat+'+'+tagsubcat+'">'+ subncat+'</a></li>';
+			}
+		}
+		menu_html += '</ul></li>';
+	}
+	$("#menu_accordion").append(menu_html);
+}
+
+displayMenu();
+</script>
+

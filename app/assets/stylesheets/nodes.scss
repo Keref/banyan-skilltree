@@ -13,6 +13,8 @@
 		height: 500px;
 		resize:both;
     overflow:auto;
+    border-radius: 5px;
+    padding-top: 10px;
 	}
 
 	.skill_node {
@@ -136,3 +138,8 @@ border:1px solid #d7dada; -webkit-border-radius: 3px; -moz-border-radius: 3px;bo
 		padding-left: 10px;
 		padding-top: 2px;
 	}
+
+
+//#overriding bootstrap for some reason
+.navbar {min-height:32px; }
+//.navbar-nav > li > a {padding-top:10px !important; padding-bottom:10px !important;}

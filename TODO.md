@@ -5,20 +5,32 @@ TODO
 - Rework the interface
 	- add a banyan tree skill
 	- define a graphic charter
-- export as proper JSON
+- export
 	- add a JSON export button
+	- export as a nice SVG
+	
+- share on social media
+	
+	
 - separate the local javascript and the javascript library to display the JSON files to allow external users to display the JSON code in any page
 - add a rating system to rate the skilltrees
-- add a search function, searching on tree names and tags
+- search function
+	- add searching on tags
 - add an arborescence for browsing
 - add a news/blog system for the front page?
 - fill in the README.md
 - add containers to the skill trees to make zones
 	- drag skills inside the container
 	
-- publishing trees
-	- tree is private until published, once published he can't be private again but can still be modified (by who)
-- copy a whole tree to another account (example: to modify it)
+- on saving, update the name of the div, because now on every save, new divs are replacing themselves (causing a destroy create every time until the page is refreshed and the grap loaded properly)
+	- forcing a refresh is the easy way but would not be nice for the user
 	
+- publishing trees //TODO IMPORTANT FOR TESTING IN PROD WITH REAL USERS
+	- tree is private until published, once published he can't be private again but can still be modified (by who)
+	
+- copy a whole tree to another account (example: to modify it)
+- set tags non clickable with jquery when displaying a graph (and the categories)
+
+-add glyphicons to menus
 
 
