@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150402035741) do
+ActiveRecord::Schema.define(version: 20150402064004) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20150402035741) do
     t.integer  "offsetTop"
     t.integer  "offsetLeft"
     t.text     "icon"
+    t.boolean  "private"
   end
 
   add_index "nodes", ["user_id"], name: "index_nodes_on_user_id", using: :btree

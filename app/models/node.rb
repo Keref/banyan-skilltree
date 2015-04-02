@@ -219,5 +219,6 @@ class Node < ActiveRecord::Base
 			self.content ||= " "
 			self.update_key ||= "save"
 			self.icon ||= "icons/setting_tools.png"
+			self.private ||= true
 		end
 end

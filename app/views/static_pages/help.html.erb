@@ -1,17 +1,60 @@
-<% provide(:title, "Help") %>
+<% provide(:title, "Faq") %>
 
-<h1>Help</h1>
+<h1>Faq</h1>
 
 <p>
+<!-- JS -->
+<script type="text/javascript">
+  $(document).ready(function($) {
+    $('#accordion').find('.accordion-toggle').click(function(){
 
-  Get help on the Ruby on Rails Tutorial at the
+      //Expand or collapse this panel
+      $(this).next().slideToggle('fast');
 
-  <a href="http://www.railstutorial.org/#help">Rails Tutorial help section</a>.
+      //Hide the other panels
+      $(".accordion-content").not($(this).next()).slideUp('fast');
 
-  To get help on this sample app, see the
+    });
+  });
+</script>
 
-  <a href="http://www.railstutorial.org/book"><em>Ruby on Rails Tutorial</em>
+<!-- CSS -->
+<style>
+  .accordion-toggle {cursor: pointer;}
+  .accordion-content {display: none;}
+  .accordion-content.default {display: block;}
+</style>
 
-  book</a>.
+<!-- HTML -->
+<div id="accordion"><hr>
+	<h3>Generalities</h3>
+  <h4 class="accordion-toggle">What is Banyan Skill Tree?</h4>
+  <div class="accordion-content default">
+    <p>Banyan Skill Tree is a project allowing users to create and share treeskills.
+    These trees are categorized and available for </p>
+  </div>
+  <h4 class="accordion-toggle">What is a competency tree / competency tree</h4>
+  <div class="accordion-content">
+    <p>A skill tree, or competency tree, is a visual hierarchical representation of knowledge.
+    Popularized as the technology trees in Civilization and strategy games and Role-Playing Games, they define paths to develop knowledge.
+    One interest of those tree is that they provide steps allowing guided and progressive acquisition of knowledge.
+    Another popular resource using a skill tree is <a href='duolingo.com'>Duolingo</a>, where the user follows the tree from beginner to fluency
+    in a foreign language.</p>
+  </div>
+  <h4 class="accordion-toggle">Limitation of skill trees</h4>
+  <div class="accordion-content">
+    <p>Skill trees have several limitations.</p>
+    <p>The nature of representation or conceptualization is to simplify a more complex reality.
+    Many different representations of one branch of knowledge are posible: we can imagine decomposing the art of cooking in 5, or 10, or 100 different steps.</p>
+    <p>Furthermore, it is always posible to know more than the tree is showing, mastering more one competency, getting further. Skill trees are by no mean exhaustive.</p>
+  </div><hr>
+  <h3>Creating trees</h3>
+  <h4 class="accordion-toggle">How do I had a tree to a categorie?</h4>
+  <div class="accordion-content">
+    <p>Tree are displayed in the arborescence depending on its tags.</p>
+    <p>To make a tree appear in the IT categorie, add the "IT" tag; to appear in the categorie IT, subcategorie Programming, add both "IT" and "Programming" tags (only adding "Programming" won't do).
+    </p>
+  </div>
+</div>
 
 </p>

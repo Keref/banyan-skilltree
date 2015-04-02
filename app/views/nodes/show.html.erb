@@ -2,11 +2,8 @@
 
 <h1><%= image_tag(@node.icon, id: "tree_icon" )%> <%= @node.name %></h1>
 
-<div>
-  <div>
-	</div>
-</div>
 
+<input type="text" value="<%= @node.tag_list %>" data-role="tagsinput" id="tree_tags" readonly="readonly"/>
 <div id="graphContainer">
 </div>
 

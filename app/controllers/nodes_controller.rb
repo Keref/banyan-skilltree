@@ -6,7 +6,22 @@ class NodesController < ApplicationController
   # GET /nodes
   # GET /nodes.json
   def index
-    @nodes = Node.where(nodetype: "graph")
+		puts params
+		if  params[:my] != nil
+			#displays only current user's graph
+			@nodes = Node.where(nodetype: "graph", user: current_user)
+		elsif params[:q] != nil && params[:q] != ''
+			@search = true
+			@search_value = params[:q]
+			@nodes = Node.where(nodetype: "graph").where("content LIKE ? OR name LIKE ?", "%#{params[:q]}%", "%#{params[:q]}%" )
+		elsif params[:q] == ''
+			#in that case we only want to display the search form
+			@nodes = nil
+			@search = true
+		else
+			#displays all graphs
+			@nodes = Node.where(nodetype: "graph")
+		end
   end
 
   # GET /nodes/1

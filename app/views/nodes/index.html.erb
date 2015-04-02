@@ -2,4 +2,9 @@
 
 <h1>Listing Nodes</h1>
 
-<%= render 'listnodes', :nodes => @nodes %>
+<% if @search == true %>
+	<%= render 'search', :search_value => @search_value %>
+<% end %>
+<% if @nodes != nil %>
+	<%= render 'listnodes', :nodes => @nodes %>
+<% end %>
