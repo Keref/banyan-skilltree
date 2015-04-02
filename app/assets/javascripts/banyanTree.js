@@ -16,6 +16,7 @@ function listContainer(){
         treeSave["width"] = cont.width();
         treeSave["height"] = cont.height();
         treeSave["icon"] = $('#tree_icon').attr('src').replace(/.*\//g,'').replace(/-[0-9a-f]{12,50}.png$/, '.png');
+        treeSave["tags"] = $('#tree_tags').val();
         
 				$('div').filter(function() {
 					return /^(new|load)_state\d+$/.test(this.id);

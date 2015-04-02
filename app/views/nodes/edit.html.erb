@@ -11,7 +11,9 @@
 		<%= text_field_tag(:node_name, @node.name) %>
 		<%= hidden_field(:graph, "id", {:value => @node.id}) %>
 		<% end %>
-		
+		<% puts @node.tag_list %>
+		<%= label_tag(:_node_tags, "Tags:") %>
+		<input type="text" value="<%= @node.tag_list %>" data-role="tagsinput" id="tree_tags"/>
 		
 	</div>
 </div>
