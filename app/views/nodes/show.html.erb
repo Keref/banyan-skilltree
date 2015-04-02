@@ -1,6 +1,6 @@
 <% provide(:title, @node.name) %>
 
-<h1><%= @node.name %></h1>
+<h1><%= image_tag(@node.icon, id: "tree_icon" )%> <%= @node.name %></h1>
 
 <div>
   <div>

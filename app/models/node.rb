@@ -5,6 +5,7 @@ class Node < ActiveRecord::Base
   validates :name, presence: true, length: { maximum: 26 }
   attr_accessor :link_hash, :node_hash, :update_key, :save_error
   after_initialize :init_default_vars
+  acts_as_taggable #to use tags; Alias for acts_as_taggable_on :tags
 
 
 
@@ -23,6 +24,7 @@ class Node < ActiveRecord::Base
 		self.update_key = "save"
 		self.offsetTop = params["height"]
 		self.offsetLeft = params["width"]
+		self.icon = params["icon"]
 
 		#default main node, also called the Tree!
 		@node_hash["graph"] = self

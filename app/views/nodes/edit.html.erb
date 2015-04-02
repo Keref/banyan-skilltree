@@ -2,7 +2,7 @@
 <div id="fMessages"></div>
 
 
-<h1><%= @node.name %></h1>
+<h1><%= image_tag(@node.icon, id: "tree_icon" )%> <%= @node.name %></h1>
 
 <div class="row">
   <div class="col-md-8">
@@ -30,7 +30,7 @@
 
   jsPlumb.ready(init_jsplumb);
   <%= render 'filltree', :node => @node, :edit => true %>
-  
+  icon_selector_dialog($('#tree_icon'));
 
 </script>
 

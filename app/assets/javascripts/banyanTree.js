@@ -15,12 +15,13 @@ function listContainer(){
         var cont = $("#graphContainer");
         treeSave["width"] = cont.width();
         treeSave["height"] = cont.height();
+        treeSave["icon"] = $('#tree_icon').attr('src').replace(/.*\//g,'').replace(/-[0-9a-f]{12,50}.png$/, '.png');
         
 				$('div').filter(function() {
 					return /^(new|load)_state\d+$/.test(this.id);
 				}).each(function() {
 					var pos=$(this).position();
-					var icon_name = $('#icon_'+this.id).attr('src').replace(/.*\//g,'').replace(/-[0-9a-f]*.png$/, '.png');
+					var icon_name = $('#icon_'+this.id).attr('src').replace(/.*\//g,'').replace(/-[0-9a-f]{12,50}.png$/, '.png');
 
 					treeSave["node"][this.id] = { title: encodeURI($("#desc_area_title_"+this.id).val()),
 																			content: encodeURI($("#desc_area_"+this.id).val()),
@@ -176,10 +177,10 @@ var dynamicAnchors = [ "Top", "Right", "Bottom", "Left"],
  */
 function createNode(param){
 	
-	displayTrace(param);
+	//displayTrace(param);
 	var icon_path = '/assets/icon-pignon-128.png';
 	if ( param["icon"] !== null ) icon_path = param["icon"];
-	console.log(icon_path);
+	//console.log(icon_path);
 	var node_div_id = param["node_div_name"];
 	var skill_node = $('<div>').attr('id', node_div_id).addClass('skill_node');
 	var skill_node_title = $('<div>').addClass('skill_node_title');
@@ -214,37 +215,12 @@ function createNode(param){
 
 		skill_node.append(skill_node_connect);
 		
-		
-		var icon_handler = $("<div>").attr('id', "icon_handler");
-		//defining a function to display 
-		function load_desc_icon(url){
-			icon_handler.load(url);
-			icon_handler.click(function (event) {
-				event.preventDefault();
-				var is_clicked = $(event.target);
-				if ( is_clicked.is('a') ){
-					//if a link is clicked we load the new page in the div
-					load_desc_icon( is_clicked.attr('href') );
-				}
-				else if  (is_clicked.is('img')) {
-					//if an image is clicked, we change the icons
-					skill_node_icon.attr("src",is_clicked.attr('src'));
-					desc_icon.attr("src",is_clicked.attr('src'));
-				}
-			});
-		}
-		//click the icon to change it
-		desc_icon.click(function(e) {
-			icon_handler.dialog({
-            open: function (){
-							load_desc_icon("/icons/");
-            },   
-            width: 400,
-            title: 'Choose a new icon'
-        });
-			});
+		//initializes the icon selector dialog
+		icon_selector_dialog(desc_icon, skill_node_icon);
+
 	}
 	else {
+		//displaying the graph: no fancy choosing, inputs...
 		desc_title = $("<div>").attr('id', 'desc_area_title_' + node_div_id);
 		desc_content = $('<p>').attr('id', 'desc_area_' + node_div_id).addClass('skill_desc_content');
 		desc_skill.append(desc_content);
@@ -334,6 +310,51 @@ function createNode(param){
 	}
 	hide_desc();
 }
+
+
+/*
+ * icon_selector_dialog: creates an icon selector dialog
+ * 
+ * when browsing the icons pages stay in the dialog; on choosing an icon, icon_div (and optional_icon_div)
+ * display the chosen image
+ */
+function icon_selector_dialog ( icon_div , optional_icon_div) {
+		var icon_handler = $("<div>").attr('id', "icon_handler");
+		console.log(icon_div);
+		//defining a function to display 
+		function load_desc_icon(url){
+			icon_handler.load(url);
+			icon_handler.click(function (event) {
+				event.preventDefault();
+				var is_clicked = $(event.target);
+				if ( is_clicked.is('a') ){
+					//if a link is clicked we load the new page in the div
+					load_desc_icon( is_clicked.attr('href') );
+				}
+				else if  (is_clicked.is('img')) {
+					//if an image is clicked, we change the icons
+					icon_div.attr('src', is_clicked.attr('src'));
+					if ( typeof optional_icon_div !== 'undefined' ) {
+						optional_icon_div.attr('src', is_clicked.attr('src'));
+					}
+				}
+			});
+		}
+		//click the icon to change it
+		icon_div.click(function(e) {
+			icon_handler.dialog({
+            open: function (){
+							load_desc_icon("/icons/");
+            },   
+            width: 400,
+            title: 'Choose a new icon'
+        });
+			});
+}
+
+
+
+
 
 
 /* hide_desc: hides the description boxes

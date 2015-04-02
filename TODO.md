@@ -1,7 +1,6 @@
 TODO
 
 
-- Add icon to the graph
 - Transfer dev database to prod
 - Rework the interface
 	- add a banyan tree skill
