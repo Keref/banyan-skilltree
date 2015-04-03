@@ -2,7 +2,7 @@
 
 <h1><%= image_tag(@node.icon, id: "tree_icon" )%> <%= @node.name %></h1>
 
-
+<%= label_tag(:_node_tags, "Tags:") %>
 <input type="text" value="<%= @node.tag_list %>" data-role="tagsinput" id="tree_tags" readonly="readonly" style="border-style:none;"/>
 <div id="graphContainer">
 </div>
@@ -12,9 +12,12 @@
 
 <div id="savestate"></div>
 <script>
-  jsPlumb.ready(init_jsplumb);
-  <%= render 'filltree', :node => @node, :edit => false %>
-  $("#tree_tags").prop('disabled', true);
+  jsPlumb.ready(function(){
+  
+		init_jsplumb();
+		<%= render 'filltree', :node => @node, :edit => false %>
+		$("#tree_tags").prop('disabled', true);
+	});
   
 </script>
 

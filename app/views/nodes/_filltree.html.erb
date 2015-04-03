@@ -34,16 +34,14 @@ end
 $("#graphContainer").height(<%= node.offsetTop %>);
 $("#graphContainer").width(<%= node.offsetLeft %>);
 
-
-function filltree(){
 <!-- detach all conections otherwise problems appear on browser back button//doesnot work
 jsPlumb.detachEveryConnection(); //>
-<%= raw jscript_code %>
+function filltree(){
+	<%= raw jscript_code %>
 };
 
-$( function (){
 jsPlumb.setSuspendDrawing(true);
-	filltree();
-	jsPlumb.setSuspendDrawing(false, true);
-});
+filltree();
+jsPlumb.setSuspendDrawing(false, true);
+
 

@@ -321,7 +321,6 @@ function createNode(param){
  */
 function icon_selector_dialog ( icon_div , optional_icon_div) {
 		var icon_handler = $("<div>").attr('id', "icon_handler");
-		console.log(icon_div);
 		//defining a function to display 
 		function load_desc_icon(url){
 			icon_handler.load(url);
@@ -355,9 +354,6 @@ function icon_selector_dialog ( icon_div , optional_icon_div) {
 
 
 
-
-
-
 /* hide_desc: hides the description boxes
  */
 function hide_desc(){
@@ -368,6 +364,7 @@ function hide_desc(){
 		$("#"+this.id).css({"display":"none"});
 	});
 }
+
 
 /*
  *  createLink: creates a link
@@ -382,9 +379,12 @@ function createLink(param){
 	if ( param["link_id"] != null){
 		linkid = param["link_id"];
 	}
-
+console.log(param["source_node"]);
+console.log(sourceEndpoint);
 	var e_source = jsPlumb.addEndpoint( param["source_node"], sourceEndpoint );
+	console.log("wtf");
 	var e_target = jsPlumb.addEndpoint( param["target_node"], targetEndpoint );
+	
 	var conn = jsPlumb.connect(	{
 			source: e_source,
 			target: e_target,
@@ -392,6 +392,8 @@ function createLink(param){
 			type: "basic"
 
 	}, sourceEndpoint	);
+	
+	console.log(conn);
 	
 	conn.setParameter("link_type", "default");
 	conn.setParameter("link_id", linkid);
@@ -463,7 +465,6 @@ function init_jsplumb() {
 										editable: true });
 			i++;    
 		});
-
 
 }
 

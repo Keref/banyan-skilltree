@@ -29,10 +29,14 @@
 
 <script>
 
+	
+  jsPlumb.ready(function(){
+  
+		init_jsplumb();
+		icon_selector_dialog($('#tree_icon'));
+		<%= render 'filltree', :node => @node, :edit => true %>
+  });
 
-  jsPlumb.ready(init_jsplumb);
-  <%= render 'filltree', :node => @node, :edit => true %>
-  icon_selector_dialog($('#tree_icon'));
 
 </script>
 

@@ -9,8 +9,6 @@ TODO list
 it expands faster than reduces...
 not sorted yet
 
-- check why pages need to be actualized for jsplumb to display links properly
-
 - Transfer dev database to prod
 
 - Rework the interface
