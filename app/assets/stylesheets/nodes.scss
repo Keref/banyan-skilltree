@@ -2,6 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+body {
+	#background-image:image_url("geo-background1.png") ;
+	background-attachment: fixed;
+
+}
+
 	#graphContainer {
 			-moz-user-select: none; 
 		-khtml-user-select: none; 
@@ -15,6 +21,8 @@
     overflow:auto;
     border-radius: 5px;
     padding-top: 10px;
+    background-color: #f9f9f9;
+    
 	}
 
 	.skill_node {
@@ -143,3 +151,10 @@ border:1px solid #d7dada; -webkit-border-radius: 3px; -moz-border-radius: 3px;bo
 //#overriding bootstrap for some reason
 .navbar {min-height:32px; }
 //.navbar-nav > li > a {padding-top:10px !important; padding-bottom:10px !important;}
+
+
+.row {
+	background-color: #ffffff;
+	border-radius: 10px;
+	padding: 20px;
+}

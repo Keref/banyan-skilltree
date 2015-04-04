@@ -33,7 +33,7 @@ class Node < ActiveRecord::Base
 		# we first create the node instances and keep track of them in an array
 		unless params["node"].blank? then
 			params["node"].each do |stateId, oneNode| 
-				if stateId =~ /new_state\d*/
+				if stateId =~ /new_state\d*/ || params["forcenew"] == "true"
 					n = Node.new(content: oneNode[:content]	, 
 													name: oneNode[:title]			, 
 											nodetype: oneNode[:nodetype]	, 

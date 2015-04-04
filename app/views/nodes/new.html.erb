@@ -1,4 +1,4 @@
-<h1>New Node</h1>
+<h1><%= image_tag(@node.icon, id: "tree_icon" )%>New Node</h1>
 <div id="flash_message"></div>
 
 <div class="row">
@@ -14,7 +14,7 @@
 
 <div id="graphContainer">
 </div>
-<button onclick="postNewGraph()">Save</button> 
+<button onclick="postGraph()">Save</button> 
 
 
 <%= link_to 'Back', nodes_path %>

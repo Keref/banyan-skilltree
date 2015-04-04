@@ -54,5 +54,5 @@ not sorted yet
 	- set tags non clickable with jquery when displaying a graph (and the categories)
 	- properly display tags on "show" page
 
-
+- icon problem on new skills
 

@@ -61,7 +61,7 @@ function displayTrace(arrayP ){
 /*
  * postNewGraph: sets the array of parameters and sends it back to the
  */
-function postNewGraph(){
+function postGraph(new_graph){
 	formParam = listContainer();
 	//TODO: make proper test error proof
 	var method = 'POST';
@@ -73,13 +73,18 @@ function postNewGraph(){
 	if (name != null) formParam["name"] = name.value;
 	var graphid = document.getElementById("graph_id");
 	var nl = "";
+	
+	//if the graph is saved as new, it means that we want to duplicate it, we "post" the graph to /nodes/ instead of "patch" to /nodes/id
+	if ( new_graph !== null && new_graph == "true" ){
+		method = "POST";
+		formParam["forcenew"] = true;
+	}
 	if (graphid != null){
 		formParam["graph_id"] = graphid.value;
 		method = "PATCH";
 		nl = graphid.value;
 	}
 	displayTrace(formParam);
-
 
 	$.ajax({type: method,
 					url: '/nodes/'+nl,
@@ -379,10 +384,8 @@ function createLink(param){
 	if ( param["link_id"] != null){
 		linkid = param["link_id"];
 	}
-console.log(param["source_node"]);
-console.log(sourceEndpoint);
+
 	var e_source = jsPlumb.addEndpoint( param["source_node"], sourceEndpoint );
-	console.log("wtf");
 	var e_target = jsPlumb.addEndpoint( param["target_node"], targetEndpoint );
 	
 	var conn = jsPlumb.connect(	{
@@ -392,8 +395,6 @@ console.log(sourceEndpoint);
 			type: "basic"
 
 	}, sourceEndpoint	);
-	
-	console.log(conn);
 	
 	conn.setParameter("link_type", "default");
 	conn.setParameter("link_id", linkid);

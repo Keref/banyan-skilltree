@@ -4,9 +4,13 @@
 
 <%= label_tag(:_node_tags, "Tags:") %>
 <input type="text" value="<%= @node.tag_list %>" data-role="tagsinput" id="tree_tags" readonly="readonly" style="border-style:none;"/>
+
+    <%= form_tag do  %>
+    <% end %>
+
 <div id="graphContainer">
 </div>
-
+<button onclick="postGraph('true')">Save as a new graph</button> 
 <%= link_to 'Back', nodes_path %>
 
 
