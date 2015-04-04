@@ -29,10 +29,10 @@
 
 <script>
 
-	
+	var default_icon = "<%= image_url('0-pignon-128.png', id: "default_icon" )%>";
   jsPlumb.ready(function(){
   
-		init_jsplumb();
+		init_jsplumb(default_icon);
 		icon_selector_dialog($('#tree_icon'));
 		<%= render 'filltree', :node => @node, :edit => true %>
   });

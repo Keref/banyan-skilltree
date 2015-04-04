@@ -1,3 +1,4 @@
+
 /*
  * listContainer: lists and returns the elements of the graph container (nodes and links)
  *
@@ -184,7 +185,7 @@ var dynamicAnchors = [ "Top", "Right", "Bottom", "Left"],
 function createNode(param){
 	
 	//displayTrace(param);
-	var icon_path = '/assets/icon-pignon-128.png';
+	var icon_path = "assets/default_icon.png";
 	if ( param["icon"] !== null ) icon_path = param["icon"];
 	//console.log(icon_path);
 	var node_div_id = param["node_div_name"];
@@ -196,8 +197,8 @@ function createNode(param){
 	var desc_skill = $('<div>').attr('id', "desc_" + node_div_id).addClass('skill_desc');
 	var	desc_top = $("<div>").attr('id','desc_area_titleline_'+node_div_id).addClass('skill_desc_top');
 	var desc_icon = $('<img>').attr('src', icon_path).attr('width','48').attr('height','48').addClass('skill_desc_icon');
-	desc_skill.append(desc_top);
-	desc_top.append(desc_icon);
+
+
 	var desc_content,	desc_title, desc_title_input;
 	
 	skill_node.append(skill_node_icon);
@@ -210,6 +211,9 @@ function createNode(param){
 	
 	//if editable, the desc_box is an textarea, else just a regular div
 	if  ( param["editable"] == true ){
+		desc_skill.append(desc_top);
+		desc_top.append(desc_icon);
+		
 		desc_title = $("<div>").addClass("skill_desc_title");
 		desc_title_input = $("<textarea>").attr('id', 'desc_area_title_' + node_div_id).attr('wrap','soft').attr("cols", "10").attr("rows","2").attr("type", "text").attr("maxlength", "26").val(name);
 		//desc_title.append("Skill name")
@@ -231,6 +235,7 @@ function createNode(param){
 		desc_content = $('<p>').attr('id', 'desc_area_' + node_div_id).addClass('skill_desc_content');
 		desc_skill.append(desc_content);
 		desc_content.append( decodeURI(param["content"]));
+		
 	}
 	desc_top.append(desc_title);
 
@@ -257,7 +262,7 @@ function createNode(param){
 		var l = s.offsetLeft + 80;
 		//TODO: we move the desc box next to the skill box (in cas it's been dragged)
 		//$("#desc_" + node_div_id).css({"visibility":"visible", "top": s.offsetTop+"px", "left": l+"px"});
-		$('#desc_area_' + node_div_id).jqte();
+		if (param["editable"] == true ) { $('#desc_area_' + node_div_id).jqte(); }
 		$("#desc_" + node_div_id).dialog({
 			title: desc_title.val(),
 			dialogClass: 'ui-alert',
@@ -404,7 +409,7 @@ function createLink(param){
 /*
  * init_jsplumb: called after the graph page has been created to initialize jsPlumb internals and bind events.
  */
-function init_jsplumb() {
+function init_jsplumb(default_icon) {
 	
 		//from jsplumb flowchart demo
 	   var jsPlumbInstance = jsPlumb.getInstance({
@@ -458,6 +463,7 @@ function init_jsplumb() {
 
 	  $('#graphContainer').dblclick(function(e) {
 			createNode({ name: "New Skill",
+										icon: default_icon,
 										node_div_name: "new_state" + i,
 										nodeid: null,
 										content: "",

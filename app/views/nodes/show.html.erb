@@ -3,7 +3,7 @@
 <h1><%= image_tag(@node.icon, id: "tree_icon" )%> <%= @node.name %></h1>
 
 <%= label_tag(:_node_tags, "Tags:") %>
-<input type="text" value="<%= @node.tag_list %>" data-role="tagsinput" id="tree_tags" readonly="readonly" style="border-style:none;"/>
+<input type="text" value="<%= @node.tag_list %>" data-role="tagsinput" id="tree_tags" readonly="readonly" style="border-width:0px;border:none;"/>
 
     <%= form_tag do  %>
     <% end %>
@@ -21,6 +21,7 @@
 		init_jsplumb();
 		<%= render 'filltree', :node => @node, :edit => false %>
 		$("#tree_tags").prop('disabled', true);
+		$(".bootstrap-tagsinput").css( { "border-width":"0px", "border":"none" });
 	});
   
 </script>

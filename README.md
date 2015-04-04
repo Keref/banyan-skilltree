@@ -50,9 +50,5 @@ not sorted yet
 - make trees private or public
 	- tree is private until published, once published he can't be private again but can still be modified (by who?)
 
-- tags
-	- set tags non clickable with jquery when displaying a graph (and the categories)
-	- properly display tags on "show" page
-
 - icon problem on new skills
 
