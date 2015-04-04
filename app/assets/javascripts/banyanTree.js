@@ -4,7 +4,7 @@
  *
  * return array( node%int: { textContent, offsetTop, offsetLeft }, link%int: { sourceNode, targetNode, linkType } )
  */
-function listContainer(){
+function listContainer(new_graph){
         //jsPlumb.setContainer($('#graphContainer'));
         var trace = document.getElementById('savestate');
         trace.innerHTML = "";
@@ -22,10 +22,16 @@ function listContainer(){
 				$('div').filter(function() {
 					return /^(new|load)_state\d+$/.test(this.id);
 				}).each(function() {
+					var idd = this.id;
+					//in case of duplicating graph, we strip names to change all load_state* to new_state*
+					if ( new_graph !== null && new_graph == "true" ){
+						idd = idd.replace('load_s', 'new_s');
+					}
+
 					var pos=$(this).position();
 					var icon_name = $('#icon_'+this.id).attr('src').replace(/.*\//g,'').replace(/-[0-9a-f]{12,50}.png$/, '.png');
 
-					treeSave["node"][this.id] = { title: encodeURI($("#desc_area_title_"+this.id).val()),
+					treeSave["node"][idd] = { title: encodeURI($("#desc_area_title_"+this.id).val()),
 																			content: encodeURI($("#desc_area_"+this.id).val()),
 																				 icon: icon_name,
 																		offsetTop: pos.top,
@@ -35,14 +41,26 @@ function listContainer(){
 
 
         var linkList = jsPlumb.getAllConnections();
-
+console.log(linkList);
         for (var m in linkList) {
 					//FUCKING BUG HERE WHERE PARENT IS NOT THE CLASS THE ENDPOINT IS CONNECTED TO
-								var source = linkList[m].sourceId.replace(/^connect_/,"");
-                treeSave["link"]["link"+m] = { sourceNode: source,
-                                               targetNode: linkList[m].targetId,
-                                               linkType: linkList[m].getParameter("link_type"),
-                                               link_id: linkList[m].getParameter("link_id") };
+					var source = linkList[m].sourceId.replace(/^connect_/,"");
+					var target = linkList[m].targetId;
+					//in case of duplicating graph, we strip names to change all load_state* to new_state*
+					if ( new_graph !== null && new_graph == "true" ) {
+						source = source.replace('load_s', 'new_s');
+						target = target.replace('load_s', 'new_s');
+					}
+
+					treeSave["link"]["link"+m] = { sourceNode: source,
+																				 targetNode: target,
+																				 linkType: linkList[m].getParameter("link_type"),
+																				 link_id: linkList[m].getParameter("link_id"),
+																				 };
+					if ( new_graph !== null && new_graph == "true" ) {
+						delete treeSave["link"]["link"+m].link_id ;
+					}
+																				 
         }
 
         return treeSave;
@@ -63,7 +81,7 @@ function displayTrace(arrayP ){
  * postNewGraph: sets the array of parameters and sends it back to the
  */
 function postGraph(new_graph){
-	formParam = listContainer();
+	formParam = listContainer(new_graph);
 	//TODO: make proper test error proof
 	var method = 'POST';
 	var authToken = document.getElementsByName("authenticity_token");
@@ -78,7 +96,7 @@ function postGraph(new_graph){
 	//if the graph is saved as new, it means that we want to duplicate it, we "post" the graph to /nodes/ instead of "patch" to /nodes/id
 	if ( new_graph !== null && new_graph == "true" ){
 		method = "POST";
-		formParam["forcenew"] = true;
+		formParam["name"] = $("#graph_h1_title").text();
 	}
 	if (graphid != null){
 		formParam["graph_id"] = graphid.value;
@@ -91,7 +109,6 @@ function postGraph(new_graph){
 					url: '/nodes/'+nl,
 					data: formParam,
 					dataType: 'json',
-
 					success:function(response){ 
             if (response.redirect) {
                 window.location.href = response.redirect;
@@ -105,11 +122,14 @@ function postGraph(new_graph){
             }
             jsPlumb.recalculateOffsets("graphContainer");
 					},
-					error: function (data, error){
+					error: function (data, errors, tt){
+						console.log(data);
+						console.log(errors);
+						console.log(tt);
 						$("#fMessages").removeClass();
 						$("#fMessages").addClass("alert alert-danger");
 						$("#fMessages").text("An error occurred while querying the server.");
-				}
+					}
     });
 }
 

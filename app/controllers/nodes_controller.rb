@@ -50,16 +50,18 @@ class NodesController < ApplicationController
   def create
 		graph = Node.new(user: current_user)
 		graph.createNodeTree(current_user, node_params)
-		if graph.save_tree
-			#flash[:success] = "New tree saved"
-			#redirect_to tree
-			#TODO: render error message, success or failure
-			redirect_to 'show'
-		else
-			#flash[:warning] = "An error happened on saving this new graph"
-			#render :new
-			render :json => { :success => false, :message => "An error occurred while saving this graph." }
-    end
+		#respond_to do |format|
+			if graph.save_tree
+				#flash[:success] = "New tree saved"
+				#redirect_to tree
+				#TODO: render error message, success or failure
+				render :json => { success: "true", message: "A new graph was created", redirect: "/nodes/#{graph.id}" }
+			else
+				#flash[:warning] = "An error happened on saving this new graph"
+				#render :new
+				render :json => { success: false, message: "An error occurred while saving this graph." }
+			end
+    #end
   end
 
   # PATCH/PUT /nodes/1
