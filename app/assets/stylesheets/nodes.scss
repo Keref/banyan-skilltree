@@ -25,6 +25,11 @@ body {
     
 	}
 
+#graphContainer > * {
+	vertical-align: middle;
+}
+
+
 	.skill_node {
 		position: absolute;
 border:1px solid #d7dada;
@@ -79,13 +84,19 @@ border:1px solid #d7dada; -webkit-border-radius: 3px; -moz-border-radius: 3px;bo
 	  padding-left: 4px;
 	  #padding-bottom: 0px;
 	  #cursor: move;
-	  line-height: normal;
+	  line-height: 38px;
 	  width: 80px;
 	  height: 38px;
 	  font-size: small;
 	  vertical-align: middle;
 	  margin-top: 0px;
 	}
+	
+	.skill_node_title_span {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;      
+}
 
 		
 	.skill_node_icon {

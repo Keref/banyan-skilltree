@@ -50,5 +50,3 @@ not sorted yet
 - make trees private or public
 	- tree is private until published, once published he can't be private again but can still be modified (by who?)
 
-- icon problem on new skills
-

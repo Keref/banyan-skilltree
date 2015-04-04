@@ -191,6 +191,8 @@ function createNode(param){
 	var node_div_id = param["node_div_name"];
 	var skill_node = $('<div>').attr('id', node_div_id).addClass('skill_node');
 	var skill_node_title = $('<div>').addClass('skill_node_title');
+	var skill_node_title_span = $('<span>').addClass('skill_node_title_span');
+	skill_node_title.append(skill_node_title_span);
 	//var skill_node_title_content = $('<p>');
 	var skill_node_icon = $('<img>').attr('id','icon_'+node_div_id).attr('src', icon_path).attr('width','40').attr('height','40').addClass('skill_node_icon');
 	var skill_node_connect = $('<div>').attr('id', "connect_" + node_div_id).addClass('skill_node_connect');
@@ -207,7 +209,7 @@ function createNode(param){
 	
 	var name = decodeURI(param["name"]);
 	desc_skill.attr("title",name);
-	skill_node_title.text(name);
+	skill_node_title_span.text(name);
 	
 	//if editable, the desc_box is an textarea, else just a regular div
 	if  ( param["editable"] == true ){
@@ -262,7 +264,7 @@ function createNode(param){
 		var l = s.offsetLeft + 80;
 		//TODO: we move the desc box next to the skill box (in cas it's been dragged)
 		//$("#desc_" + node_div_id).css({"visibility":"visible", "top": s.offsetTop+"px", "left": l+"px"});
-		if (param["editable"] == true ) { $('#desc_area_' + node_div_id).jqte(); }
+		if (param["editable"] === true ) { $('#desc_area_' + node_div_id).jqte(); }
 		$("#desc_" + node_div_id).dialog({
 			title: desc_title.val(),
 			dialogClass: 'ui-alert',
@@ -270,7 +272,7 @@ function createNode(param){
 			width: 600,
 			close: function(){
 				if ( param["editable"] === true ) {
-					skill_node_title.text(desc_title_input.val());
+					skill_node_title_span.text(desc_title_input.val());
 				}
 			}
 		}).enableSelection();
