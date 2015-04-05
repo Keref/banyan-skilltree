@@ -189,6 +189,31 @@ var dynamicAnchors = [ "Top", "Right", "Bottom", "Left"],
 
 
 
+/*
+ * createBadge: creates a badge with event handler
+ * 
+ * return: badge jquery object
+ */
+function createBadge ( params ){
+	max_value	= params["max_value"] || 1;
+	badge_name = params["name"] || "badge";
+	var badge = $("<span>").attr('id', badge_name).addClass("badge red");
+	badge.text(max_value);
+
+	if (params["editable"] == true ){
+		//event binding: right click is increasing max value by one, left click decreasing by one
+		badge.click( function (e) {
+			e.stopImmediatePropagation();
+			badge.text( parseInt(badge.text()) + 1 );
+		});
+		badge.bind("contextmenu",function(e){
+			parseInt(badge.text()) > 1 && badge.text( badge.text() - 1 );
+			return false;
+		}); 
+	}
+	return badge
+}
+
 
 
 
@@ -212,6 +237,8 @@ function createNode(param){
 	var skill_node = $('<div>').attr('id', node_div_id).addClass('skill_node');
 	var skill_node_title = $('<div>').addClass('skill_node_title');
 	var skill_node_title_span = $('<span>').addClass('skill_node_title_span');
+	var skill_node_badge = 
+	
 	skill_node_title.append(skill_node_title_span);
 	//var skill_node_title_content = $('<p>');
 	var skill_node_icon = $('<img>').attr('id','icon_'+node_div_id).attr('src', icon_path).attr('width','40').attr('height','40').addClass('skill_node_icon');
@@ -331,16 +358,21 @@ function createNode(param){
 			grid: [40, 40]
 		});
 
-		//suppress a node on dblclick it
-		skill_node.dblclick(function(e) {
+		//suppress a node by  left click it
+		skill_node.bind("contextmenu", function(e) {
 			jsPlumb.detachAllConnections($(this));
 			jsPlumb.removeAllEndpoints($(this));
 			$(this).remove();
 			desc_skill.remove();
 			e.stopImmediatePropagation();
+			return false;
 		});	
 		
 	}
+	
+	//we finally add the badge: being on top we define in the end to keep click event processing order
+	skill_node_title.append(createBadge({ name: 'badge_' + node_div_id, editable: param["editable"] }  ) );
+	
 	hide_desc();
 }
 

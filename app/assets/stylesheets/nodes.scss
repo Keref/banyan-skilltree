@@ -170,3 +170,48 @@ border:1px solid #d7dada; -webkit-border-radius: 3px; -moz-border-radius: 3px;bo
 	padding: 20px;
 }
 
+// Badges
+
+  .badge {
+    display: block;
+    position: absolute;
+    bottom: -8px;
+    right: -4px;
+    line-height: 16px;
+    height: 16px;
+    padding: 0 5px;
+    font-family: Arial, sans-serif;
+    color: white;
+    text-shadow: 0 1px rgba(black, .25);
+    border: 1px solid;
+    border-radius: 10px;
+    
+
+    & {
+      $color: #67c1ef;
+      background: $color;
+      border-color: darken($color, 12%);
+      
+    }
+
+    &.green {
+      $color: #77cc51;
+      background: $color;
+      border-color: darken($color, 12%);
+      
+    }
+
+    &.yellow {
+      $color: #faba3e;
+      background: $color;
+      border-color: darken($color, 12%);
+      
+    }
+
+    &.red {
+      $color: #fa623f;
+      background: $color;
+      border-color: darken($color, 2%);
+      
+    }
+  }
