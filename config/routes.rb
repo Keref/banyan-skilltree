@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :skills
+
   get 'password_resets/new'
 
   get 'password_resets/edit'
@@ -12,6 +14,7 @@ Rails.application.routes.draw do
   get 'contact' => 'static_pages#contact'
   get 'signup'  => 'users#new'
   get 'faq'	=> 'static_pages#faq'
+  get 'courses' => 'nodes#index', :status => 'published'
 
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
@@ -22,6 +25,7 @@ Rails.application.routes.draw do
   resources :password_resets,     only: [:new, :create, :edit, :update]
   resources :nodes
   resources :icons, 	only: [:index]
+  resources :skills
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

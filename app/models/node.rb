@@ -1,9 +1,10 @@
 class Node < ActiveRecord::Base
   belongs_to :user
   has_many :nodelinks #, :dependent => :destroy
+  has_many :skills
   validates :user_id, presence: true
   validates :name, presence: true, length: { maximum: 26 }
-  attr_accessor :link_hash, :node_hash, :update_key, :save_error
+  attr_accessor :link_hash, :node_hash, :update_key, :save_error, :user_level
   after_initialize :init_default_vars
   acts_as_taggable #to use tags; Alias for acts_as_taggable_on :tags
 
@@ -211,6 +212,23 @@ class Node < ActiveRecord::Base
 		@link_hash ||= {}
 		@link_hash["link_#{link.id}"] = link
   end
+  
+  
+  
+  #recovers the skill levels from the user skills
+	def recoverSkills(user)
+		skash = {}
+		user.skills.each do |skill|
+			skash [skill.node_id ]= skill.level
+		end
+		puts skash
+		
+		@node_hash.each do |k, n|
+			n.user_level = skash[n.id] || 0
+		end
+		puts @node_hash
+  end
+  
   
   private
 		

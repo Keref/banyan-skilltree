@@ -7,9 +7,13 @@ class NodesController < ApplicationController
   # GET /nodes.json
   def index
 		puts params
+		@display = "nodes"
 		if  params[:my] != nil
 			#displays only current user's graph
 			@nodes = Node.where(nodetype: "graph", user: current_user)
+		elsif params[:status] != nil
+			@nodes = Node.where(status: params[:status] )
+			@display = "courses"
 		elsif params[:tags] != nil
 			#we display the trees having the tags requested. In particular this is used to display categories
 			@nodes = Node.tagged_with(params[:tags], :match_all => true)
@@ -75,16 +79,21 @@ class NodesController < ApplicationController
 		if params[:status] == "release" then
 			graph.status = "released"
 			graph.save
+		elsif params[:status] == "publish" then
+			graph.status = "published"
+			graph.save
 		else
 			graph.updateTree(current_user, node_params )
 		end
 		
-		if graph.save_error == nil
-			render :json => { status: "success", message: "The graph was succesfully saved." }
-		else
-			render :json => { status: "danger", message: graph.save_error }
+		respond_to do |format|
+			if graph.save_error == nil
+				format.html {redirect_to nodes_url, notice: 'The tree has been successfully updated.' }
+				format.json { render :json=> { status: "success", message: "The graph was succesfully updated." } }
+			else
+				render :json => { status: "danger", message: graph.save_error }
+			end
 		end
-
     #respond_to do |format|
       #if @node.update(node_params)
       #  format.html { redirect_to @node, notice: 'Node was successfully updated.' }

@@ -1,11 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Skill trees</h1>
+<% if @display == "courses" %>
+	<h1>Courses</h1>
+	<%= render 'listcourses', :nodes => @nodes %>
+<% else %>
+	<h1>Skill trees</h1>
 
-<% if @search == true %>
-	<%= render 'search', :search_value => @search_value %>
-<% end %>
-<% if @nodes != nil %>
-	<%= render 'listnodes', :nodes => @nodes %>
+	<% if @search == true %>
+		<%= render 'search', :search_value => @search_value %>
+	<% end %>
+
+	<% if @nodes != nil %>
+		<%= render 'listnodes', :nodes => @nodes %>
+	<% end %>
 <% end %>
 

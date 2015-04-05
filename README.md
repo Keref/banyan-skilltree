@@ -48,5 +48,6 @@ not sorted yet
 	- forcing a refresh is the easy way but would not be nice for the user
 	
 - make trees private or public
-	- tree is private until published, once published he can't be private again but can still be modified (by who?)
+	- tree is private until released, then published, once published he can't be private again but can still be modified (by who?)
+	- publishing process: release, ask for comments, votes, then publish.
 

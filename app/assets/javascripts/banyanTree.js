@@ -23,16 +23,18 @@ function listContainer(new_graph){
 					return /^(new|load)_state\d+$/.test(this.id);
 				}).each(function() {
 					var idd = this.id;
+					var content = encodeURI($("#desc_area_"+this.id).val());
 					//in case of duplicating graph, we strip names to change all load_state* to new_state*
 					if ( new_graph !== null && new_graph == "true" ){
 						idd = idd.replace('load_s', 'new_s');
+						content = encodeURI($("#desc_area_"+this.id).html());
 					}
 
 					var pos=$(this).position();
 					var icon_name = $('#icon_'+this.id).attr('src').replace(/.*\//g,'').replace(/-[0-9a-f]{12,50}.png$/, '.png');
 
-					treeSave["node"][idd] = { title: encodeURI($("#desc_area_title_"+this.id).val()),
-																			content: encodeURI($("#desc_area_"+this.id).val()),
+					treeSave["node"][idd] = { title: encodeURI($("#skill_node_title_span_"+this.id).text()),
+																			content: content,
 																				 icon: icon_name,
 																		 maxlevel: $('#badge_' + this.id).text(),
 																		offsetTop: pos.top,
@@ -42,7 +44,7 @@ function listContainer(new_graph){
 
 
         var linkList = jsPlumb.getAllConnections();
-console.log(linkList);
+
         for (var m in linkList) {
 					//FUCKING BUG HERE WHERE PARENT IS NOT THE CLASS THE ENDPOINT IS CONNECTED TO
 					var source = linkList[m].sourceId.replace(/^connect_/,"");
@@ -208,7 +210,7 @@ function createBadge ( params ){
 			badge.text( parseInt(badge.text()) + 1 );
 		});
 		badge.bind("contextmenu",function(e){
-			parseInt(badge.text()) > 1 && badge.text( badge.text() - 1 );
+			parseInt(badge.text()) > 0 && badge.text( badge.text() - 1 );
 			return false;
 		}); 
 	}
@@ -237,7 +239,7 @@ function createNode(param){
 	var node_div_id = param["node_div_name"];
 	var skill_node = $('<div>').attr('id', node_div_id).addClass('skill_node');
 	var skill_node_title = $('<div>').addClass('skill_node_title');
-	var skill_node_title_span = $('<span>').addClass('skill_node_title_span');
+	var skill_node_title_span = $('<span>').addClass('skill_node_title_span').attr('id','skill_node_title_span_' + node_div_id);
 	var skill_node_badge = 
 	
 	skill_node_title.append(skill_node_title_span);
