@@ -37,6 +37,7 @@ class Node < ActiveRecord::Base
 													name: oneNode[:title]			, 
 											nodetype: oneNode[:nodetype]	, 
 													icon: oneNode[:icon],
+											maxlevel: oneNode[:maxlevel],
 													user: user		)
 					#we also create an include link in that case
 					#basically, this is what a graph is, a node including a tree of nodes
@@ -50,6 +51,7 @@ class Node < ActiveRecord::Base
 					n.name = oneNode[:title]
 					n.nodetype = oneNode[:nodetype]
 					n.icon = oneNode[:icon]
+					n.maxlevel = oneNode[:maxlevel]
 					print "#### self id: ", self.id, "targetnodeid: ", id, "\n"
 					l = Nodelink.where(:node_id => self.id, :targetnode_id => id).first
 					puts "------------ link_#{id}",l 
@@ -219,5 +221,6 @@ class Node < ActiveRecord::Base
 			self.update_key ||= "save"
 			self.icon ||= "icons/setting_tools.png"
 			self.status ||= 'private'
+			self.maxlevel ||= 1
 		end
 end

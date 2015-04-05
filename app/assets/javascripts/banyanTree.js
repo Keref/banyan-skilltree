@@ -34,6 +34,7 @@ function listContainer(new_graph){
 					treeSave["node"][idd] = { title: encodeURI($("#desc_area_title_"+this.id).val()),
 																			content: encodeURI($("#desc_area_"+this.id).val()),
 																				 icon: icon_name,
+																		 maxlevel: $('#badge_' + this.id).text(),
 																		offsetTop: pos.top,
 																		offsetLeft: pos.left};
 				});
@@ -195,10 +196,10 @@ var dynamicAnchors = [ "Top", "Right", "Bottom", "Left"],
  * return: badge jquery object
  */
 function createBadge ( params ){
-	max_value	= params["max_value"] || 1;
+	maxlevel	= params["maxlevel"] || 1;
 	badge_name = params["name"] || "badge";
 	var badge = $("<span>").attr('id', badge_name).addClass("badge red");
-	badge.text(max_value);
+	badge.text(maxlevel);
 
 	if (params["editable"] == true ){
 		//event binding: right click is increasing max value by one, left click decreasing by one
@@ -371,7 +372,7 @@ function createNode(param){
 	}
 	
 	//we finally add the badge: being on top we define in the end to keep click event processing order
-	skill_node_title.append(createBadge({ name: 'badge_' + node_div_id, editable: param["editable"] }  ) );
+	skill_node_title.append(createBadge({ name: 'badge_' + node_div_id, editable: param["editable"], maxlevel: param["maxlevel"] }  ) );
 	
 	hide_desc();
 }
