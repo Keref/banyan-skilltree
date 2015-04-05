@@ -358,7 +358,7 @@ function createNode(param){
 			grid: [40, 40]
 		});
 
-		//suppress a node by  left click it
+		//suppress a node by left clicking it
 		skill_node.bind("contextmenu", function(e) {
 			jsPlumb.detachAllConnections($(this));
 			jsPlumb.removeAllEndpoints($(this));
