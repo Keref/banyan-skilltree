@@ -240,5 +240,6 @@ class Node < ActiveRecord::Base
 			self.icon ||= "icons/setting_tools.png"
 			self.status ||= 'private'
 			self.maxlevel ||= 1
+			self.user_level ||= 0
 		end
 end

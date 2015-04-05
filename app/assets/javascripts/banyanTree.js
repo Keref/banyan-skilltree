@@ -198,12 +198,22 @@ var dynamicAnchors = [ "Top", "Right", "Bottom", "Left"],
  * return: badge jquery object
  */
 function createBadge ( params ){
+	console.log(params);
+	//if the badge is not editable, we can still click the badge to increase a level (learning)
 	maxlevel	= params["maxlevel"] || 1;
+	level = params["level"] || 0;
 	badge_name = params["name"] || "badge";
-	var badge = $("<span>").attr('id', badge_name).addClass("badge red");
-	badge.text(maxlevel);
+	var badge = $("<span>").attr('id', badge_name).addClass("badge blue");
+	
+	function modif_level(badge, op, maxlvl){
+		bt = badge.text().replace(/\/.*/,'');
+		if ( op == "plus" && bt < maxlvl ) bt = parseInt(bt) + 1;
+		if ( op == "minus" && bt > 0 ) bt = parseInt(bt) -1;
+		badge.text( bt+"/"+maxlvl);
+	}
 
 	if (params["editable"] == true ){
+		badge.text(maxlevel);
 		//event binding: right click is increasing max value by one, left click decreasing by one
 		badge.click( function (e) {
 			e.stopImmediatePropagation();
@@ -213,6 +223,17 @@ function createBadge ( params ){
 			parseInt(badge.text()) > 0 && badge.text( badge.text() - 1 );
 			return false;
 		}); 
+	}
+	else {
+		badge.text(level + '/' + maxlevel);
+		badge.click( function (e) {
+			e.stopImmediatePropagation();
+			modif_level(badge, "plus", maxlevel);
+		});
+		badge.bind("contextmenu", function(e){
+			modif_level(badge, "minus", maxlevel);
+			return false;
+		});
 	}
 	return badge
 }
@@ -227,8 +248,12 @@ function createBadge ( params ){
 					node_div_name: 'load_state65',
 					nodeid:'65',
 					content:'zis ma skillz',
+					icon: '/path/to/icon.png',
+					maxlevel: '1',
 					offsetTop:'330',
-					offsetLeft:'335' }
+					offsetLeft:'335',
+					editable: true,
+					learn: false }
  */
 function createNode(param){
 	
@@ -329,6 +354,20 @@ function createNode(param){
 	});	
 	
 	
+			
+	//makes the skill draggable, and prevent dragging from propagating
+	//draggable is allowed in non editable mode (for now)
+	jsPlumb.draggable(skill_node, {
+		containment: 'parent',
+		stop: function(event, ui) {
+			// event.toElement is the element that was responsible
+			// for triggering this event. The handle, in case of a draggable.
+			$( event.toElement ).one('click', function(e){ e.stopImmediatePropagation(); }) }
+		,
+		grid: [40, 40]
+		});
+	
+	
 	if  ( param["editable"] == true ){
 		jsPlumb.makeTarget(node_div_id, targetEndpoint);
 		
@@ -349,17 +388,6 @@ function createNode(param){
 				dragOptions: {},
 				overlays: [ [ "Arrow", { width:15, length:15, location:1 }	] ]
 			}, sourceEndpoint );
-		
-		//makes the skill draggable, and prevent dragging from propagating
-		jsPlumb.draggable(skill_node, {
-			containment: 'parent',
-			stop: function(event, ui) {
-				// event.toElement is the element that was responsible
-				// for triggering this event. The handle, in case of a draggable.
-				$( event.toElement ).one('click', function(e){ e.stopImmediatePropagation(); }) }
-			,
-			grid: [40, 40]
-		});
 
 		//suppress a node by left clicking it
 		skill_node.bind("contextmenu", function(e) {
@@ -372,9 +400,16 @@ function createNode(param){
 		});	
 		
 	}
+	else {
+		//non editable, preventing users from suppressing connections
+		//TODO: does not work
+		jsPlumb.selectEndpoints().each(function (e){
+				e.setVisible(false);
+		});
+	}
 	
 	//we finally add the badge: being on top we define in the end to keep click event processing order
-	skill_node_title.append(createBadge({ name: 'badge_' + node_div_id, editable: param["editable"], maxlevel: param["maxlevel"] }  ) );
+	skill_node_title.append(createBadge({ name: 'badge_' + node_div_id, editable: param["editable"], maxlevel: param["maxlevel"], level:param["level"] }  ) );
 	
 	hide_desc();
 }
@@ -466,7 +501,7 @@ function createLink(param){
 /*
  * init_jsplumb: called after the graph page has been created to initialize jsPlumb internals and bind events.
  */
-function init_jsplumb(default_icon) {
+function init_jsplumb(default_icon, editable) {
 	
 		//from jsplumb flowchart demo
 	   var jsPlumbInstance = jsPlumb.getInstance({
@@ -517,7 +552,7 @@ function init_jsplumb(default_icon) {
 	  var i = 0;
 
 
-
+		if (editable !== null && editable === true)
 	  $('#graphContainer').dblclick(function(e) {
 			createNode({ name: "New Skill",
 										icon: default_icon,

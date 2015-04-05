@@ -14,8 +14,9 @@ node.node_hash.each do |node_div_name, n|
 					maxlevel: \"#{n.maxlevel}\",
 					offsetTop: \"#{n.offsetTop.to_s}\",
 					offsetLeft: \"#{n.offsetLeft.to_s}\",
-					editable: #{edit} } );
-					"
+					editable: #{edit},
+					level: #{n.user_level} } );
+		"
 	end
 end
 #looping through links

@@ -22,7 +22,7 @@
   jsPlumb.ready(function(){
   
 		init_jsplumb();
-		<%= render 'filltree', :node => @node, :edit => false %>
+		<%= render 'filltree', :node => @node, :edit => false, :learn => true %>
 		$("#tree_tags").prop('disabled', true);
 		$(".bootstrap-tagsinput").css( { "border-width":"0px", "border":"none" });
 	});
