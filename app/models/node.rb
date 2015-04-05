@@ -8,7 +8,6 @@ class Node < ActiveRecord::Base
   acts_as_taggable #to use tags; Alias for acts_as_taggable_on :tags
 
 
-
 	# createNodeTree creates a whole tree from a standard tree
 	# param: { node: { node0: {...}, ...}, link: { link0: { ...}, ... } }
   def createNodeTree (user, params)
@@ -219,6 +218,6 @@ class Node < ActiveRecord::Base
 			self.content ||= " "
 			self.update_key ||= "save"
 			self.icon ||= "icons/setting_tools.png"
-			self.private ||= true
+			self.status ||= 'private'
 		end
 end

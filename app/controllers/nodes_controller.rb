@@ -68,16 +68,23 @@ class NodesController < ApplicationController
   # PATCH/PUT /nodes/1.json
   def update
 		graph = Node.find(params[:id])
-		if graph.user == current_user 
-			graph.updateTree(current_user, node_params )
-			if graph.save_error == nil
-				render :json => { status: "success", message: "The graph was succesfully saved." }
-			else
-				render :json => { status: "danger", message: graph.save_error }
-			end
-		else
+  	if graph.user != current_user
 			redirect_to 'show'
 		end
+		##TODO: check roles
+		if params[:status] == "release" then
+			graph.status = "released"
+			graph.save
+		else
+			graph.updateTree(current_user, node_params )
+		end
+		
+		if graph.save_error == nil
+			render :json => { status: "success", message: "The graph was succesfully saved." }
+		else
+			render :json => { status: "danger", message: graph.save_error }
+		end
+
     #respond_to do |format|
       #if @node.update(node_params)
       #  format.html { redirect_to @node, notice: 'Node was successfully updated.' }
