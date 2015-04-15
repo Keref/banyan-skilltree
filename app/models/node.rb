@@ -53,9 +53,9 @@ class Node < ActiveRecord::Base
 					n.nodetype = oneNode[:nodetype]
 					n.icon = oneNode[:icon]
 					n.maxlevel = oneNode[:maxlevel]
-					print "#### self id: ", self.id, "targetnodeid: ", id, "\n"
+					#print "#### self id: ", self.id, "targetnodeid: ", id, "\n"
 					l = Nodelink.where(:node_id => self.id, :targetnode_id => id).first
-					puts "------------ link_#{id}",l 
+					#puts "------------ link_#{id}",l 
 					@link_hash["link_#{l.id}"] = l
 				end
 				
@@ -219,7 +219,7 @@ class Node < ActiveRecord::Base
 	def recoverSkills(user)
 		skash = {}
 		user.skills.each do |skill|
-			skash [skill.node_id ]= skill.level
+			skash [skill.node_id ]= skill.lvl
 		end
 		puts skash
 		

@@ -5,10 +5,9 @@ class Skill < ActiveRecord::Base
   validates :node, presence: true
   after_initialize :init_default_vars
   
-  
    private
 		
 		def init_default_vars
-			self.level ||= 1
+			self.lvl ||= 0
 		end
 end

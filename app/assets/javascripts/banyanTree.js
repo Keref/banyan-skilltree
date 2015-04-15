@@ -4,7 +4,7 @@
  *
  * return array( node%int: { textContent, offsetTop, offsetLeft }, link%int: { sourceNode, targetNode, linkType } )
  */
-function listContainer(new_graph){
+function listContainer(is_new_graph){
         //jsPlumb.setContainer($('#graphContainer'));
         var trace = document.getElementById('savestate');
         trace.innerHTML = "";
@@ -25,7 +25,7 @@ function listContainer(new_graph){
 					var idd = this.id;
 					var content = encodeURI($("#desc_area_"+this.id).val());
 					//in case of duplicating graph, we strip names to change all load_state* to new_state*
-					if ( new_graph !== null && new_graph == "true" ){
+					if ( is_new_graph !== null && is_new_graph == "true" ){
 						idd = idd.replace('load_s', 'new_s');
 						content = encodeURI($("#desc_area_"+this.id).html());
 					}
@@ -50,7 +50,7 @@ function listContainer(new_graph){
 					var source = linkList[m].sourceId.replace(/^connect_/,"");
 					var target = linkList[m].targetId;
 					//in case of duplicating graph, we strip names to change all load_state* to new_state*
-					if ( new_graph !== null && new_graph == "true" ) {
+					if ( is_new_graph !== null && is_new_graph == "true" ) {
 						source = source.replace('load_s', 'new_s');
 						target = target.replace('load_s', 'new_s');
 					}
@@ -60,7 +60,7 @@ function listContainer(new_graph){
 																				 linkType: linkList[m].getParameter("link_type"),
 																				 link_id: linkList[m].getParameter("link_id"),
 																				 };
-					if ( new_graph !== null && new_graph == "true" ) {
+					if ( is_new_graph !== null && is_new_graph == "true" ) {
 						delete treeSave["link"]["link"+m].link_id ;
 					}
 																				 
@@ -83,8 +83,8 @@ function displayTrace(arrayP ){
 /*
  * postNewGraph: sets the array of parameters and sends it back to the
  */
-function postGraph(new_graph){
-	formParam = listContainer(new_graph);
+function postGraph(is_new_graph){
+	formParam = listContainer(is_new_graph);
 	//TODO: make proper test error proof
 	var method = 'POST';
 	var authToken = document.getElementsByName("authenticity_token");
@@ -97,7 +97,7 @@ function postGraph(new_graph){
 	var nl = "";
 	
 	//if the graph is saved as new, it means that we want to duplicate it, we "post" the graph to /nodes/ instead of "patch" to /nodes/id
-	if ( new_graph !== null && new_graph == "true" ){
+	if ( is_new_graph !== null && is_new_graph == "true" ){
 		method = "POST";
 		formParam["name"] = $("#graph_h1_title").text();
 	}
@@ -134,6 +134,46 @@ function postGraph(new_graph){
 						$("#fMessages").text("An error occurred while querying the server.");
 					}
     });
+}
+
+/*
+ * function postProgress: send the progress stats of the tree
+ */
+function postProgress(){
+	var postData = {};
+	postData["level"] = {};
+	$('.badge').each( function (i){
+		var level = $(this).text().replace(/\/.*/, '');
+		var id = $(this).attr('id').replace(/.*state/,'');
+		postData["level"][id] = level;
+	});
+	var graphid = $("#graph_id").attr('value');
+	$.ajax({type: 'PATCH',
+				url: '/skills/'+graphid,
+				data: postData,
+				dataType: 'json',
+				success:function(response){ 
+					if (response.redirect) {
+							window.location.href = response.redirect;
+					}
+					else {
+						displayTrace(response);
+
+						$("#fMessages").removeClass();
+						$("#fMessages").addClass("alert alert-"+response.status);
+						$("#fMessages").text(response.message);
+					}
+				},
+				error: function (data, errors, tt){
+					console.log(data);
+					console.log(errors);
+					console.log(tt);
+					$("#fMessages").removeClass();
+					$("#fMessages").addClass("alert alert-danger");
+					$("#fMessages").text("An error occurred while querying the server.");
+				}
+	});
+
 }
 
 
@@ -198,11 +238,10 @@ var dynamicAnchors = [ "Top", "Right", "Bottom", "Left"],
  * return: badge jquery object
  */
 function createBadge ( params ){
-	console.log(params);
 	//if the badge is not editable, we can still click the badge to increase a level (learning)
-	maxlevel	= params["maxlevel"] || 1;
-	level = params["level"] || 0;
-	badge_name = params["name"] || "badge";
+	var maxlevel	= params["maxlevel"] || 1;
+	var level = params["level"] || 0;
+	var badge_name = params["name"] || "badge";
 	var badge = $("<span>").attr('id', badge_name).addClass("badge blue");
 	
 	function modif_level(badge, op, maxlvl){

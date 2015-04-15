@@ -34,7 +34,7 @@ class SkillsController < ApplicationController
 		
     respond_to do |format|
       if @skill.save
-        format.html { redirect_to @skill.node, notice: 'Skill was successfully created.' }
+        format.html { redirect_to :controller => 'skills', :action => 'show', :id => @skill.node, :notice => 'Skill was successfully created.' }
         format.json { render :show, status: :created, location: @skill }
       else
         format.html { render :new }
@@ -46,13 +46,25 @@ class SkillsController < ApplicationController
   # PATCH/PUT /skills/1
   # PATCH/PUT /skills/1.json
   def update
+		t_status = 0
+		begin
+			Skill.transaction do
+				params["level"].each do |skill_id, level|
+					s = Skill.where(node_id: skill_id, user_id: current_user.id).first_or_create
+					s.lvl = level.to_f
+					s.save!
+				end
+			end
+		rescue  => exception
+			t_status = exception
+			puts exception
+		end
+		
     respond_to do |format|
-      if @skill.update(skill_params)
-        format.html { redirect_to @skill, notice: 'Skill was successfully updated.' }
-        format.json { render :show, status: :ok, location: @skill }
+      if t_status == 0
+        format.json { render json: {notice: "Current level updated"}, status: "ok" }
       else
-        format.html { render :edit }
-        format.json { render json: @skill.errors, status: :unprocessable_entity }
+        format.json { render json: t_status, status: :unprocessable_entity }
       end
     end
   end
