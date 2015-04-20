@@ -76,7 +76,7 @@ class User < ActiveRecord::Base
   
   #returns true if the user has the skill
   def has_skill?(skill)
-		self.skills.where(node: skill).empty?
+		!self.skills.where(node: skill).empty?
   end
   
   def forem_name
