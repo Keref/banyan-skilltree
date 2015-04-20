@@ -3,10 +3,20 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 body {
-	#background-image:image_url("geo-background1.png") ;
+	background-image:image_url("geo-background1.png") ;
 	background-attachment: fixed;
 
 }
+
+.nowrap {
+    overflow: hidden;
+    white-space: nowrap;
+    }
+.container {
+	background-color: #dddddd;
+	border-radius: 10px;
+}
+
 
 	#graphContainer {
 			-moz-user-select: none; 

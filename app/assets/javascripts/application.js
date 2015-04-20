@@ -16,4 +16,7 @@
 //= require jquery-te-1.4.0.min
 //= require bootstrap
 //= require bootstrap-tagsinput
+//= require forem
+//= require jquery.raty
+//= require ratyrate
 //= require_tree .

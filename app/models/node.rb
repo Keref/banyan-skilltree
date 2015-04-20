@@ -7,6 +7,7 @@ class Node < ActiveRecord::Base
   attr_accessor :link_hash, :node_hash, :update_key, :save_error, :user_level
   after_initialize :init_default_vars
   acts_as_taggable #to use tags; Alias for acts_as_taggable_on :tags
+	ratyrate_rateable "score"
 
 
 	# createNodeTree creates a whole tree from a standard tree

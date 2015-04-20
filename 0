@@ -1,2 +1,0 @@
-      invoke  active_record
-      create    db/migrate/20150505000004_change_skill_default.rb

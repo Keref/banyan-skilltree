@@ -10,8 +10,13 @@ gem 'bootstrap-sass',          '3.2.0.0'
 gem 'uglifier',                '2.5.3'
 gem 'jquery-rails',            '4.0.3'
 gem 'jbuilder',                '2.2.3'
+gem 'coffee-rails', '4.1.0'
+gem 'simple_form'
 gem 'sdoc',                    '0.4.0', group: :doc
 gem 'acts-as-taggable-on',     '~> 3.4'
+gem 'forem', :github => "radar/forem", :branch => "rails4"
+gem 'forem-bootstrap', github: "radar/forem-bootstrap"
+gem 'ratyrate', :github => 'wazery/ratyrate', :branch => 'master'
 
 
 group :test do

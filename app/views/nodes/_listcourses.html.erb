@@ -4,6 +4,7 @@
   <thead>
     <tr>
 			<th> </th>
+			<th> </th>
       <th>Name</th>
       <th>Tags</th>
       <th>Content</th>
@@ -16,6 +17,7 @@
     <% nodes.each do |node| %>
 
 				<tr>
+					<td><%= rating_for node, "score", :cancel => false, :disable_after_rate => false, :readonly => true %></td>
 					<td><%= image_tag(node.icon, width: 16, height: 16) %></td>
 					<td><%= node.name %></td>
 					<td><%= node.tag_list %></td>

@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }
   has_secure_password
   validates :password, length: { minimum: 6 }, allow_blank: true
+  ratyrate_rater
 
   # Returns the hash digest of the given string.
   def User.digest(string)
@@ -77,6 +78,14 @@ class User < ActiveRecord::Base
   def has_skill?(skill)
 		self.skills.where(node: skill).empty?
   end
+  
+  def forem_name
+		name
+	end
+
+	def forem_email
+		email
+	end
 
   private
 

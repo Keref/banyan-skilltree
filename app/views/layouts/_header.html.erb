@@ -9,50 +9,51 @@
 			<ul class="nav navbar-nav navbar-right">
 			
 			
-        <li><%= link_to "Home",   root_path %></li>
-        <li><%= link_to "Help",   help_path %></li>
+        <li><%= link_to "Home",   main_app.root_path %></li>
+        <li><%= link_to "Help",   main_app.help_path %></li>
+        <li><%= link_to "Discussion",   forem.root_url %></li>
         <% if logged_in? %>
 					<li class='dropdown'>
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-fire"></span> Learn <b class="caret"></b></a>
             <ul class="dropdown-menu">
-							<li><%= link_to "Browse courses", courses_path %></li>
-							<li><%= link_to "My courses", skills_path %></li>
+							<li><%= link_to "Browse courses", main_app.courses_path %></li>
+							<li><%= link_to "My courses", main_app.skills_path %></li>
             </ul>
 					</li>
 					<li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-tree-deciduous"></span> Trees <b class="caret"></b></a>
             <ul class="dropdown-menu">
-							<li><%= link_to "Browse all", nodes_path %></li>
-							<li><%= link_to "Search", nodes_path( :q => "")  %></li>
-							<li><%= link_to "My Trees", nodes_path(:my => "true") %></li>
+							<li><%= link_to "Browse all", main_app.nodes_path %></li>
+							<li><%= link_to "Search", main_app.nodes_path( :q => "")  %></li>
+							<li><%= link_to "My Trees", main_app.nodes_path(:my => "true") %></li>
 							<li class="divider"></li>
-							<li><%= link_to "Create a new tree", new_node_path %></li>
+							<li><%= link_to "Create a new tree", main_app.new_node_path %></li>
 						</ul>
 					</li>
-          <li><%= link_to "Users", users_path %></li>
+          <li><%= link_to "Users", main_app.users_path %></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
 							<span class="glyphicon glyphicon-cog"></span> <%= current_user.name %> <b class="caret"></b></a>
             <ul class="dropdown-menu">
-              <li><%= link_to current_user do %>
+              <li><%= link_to main_app.users_path(current_user) do %>
 								<span class="glyphicon glyphicon-user"></span> Profile
               <% end %></li>
-							<li><%= link_to edit_user_path(current_user) do %>
+							<li><%= link_to main_app.edit_user_path(current_user) do %>
 									<span class="glyphicon glyphicon-cog"></span> Settings
 									<% end %>
 							</li>
               <li class="divider"></li>
               <li>
-                <%= link_to logout_path, method: "delete" do %>
+                <%= link_to main_app.logout_path, method: "delete" do %>
                 <span class="glyphicon glyphicon-log-out"></span> Log out
 									<% end %>
               </li>
             </ul>
           </li>
         <% else %>
-					<li><%= link_to "Trees", nodes_path %></li>
-          <li><%= link_to "Log in", login_path %></li>
-          <li><%= link_to "Sign up", signup_path %></li>
+					<li><%= link_to "Trees", main_app.nodes_path %></li>
+          <li><%= link_to "Log in", main_app.login_path %></li>
+          <li><%= link_to "Sign up", main_app.signup_path %></li>
         <% end %>
       </ul>
     </nav>

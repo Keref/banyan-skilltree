@@ -13,3 +13,5 @@ Rails.application.config.assets.version = '1.0'
 #Rails.application.config.assets.precompile += %w( jquery-ui.min.js )
 #Rails.application.config.assets.precompile += %w( jquery.jsPlumb.js )
 #Rails.application.config.assets.precompile += %w( banyanTree.js )
+Rails.application.config.assets.precompile += %w( forem.css )
+Rails.application.config.assets.precompile += %w( forem.js )
