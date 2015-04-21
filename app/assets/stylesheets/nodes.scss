@@ -17,9 +17,20 @@ body {
 	border-radius: 10px;
 }
 
+.tree_icon {
+	#border: 1px solid black;
+	height: 100%;
+	display:table-cell; vertical-align:middle; text-align:center;
+	padding: 0 0 0 0;
+}
+#tree_icon {
+		max-width: 100%;
+		padding: 0 0 0 0;
+}
+
 
 	#graphContainer {
-			-moz-user-select: none; 
+		-moz-user-select: none; 
 		-khtml-user-select: none; 
 		-webkit-user-select: none; 
 		-o-user-select: none; 

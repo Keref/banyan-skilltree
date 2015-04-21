@@ -71,10 +71,12 @@ class SkillsController < ApplicationController
 
   # DELETE /skills/1
   # DELETE /skills/1.json
+  # TODO: destroy subskills?
   def destroy
+		@skill = Skill.find(params[:id])
     @skill.destroy
     respond_to do |format|
-      format.html { redirect_to skills_url, notice: 'Skill was successfully destroyed.' }
+      format.html { redirect_to skills_url, notice: 'You successfully unenrolled from this skill tree.' }
       format.json { head :no_content }
     end
   end

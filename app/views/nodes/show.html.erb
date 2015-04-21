@@ -1,15 +1,23 @@
 <% provide(:title, @node.name) %>
 
-<h1 class='nowrap'><%= image_tag(@node.icon, id: "tree_icon" )%> <div id='graph_h1_title'><%= @node.name %></div></h1>
-<% if @node.user == current_user %>
-	<% readonly = 'true' %>
-<% end %>
+<div id='graph_title' style='display: hidden' value='<%= @node.name %>' ></div>
 
-<%= label_tag(:_node_tags, "Rating:") %>
-<%= rating_for @node, "score", :cancel => false, :disable_after_rate => false, :readonly => readonly %>
+<div class="row">
+	<div class="col-md-3 tree_icon"><%= image_tag(@node.icon, id: "tree_icon" )%>
+	</div>
+	<div class="col-md-9">
+		<h1 class='nowrap'><%= @node.name %></h1>
+		<% if @node.user == current_user %>
+			<% readonly = 'true' %>
+		<% end %>
 
-<%= label_tag(:_node_tags, "Tags:") %>
-<input type="text" value="<%= @node.tag_list %>" data-role="tagsinput" id="tree_tags" readonly="readonly" style="border-width:0px;border:none;"/>
+		<table><tr><td><%= label_tag(:rating, "Rating:") %></td><td style="vertical-align:middle">
+		<%= rating_for @node, "score", :cancel => false, :disable_after_rate => false, :readonly => readonly %></td></tr></table>
+
+		<%= label_tag(:_node_tags, "Tags:") %>
+		<input type="text" value="<%= @node.tag_list %>" data-role="tagsinput" id="tree_tags" readonly="readonly" style="border-width:0px;border:none;"/>
+	</div>
+</div>
 
     <%= form_tag do  %>
     <% end %>

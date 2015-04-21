@@ -2,10 +2,11 @@
 <div id="fMessages"></div>
 
 
-<h1><%= image_tag(@node.icon, id: "tree_icon" )%> <%= @node.name %></h1>
 
 <div class="row">
-  <div class="col-md-8">
+	<div class="col-md-3 tree_icon"><%= image_tag(@node.icon, id: "tree_icon" )%></div>
+  <div class="col-md-9">
+		<h1 class='nowrap'><%= @node.name %></h1>
     <%= form_tag do  %>
     <%= label_tag(:_node_name, "Name:") %>
 		<%= text_field_tag(:node_name, @node.name) %>

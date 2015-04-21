@@ -17,6 +17,7 @@ gem 'acts-as-taggable-on',     '~> 3.4'
 gem 'forem', :github => "radar/forem", :branch => "rails4"
 gem 'forem-bootstrap', github: "radar/forem-bootstrap"
 gem 'ratyrate', :github => 'wazery/ratyrate', :branch => 'master'
+gem "carrierwave"
 
 
 group :test do

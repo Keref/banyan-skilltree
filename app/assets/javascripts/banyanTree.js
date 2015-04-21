@@ -99,7 +99,7 @@ function postGraph(is_new_graph){
 	//if the graph is saved as new, it means that we want to duplicate it, we "post" the graph to /nodes/ instead of "patch" to /nodes/id
 	if ( is_new_graph !== null && is_new_graph == "true" ){
 		method = "POST";
-		formParam["name"] = $("#graph_h1_title").text();
+		formParam["name"] = $("#graph_h1_title").attr("value");
 	}
 	if (graphid != null){
 		formParam["graph_id"] = graphid.value;
@@ -461,12 +461,18 @@ function createNode(param){
  * display the chosen image
  */
 function icon_selector_dialog ( icon_div , optional_icon_div) {
+	/*	var upload_icon = $("<div>").attr('id', 'upload_icon');
+		upload_icon.append('Upload a new file (max XX kB): <input type="file" />');
+		var icon_list = $("<div>").attr('id', "icon_list");
+		*/
 		var icon_handler = $("<div>").attr('id', "icon_handler");
+		
 		//defining a function to display 
 		function load_desc_icon(url){
 			icon_handler.load(url);
 			icon_handler.click(function (event) {
-				event.preventDefault();
+				console.log('click icon handler');
+				//event.preventDefault();
 				var is_clicked = $(event.target);
 				if ( is_clicked.is('a') ){
 					//if a link is clicked we load the new page in the div
