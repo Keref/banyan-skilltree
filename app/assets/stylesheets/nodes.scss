@@ -28,6 +28,17 @@ body {
 		padding: 0 0 0 0;
 }
 
+.course_list {
+	display: inline-block;
+}
+
+.course_div {
+	display: inline-block;
+	background-color: #ffffff;
+	margin: 10px 10px 10px 10px;
+	font-size: 1.2em;
+	border-radius: 2px;
+}
 
 	#graphContainer {
 		-moz-user-select: none; 

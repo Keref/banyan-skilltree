@@ -1,0 +1,12 @@
+
+  <div class="course_list">
+    <% nodes.each do |node| %>
+
+			<div class="course_div">
+				
+				<%= image_tag(node.icon, width: 240, height: 120) %><br>
+				<%= link_to node.name, skill_path(node.id) %><br>
+				<%= rating_for node, "score", :cancel => false, :disable_after_rate => false, :readonly => true %></td>
+			</div>
+    <% end %>
+  </div>
