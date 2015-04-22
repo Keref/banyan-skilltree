@@ -13,10 +13,10 @@ class IconsController < ApplicationController
 	def create
 		uploaded_io = params[:picture]
 		if uploaded_io != nil then
-			File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'wb') do |file|
+			File.open(Rails.root.join('public', 'images', uploaded_io.original_filename), 'wb') do |file|
 				file.write(uploaded_io.read)
 			end
-			image = 'uploads/'+ uploaded_io.original_filename
+			image = 'images/'+ uploaded_io.original_filename
 			puts image
 			render :json => { success: "true", message: ActionController::Base.helpers.image_tag(ActionController::Base.helpers.asset_path (image), width: "32", height: "32" ) }
 		else
