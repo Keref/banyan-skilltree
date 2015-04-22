@@ -17,9 +17,9 @@ class IconsController < ApplicationController
 			File.open(Rails.root.join('public', 'images', uploaded_io.original_filename), 'wb') do |file|
 				file.write(uploaded_io.read)
 			end
-			image = 'images/'+ uploaded_io.original_filename
+			image = ActionController::Base.helpers.asset_path('images/'+ uploaded_io.original_filename)
 			puts image
-			render :json => { success: "true", message: ActionController::Base.helpers.image_tag(ActionController::Base.helpers.asset_path (image), width: "32", height: "32" ) }
+			render :json => { success: "true", message: image }
 		else
 			render :nothing => true
 		end

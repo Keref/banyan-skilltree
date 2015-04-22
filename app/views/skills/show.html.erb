@@ -1,25 +1,8 @@
-<% provide(:title, @node.name) %>
+<%= render "nodes/show" %>
 
-<h1><%= image_tag(@node.icon, id: "tree_icon" )%> <div id='graph_h1_title'><%= @node.name %></div></h1>
-<%= hidden_field(:graph, "id", {:value => @node.id}) %>
-<%= label_tag(:_node_tags, "Tags:") %>
-<input type="text" value="<%= @node.tag_list %>" data-role="tagsinput" id="tree_tags" readonly="readonly" style="border-width:0px;border:none;"/>
 
 <button onclick="postProgress()">Save Progress</button> 
 <div id="graphContainer">
 </div>
 
 <%= link_to 'Back', nodes_path %>
-
-<script>
-  jsPlumb.ready(function(){
-  
-		init_jsplumb();
-		<%= render 'nodes/filltree', :node => @node, :edit => false, :learn => true %>
-		$("#tree_tags").prop('disabled', true);
-		$(".bootstrap-tagsinput").css( { "border-width":"0px", "border":"none" });
-	});
-  
- 
-</script>
-

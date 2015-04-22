@@ -1,26 +1,4 @@
-<% provide(:title, @node.name) %>
-
-<div id='graph_title' style='display: hidden' value='<%= @node.name %>' ></div>
-
-<div class="row">
-	<div class="col-md-3 tree_icon"><%= image_tag(@node.icon, id: "tree_icon" )%>
-	</div>
-	<div class="col-md-9">
-		<h1 class='nowrap'><%= @node.name %></h1>
-		<% if @node.user == current_user %>
-			<% readonly = 'true' %>
-		<% end %>
-
-		<table><tr><td><%= label_tag(:rating, "Rating:") %></td><td style="vertical-align:middle">
-		<%= rating_for @node, "score", :cancel => false, :disable_after_rate => false, :readonly => readonly %></td></tr></table>
-
-		<%= label_tag(:_node_tags, "Tags:") %>
-		<input type="text" value="<%= @node.tag_list %>" data-role="tagsinput" id="tree_tags" readonly="readonly" style="border-width:0px;border:none;"/>
-	</div>
-</div>
-
-    <%= form_tag do  %>
-    <% end %>
+<%= render "show" %>
 
 <div id="graphContainer">
 </div>
@@ -32,14 +10,3 @@
 
 
 <div id="savestate"></div>
-<script>
-  jsPlumb.ready(function(){
-  
-		init_jsplumb();
-		<%= render 'filltree', :node => @node, :edit => false, :learn => true %>
-		$("#tree_tags").prop('disabled', true);
-		$(".bootstrap-tagsinput").css( { "border-width":"0px", "border":"none" });
-	});
-  
-</script>
-

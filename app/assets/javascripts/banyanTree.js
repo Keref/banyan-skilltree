@@ -309,7 +309,7 @@ function createNode(param){
 	
 	skill_node_title.append(skill_node_title_span);
 	//var skill_node_title_content = $('<p>');
-	var skill_node_icon = $('<img>').attr('id','icon_'+node_div_id).attr('src', icon_path).attr('srcref', icon_path).attr('width','40').attr('height','40').addClass('skill_node_icon');
+	var skill_node_icon = $('<img>').attr('id','icon_'+node_div_id).attr('src', icon_path).attr('width','40').attr('height','40').addClass('skill_node_icon');
 	var skill_node_connect = $('<div>').attr('id', "connect_" + node_div_id).addClass('skill_node_connect');
 	var desc_skill = $('<div>').attr('id', "desc_" + node_div_id).addClass('skill_desc');
 	var	desc_top = $("<div>").attr('id','desc_area_titleline_'+node_div_id).addClass('skill_desc_top');

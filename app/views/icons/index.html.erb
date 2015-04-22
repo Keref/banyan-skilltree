@@ -30,7 +30,8 @@ $(document).ready(function(){
             if(typeof data.error === 'undefined')
             {
                 // Success so call function to process the form
-                $("#upload_picture_form").html(data.message);
+                console.log(data.message);
+                $("#upload_picture_form").html($("<img>").attr('src',data.message).attr('width',48).attr('height',48));
             }
             else
             {
