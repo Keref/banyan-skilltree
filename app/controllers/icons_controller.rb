@@ -10,6 +10,7 @@ class IconsController < ApplicationController
   end
 
 
+
 	def create
 		uploaded_io = params[:picture]
 		if uploaded_io != nil then
