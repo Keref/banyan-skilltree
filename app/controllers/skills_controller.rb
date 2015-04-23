@@ -4,7 +4,7 @@ class SkillsController < ApplicationController
   # GET /skills
   # GET /skills.json
   def index
-    @skills = Skill.where(user: current_user)
+    @skills = Node.joins(:skills).where(user: current_user, nodetype: "graph")
   end
 
   # GET /skills/1
