@@ -545,6 +545,23 @@ function createLink(param){
 }
 
 /*
+ * resize_container: changes the size of the graphContainer
+ * 
+ * direction: "height" or "width"
+ * amount: +/- XX  (e.g "+50", -"50", ...)
+ */
+function resize_container(direction, amount){
+	var con = $("#graphContainer");
+	if ( direction == "width" ) {
+		con.width(con.width() + amount );
+	}
+	else {
+		con.height(con.height() + amount );
+	}
+}
+
+
+/*
  * init_jsplumb: called after the graph page has been created to initialize jsPlumb internals and bind events.
  */
 function init_jsplumb(default_icon, editable) {
@@ -593,14 +610,11 @@ function init_jsplumb(default_icon, editable) {
     
     jsPlumbInstance.registerConnectionType("basic", myConnType); 
 
-	
 		//to ensure new elements unique name
 	  var i = 0;
-
-
 		if (editable !== null && editable === true)
 	  $('#graphContainer').dblclick(function(e) {
-			createNode({ name: "New Skill",
+			createNode({ name: "New Skill "+i,
 										icon: default_icon,
 										node_div_name: "new_state" + i,
 										nodeid: null,
@@ -611,6 +625,28 @@ function init_jsplumb(default_icon, editable) {
 			i++;    
 		});
 
+		//initializes the editing tool bar
+		$("#edit_add_node").click(function(e) {
+			createNode({ name: "New Skill "+i,
+										icon: default_icon,
+										node_div_name: "new_state" + i,
+										nodeid: null,
+										content: "",
+										offsetTop: $("#graphContainer").offsetLeft,
+										offsetLeft:$("#graphContainer").offsetTop,
+										editable: true });
+			i++;
+		});
+		
+		$("#edit_save").click(function(e){
+			postGraph();
+		});
+		
+		$("#edit_reduce_width").click(function(e){ resize_container("width" , -50); });
+		$("#edit_reduce_height").click(function(e){ resize_container("height" , -50); });
+		$("#edit_enlarge_width").click(function(e){ resize_container("width" , 50); });
+		$("#edit_enlarge_height").click(function(e){ resize_container("height" , 50); });
+		
 }
 
 
