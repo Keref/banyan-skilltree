@@ -16,6 +16,7 @@ node.node_hash.each do |node_div_name, n|
 					offsetTop: \"#{n.offsetTop.to_s}\",
 					offsetLeft: \"#{n.offsetLeft.to_s}\",
 					editable: #{edit},
+					nodetype: \"#{n.nodetype}\",
 					level: #{n.user_level} } );
 		"
 	end

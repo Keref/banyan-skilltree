@@ -44,22 +44,35 @@ class Node < ActiveRecord::Base
 					#we also create an include link in that case
 					#basically, this is what a graph is, a node including a tree of nodes
 					@link_hash["link_#{stateId}"] = Nodelink.new( name: "include", parent_node: self, target_node: n, linktype: "include" )
+				elsif stateId =~ /new_external_state\d*/
+					#if the node is a reference allready in the DB
+					ref= Node.find(oneNode[:content])
+					n = Node.new(	name: ref.name,
+										nodetype: "reference",
+												icon: ref.icon,
+												user: user,
+										maxlevel:	ref.maxlevel	)
+					@link_hash["link_#{stateId}"] = Nodelink.new( name: "include", parent_node: self, target_node: n, linktype: "include" )
 				else
 					#if node was loaded from last time, we fetch and update it
 					id = stateId.match( /\d+/)[0]
 					n = Node.find(id)
 					#update the node
-					n.content = oneNode[:content]
-					n.name = oneNode[:title]
-					n.nodetype = oneNode[:nodetype]
-					n.icon = oneNode[:icon]
-					n.maxlevel = oneNode[:maxlevel]
-					#print "#### self id: ", self.id, "targetnodeid: ", id, "\n"
+					if oneNode[:nodetype] == "reference"
+					
+					else
+						n.content = oneNode[:content]
+						n.name = oneNode[:title]
+						n.nodetype = oneNode[:nodetype]
+						n.icon = oneNode[:icon]
+						n.maxlevel = oneNode[:maxlevel]
+					end
+					#load the include link
 					l = Nodelink.where(:node_id => self.id, :targetnode_id => id).first
-					#puts "------------ link_#{id}",l 
 					@link_hash["link_#{l.id}"] = l
 				end
 				
+				#update position of the node
 				if ( offT = oneNode[:offsetTop] )
 					n.offsetTop = offT
 				end
@@ -113,7 +126,11 @@ class Node < ActiveRecord::Base
 		
 		# 2nd: load all nodes
 		Node.find(node_id_list).each do |n|
-			@node_hash ["load_state" + n.id.to_s] = n
+			if n.nodetype == "reference"
+				@node_hash ["load_external_state" + n.id.to_s] = n
+			else
+				@node_hash ["load_state" + n.id.to_s] = n
+			end
 		end
 		
 		# 3rd: load all the links from one of those nodes to another node

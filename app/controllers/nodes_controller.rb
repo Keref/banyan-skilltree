@@ -35,7 +35,13 @@ class NodesController < ApplicationController
   # GET /nodes/1.json
   def show
 		@node = Node.find(params[:id])
-		@node.recoverTree
+		respond_to do |format|
+			format.html {			@node.recoverTree }
+			format.json { render :json => { id: @node.id,
+																		icon: view_context.image_url(@node.icon),
+																	content: @node.content,
+																		name: @node.name } }
+		end
   end
 
   # GET /nodes/new

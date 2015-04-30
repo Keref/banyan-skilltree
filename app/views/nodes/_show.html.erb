@@ -1,4 +1,7 @@
 <% provide(:title, @node.name) %>
+<% if @node.user == current_user %>
+	<% rating_readonly = 'true' %>
+<% end %>
 
 <div id='graph_title' style='display: hidden' value='<%= @node.name %>' ></div>
 
@@ -7,12 +10,11 @@
 	</div>
 	<div class="col-md-9">
 		<h1 class='nowrap'><%= @node.name %></h1>
-		<% if @node.user == current_user %>
-			<% readonly = 'true' %>
-		<% end %>
 
-		<table><tr><td><%= label_tag(:rating, "Rating:") %></td><td style="vertical-align:middle">
-		<%= rating_for @node, "score", :cancel => false, :disable_after_rate => false, :readonly => readonly %></td></tr></table>
+		<table><tr><td><%= label_tag(:reference, "Reference: ") %> </td><td> <%= @node.id %></td></tr>
+			<tr><td><%= label_tag(:rating, "Rating: ") %></td><td>
+			<%= rating_for @node, "score", :cancel => false, :disable_after_rate => false, :readonly => rating_readonly %></td>
+		</tr></table>
 
 		<%= label_tag(:_node_tags, "Tags:") %>
 		<input type="text" value="<%= @node.tag_list %>" data-role="tagsinput" id="tree_tags" readonly="readonly" style="border-width:0px;border:none;"/>

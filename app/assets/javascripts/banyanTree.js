@@ -39,9 +39,20 @@ function listContainer(is_new_graph){
 																				 icon: icon_name,
 																		 maxlevel: $('#badge_' + this.id).text(),
 																		offsetTop: pos.top,
-																		offsetLeft: pos.left};
+																		offsetLeft: pos.left,
+																		nodetype: "default"
+																		};
 				});
-				
+				$('div').filter(function() {
+					return /^(new|load)_external_state\d+$/.test(this.id);
+				}).each(function() {
+					var pos=$(this).position();
+					treeSave["node"][this.id] = { nodetype: "reference",
+																				content: $("#desc_area_"+this.id).html(),
+																			offsetTop: pos.top,
+																			offsetLeft: pos.left
+																			};
+				});
 
 
         var linkList = jsPlumb.getAllConnections();
@@ -299,16 +310,20 @@ function createNode(param){
 	
 	//displayTrace(param);
 	var icon_path = "assets/default_icon.png";
-	if ( param["icon"] !== null ) icon_path = param["icon"];
+	if ( param["icon"] != null ) icon_path = param["icon"];
 	//console.log(icon_path);
 	var node_div_id = param["node_div_name"];
-	var skill_node = $('<div>').attr('id', node_div_id).addClass('skill_node');
+	var skill_node = $('<div>').attr('id', node_div_id);
+	if ( param["nodetype"] != null ) {
+		skill_node.addClass('skill_node_' + param["nodetype"]);
+	}
+	else
+		skill_node.addClass('skill_node');
+	
 	var skill_node_title = $('<div>').addClass('skill_node_title');
 	var skill_node_title_span = $('<span>').addClass('skill_node_title_span').attr('id','skill_node_title_span_' + node_div_id);
-	var skill_node_badge = 
+	var skill_node_badge = skill_node_title.append(skill_node_title_span);
 	
-	skill_node_title.append(skill_node_title_span);
-	//var skill_node_title_content = $('<p>');
 	var skill_node_icon = $('<img>').attr('id','icon_'+node_div_id).attr('src', icon_path).attr('width','40').attr('height','40').addClass('skill_node_icon');
 	var skill_node_connect = $('<div>').attr('id', "connect_" + node_div_id).addClass('skill_node_connect');
 	var desc_skill = $('<div>').attr('id', "desc_" + node_div_id).addClass('skill_desc');
@@ -327,7 +342,7 @@ function createNode(param){
 	skill_node_title_span.text(name);
 	
 	//if editable, the desc_box is an textarea, else just a regular div
-	if  ( param["editable"] == true ){
+	if  ( param["editable"] == true && param["nodetype"] != "reference" ){
 		desc_skill.append(desc_top);
 		desc_top.append(desc_icon);
 		
@@ -372,27 +387,27 @@ function createNode(param){
 	//jsPlumb.addEndpoint(node_div_id, sourceEndpoint);	
 	
 	//creates a dialog box with the skill content on click the box
-	skill_node.click(function(e) {
-		hide_desc();
-			
-		var s = document.getElementById(node_div_id);
-		var l = s.offsetLeft + 80;
-		//TODO: we move the desc box next to the skill box (in cas it's been dragged)
-		//$("#desc_" + node_div_id).css({"visibility":"visible", "top": s.offsetTop+"px", "left": l+"px"});
-		if (param["editable"] === true ) { $('#desc_area_' + node_div_id).jqte(); }
-		$("#desc_" + node_div_id).dialog({
-			title: desc_title.val(),
-			dialogClass: 'ui-alert',
-			maxHeight: 600,
-			width: 600,
-			close: function(){
-				if ( param["editable"] === true ) {
-					skill_node_title_span.text(desc_title_input.val());
+		if ( param["nodetype"] != "reference" ) {
+		skill_node.click(function(e) {
+			hide_desc();
+				
+			var s = document.getElementById(node_div_id);
+			var l = s.offsetLeft + 80;
+			//TODO: we move the desc box next to the skill box (in case it's been dragged)
+			if (param["editable"] === true ) { $('#desc_area_' + node_div_id).jqte(); }
+			$("#desc_" + node_div_id).dialog({
+				title: desc_title.val(),
+				dialogClass: 'ui-alert',
+				maxHeight: 600,
+				width: 600,
+				close: function(){
+					if ( param["editable"] === true ) {
+						skill_node_title_span.text(desc_title_input.val());
+					}
 				}
-			}
-		}).enableSelection();
-	});	
-	
+			}).enableSelection();
+		});	
+	}
 	
 			
 	//makes the skill draggable, and prevent dragging from propagating
@@ -414,6 +429,7 @@ function createNode(param){
 		jsPlumb.makeSource(skill_node_connect, {
 				parent: skill_node,
 				anchor: 'Continuous',
+				type: "basic",
 				endpoint: "Dot",
 				paintStyle: {
 						strokeStyle: "#aaaaaa",
@@ -444,6 +460,7 @@ function createNode(param){
 		//non editable, preventing users from suppressing connections
 		//TODO: does not work
 		jsPlumb.selectEndpoints().each(function (e){
+				$(this).setVisible(false);
 				e.setVisible(false);
 		});
 	}
@@ -453,6 +470,91 @@ function createNode(param){
 	
 	hide_desc();
 }
+
+
+
+/*
+ * 
+ */
+	var skill_preloaded;
+	function preload_external_skill(){
+		var target = $('#skill_preload');
+		$.ajax({type: "GET",
+				url: '/nodes/'+$("#input_skill_id").val(),
+				dataType: 'json',
+				success:function(response){ 
+					if (response.redirect) {
+							window.location.href = response.redirect;
+					}
+					else {
+						console.log(response);
+						html_rep = "<table><tr><td><img id='icon_preload' width='70'  src='"+response.icon
+														+"' /></td><td>Reference: "+response.id+"<br>Name: "+response.name+"</td></tr></table>";
+						target.html(html_rep);
+						skill_preloaded = response;
+					}
+				},
+				error: function (data, errors, tt){
+					target.html("Error while looking for this skill");
+				}
+    });
+		
+	}
+	
+	
+
+
+/*
+ * createExtNode: asks for an external graph link and creates a special node linking to that tree
+ */
+function createExtNode(i){
+	//we create a popup dialog asking for the skill id
+	var id_request = $('<div>').html('Skill Id number:<input type="text" id="input_skill_id" /><input type="button" value="Search" onclick="preload_external_skill();" />');
+	//	$('#graphContainer').append(id_request);
+	id_request.appendTo("body");
+	var skill_preload = $('<div>').attr('id', 'skill_preload');
+	id_request.append(skill_preload);
+
+  id_request.dialog({
+        modal: false,
+        title: 'link to an External Tree',
+        zIndex: 10000,
+        width: 'auto',
+        resizable: false,
+        buttons: {
+            OK: function () {
+                $(this).dialog("close");
+								createNode({ name: skill_preloaded.name,
+									icon: skill_preloaded.icon,
+									node_div_name: "new_external_state" + i,
+									nodeid: null,
+									content: skill_preloaded.id,
+									offsetTop: $("#graphContainer").offsetLeft,
+									offsetLeft:$("#graphContainer").offsetTop,
+									editable: true,
+									nodetype: "reference" });
+            },
+            Cancel: function () {
+                $(this).dialog("close");
+            }
+        },
+        close: function (event, ui) {
+            $(this).remove();
+        }
+    });
+	console.log(id_request);
+/*
+	createNode({ name: "External skill "+i,
+							icon: default_icon,
+							node_div_name: "external_state" + i,
+							nodeid: null,
+							content: "",
+							offsetTop: $("#graphContainer").offsetLeft,
+							offsetLeft:$("#graphContainer").offsetTop,
+							editable: true,
+							nodetype: "reference" });	*/
+}
+
 
 
 /*
@@ -507,7 +609,7 @@ function icon_selector_dialog ( icon_div , optional_icon_div) {
 function hide_desc(){
 	$(".ui-dialog-content").dialog("close");
 	$('div').filter(function() {
-		return /^desc_(new|load)/.test(this.id);
+		return /^desc_(new|load|external)/.test(this.id);
 	}).each(function() {
 		$("#"+this.id).css({"display":"none"});
 	});
@@ -635,6 +737,11 @@ function init_jsplumb(default_icon, editable) {
 										offsetTop: $("#graphContainer").offsetLeft,
 										offsetLeft:$("#graphContainer").offsetTop,
 										editable: true });
+			i++;
+		});
+		
+		$("#edit_add_node_external").click(function(e) {
+			createExtNode(i);
 			i++;
 		});
 		
