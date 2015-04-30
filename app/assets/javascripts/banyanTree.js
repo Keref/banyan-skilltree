@@ -488,8 +488,8 @@ function createNode(param){
 					}
 					else {
 						console.log(response);
-						html_rep = "<table><tr><td><img id='icon_preload' width='70'  src='"+response.icon
-														+"' /></td><td>Reference: "+response.id+"<br>Name: "+response.name+"</td></tr></table>";
+						html_rep = "<hr><table><tr><td><img id='icon_preload' width='70'  src='"+response.icon
+														+"' /></td><td width='10px'></td><td>Reference: "+response.id+"<br>Name: "+response.name+"</td></tr></table>";
 						target.html(html_rep);
 						skill_preloaded = response;
 					}
@@ -501,58 +501,42 @@ function createNode(param){
 		
 	}
 	
-	
+																	 
+	function hop_select (i) {
+
+									$("#external_link_selector").remove();
+		if (skill_preloaded != null){
+									createNode({ name: skill_preloaded.name,
+										icon: skill_preloaded.icon,
+										node_div_name: "new_external_state" + i,
+										nodeid: null,
+										content: skill_preloaded.id,
+										offsetTop: $("#graphContainer").offsetLeft,
+										offsetLeft:$("#graphContainer").offsetTop,
+										editable: true,
+										nodetype: "reference" });
+								}
+							}
 
 
 /*
  * createExtNode: asks for an external graph link and creates a special node linking to that tree
  */
-function createExtNode(i){
+function createExtNode(i, evtClick){
+	skill_preloaded = null;
 	//we create a popup dialog asking for the skill id
-	var id_request = $('<div>').html('Skill Id number:<input type="text" id="input_skill_id" /><input type="button" value="Search" onclick="preload_external_skill();" />');
-	//	$('#graphContainer').append(id_request);
-	id_request.appendTo("body");
 	var skill_preload = $('<div>').attr('id', 'skill_preload');
-	id_request.append(skill_preload);
+	function des () { console.log('toto'); }
+	var id_request = $('<div>').attr('id', 'external_link_selector').addClass('tttooltip')
+		.html('Enter an Skill Id number:<input type="text" id="input_skill_id" />')
+		.append('<button type="button" class="btn btn-default" aria-label="Left Align" onclick="preload_external_skill();" ><span class="glyphicon glyphicon-search" aria-hidden="true"></span>Search</button>')
+		.append('<button type="button" class="btn btn-default" aria-label="Left Align" onclick="hop_select('+i+');"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Select</button>')
+		.append('<button type="button" class="btn btn-default" aria-label="Left Align" onclick="document.getElementById(\'external_link_selector\').remove();"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>Cancel</button>')
+		.append(skill_preload)
+		.appendTo("body").css({"top" : evtClick.pageY, "left": evtClick.pageX });
 
-  id_request.dialog({
-        modal: false,
-        title: 'link to an External Tree',
-        zIndex: 10000,
-        width: 'auto',
-        resizable: false,
-        buttons: {
-            OK: function () {
-                $(this).dialog("close");
-								createNode({ name: skill_preloaded.name,
-									icon: skill_preloaded.icon,
-									node_div_name: "new_external_state" + i,
-									nodeid: null,
-									content: skill_preloaded.id,
-									offsetTop: $("#graphContainer").offsetLeft,
-									offsetLeft:$("#graphContainer").offsetTop,
-									editable: true,
-									nodetype: "reference" });
-            },
-            Cancel: function () {
-                $(this).dialog("close");
-            }
-        },
-        close: function (event, ui) {
-            $(this).remove();
-        }
-    });
-	console.log(id_request);
-/*
-	createNode({ name: "External skill "+i,
-							icon: default_icon,
-							node_div_name: "external_state" + i,
-							nodeid: null,
-							content: "",
-							offsetTop: $("#graphContainer").offsetLeft,
-							offsetLeft:$("#graphContainer").offsetTop,
-							editable: true,
-							nodetype: "reference" });	*/
+
+
 }
 
 
@@ -722,9 +706,10 @@ function init_jsplumb(default_icon, editable) {
 										icon: default_icon,
 										node_div_name: "new_state" + i,
 										nodeid: null,
+										nodetype: "default",
 										content: "",
-										offsetTop: e.pageY - this.offsetLeft,
-										offsetLeft: e.pageX - this.offsetTop,
+										offsetTop: e.offsetY,
+										offsetLeft: e.offsetX,
 										editable: true });
 			i++;    
 		});
@@ -735,6 +720,7 @@ function init_jsplumb(default_icon, editable) {
 										icon: default_icon,
 										node_div_name: "new_state" + i,
 										nodeid: null,
+										nodetype: "default",
 										content: "",
 										offsetTop: $("#graphContainer").offsetLeft,
 										offsetLeft:$("#graphContainer").offsetTop,
@@ -743,7 +729,7 @@ function init_jsplumb(default_icon, editable) {
 		});
 		
 		$("#edit_add_node_external").click(function(e) {
-			createExtNode(i);
+			createExtNode(i,e);
 			i++;
 		});
 		
