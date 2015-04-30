@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title><%= full_title(yield(:title)) %></title>
+    <%= stylesheet_link_tag "application", media: "all",
+                                           "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+		<%= favicon_link_tag 'favicon.ico' %>
+    <%= csrf_meta_tags %>
+    <%= render 'layouts/shim' %>
+  </head>
+
+  <body style="background-image: none">
+		<nav class="navbar navbar-fixed-top navbar-inverse">
+			<div class="container-fluid">
+				<nav>
+				 <%= link_to image_tag('banyanhead-xs.png'), root_path, id: "logo" %> 
+					<ul class="nav navbar-nav navbar-right">
+						<li><%= link_to "Discussion",   forem.root_url %></li>
+						<li><%= link_to "Log in", main_app.login_path %></li>
+						<li><%= link_to "Sign up", main_app.signup_path %></li>
+					</ul>
+				</nav>
+			</div>
+		</nav>
+
+    <div class="jumbotron text-center">
+
+
+				<h1>Expand your horizon. Make your own path.</h1>
+
+				<h3>
+				Life is a game, and you make the decisions.
+				</h3><br>
+
+
+				<%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+
+    </div>
+
+    <div class="container ">
+				<div class="col-md-8">
+          <h2>Heading</h2>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+          <h2>Heading</h2>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+       </div>
+
+		</div>
+    
+    <div class="container-fluid">
+
+        <div class="col-md-4">
+          <h2>Heading</h2>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+          <h2>Heading</h2>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+       </div>
+        <div class="col-md-4">
+          <h2>Heading</h2>
+          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div>
+      </div>
+
+      
+
+      <%= render 'layouts/footer' %>
+      <%= debug(params) if Rails.env.development? %>
+
+  </body>
+
+</html>

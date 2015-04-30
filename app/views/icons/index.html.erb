@@ -63,10 +63,3 @@ $(document).ready(function(){
 
 <%= will_paginate %>
 
-<script>
-	$(".paginate a").each(function(i,link){
-		var hr = link.href;
-		link.href = '#';
-		link.attr('target',hr);
-	});
-</script>

@@ -7,12 +7,21 @@ body {
 	background-attachment: fixed;
 
 }
+.jumbotron {
+    margin-top: -10px;
+    margin-bottom: 0px;
+    background-image: image_url("1322-dark-nature-night-tree-1920-400.jpg");
+    background-position: 0% 25%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+}
 
 .nowrap {
     overflow: hidden;
     white-space: nowrap;
     }
-.container {
+.container-white {
 	background-color: #dddddd;
 	border-radius: 10px;
 }
@@ -26,6 +35,10 @@ body {
 #tree_icon {
 		max-width: 100%;
 		padding: 0 0 0 0;
+}
+
+#logo {
+	padding-top: 6px;
 }
 
 .course_list {
@@ -79,7 +92,7 @@ body {
   transform: rotate(90deg);
 }
 
-.skill_node_default {
+.skill_node_default, .skill_node_ {
 	position: absolute;
 	border:1px solid #d7dada;
 	-webkit-border-radius: 3px;
@@ -144,7 +157,7 @@ body {
 	background-image: linear-gradient(to bottom, #f4f5f5, #dfdddd);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#f4f5f5, endColorstr=#dfdddd);
 }
 
-.skill_node_default:hover{
+.skill_node_default:hover, .skill_node_:hover{
 	border:1px solid #bfc4c4;
 	background-color: #d9dddd; background-image: -webkit-gradient(linear, left top, left bottom, from(#d9dddd), to(#c6c3c3));
 	background-image: -webkit-linear-gradient(top, #d9dddd, #c6c3c3);
@@ -237,8 +250,11 @@ body {
 
 
 //#overriding bootstrap for some reason
-.navbar {min-height:32px; }
-//.navbar-nav > li > a {padding-top:10px !important; padding-bottom:10px !important;}
+.navbar {
+	#min-height:32px; 
+	margin: 0;
+}
+//##.navbar-nav > li > a {padding-top:10px !important; padding-bottom:10px !important;}
 
 
 .row {

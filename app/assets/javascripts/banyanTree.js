@@ -34,7 +34,7 @@ function listContainer(is_new_graph){
 					var pos=$(this).position();
 					var icon_name = $('#icon_'+this.id).attr('src').replace(/.*\//g,'').replace(/-[0-9a-f]{12,50}.png$/, '.png');
 
-					treeSave["node"][idd] = { title: encodeURI($("#skill_node_title_span_"+this.id).text()),
+					treeSave["node"][idd] = { title: $("#skill_node_title_span_"+this.id).text(),
 																			content: content,
 																				 icon: icon_name,
 																		 maxlevel: $('#badge_' + this.id).text(),
@@ -575,13 +575,15 @@ function icon_selector_dialog ( icon_div , optional_icon_div) {
 			icon_handler.load(url);
 			icon_handler.click(function (event) {
 				console.log('click icon handler');
-				//event.preventDefault();
+
 				var is_clicked = $(event.target);
 				if ( is_clicked.is('a') ){
+					event.preventDefault();
 					//if a link is clicked we load the new page in the div
 					load_desc_icon( is_clicked.attr('href') );
 				}
 				else if  (is_clicked.is('img')) {
+					event.preventDefault();
 					//if an image is clicked, we change the icons
 					icon_div.attr('src', is_clicked.attr('src'));
 					if ( typeof optional_icon_div !== 'undefined' ) {
