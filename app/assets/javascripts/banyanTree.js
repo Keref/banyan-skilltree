@@ -308,6 +308,7 @@ function createBadge ( params ){
  */
 function createNode(param){
 	
+	
 	//displayTrace(param);
 	var icon_path = "assets/default_icon.png";
 	if ( param["icon"] != null ) icon_path = param["icon"];
@@ -327,9 +328,11 @@ function createNode(param){
 	var skill_node_icon = $('<img>').attr('id','icon_'+node_div_id).attr('src', icon_path).attr('width','40').attr('height','40').addClass('skill_node_icon');
 	var skill_node_connect = $('<div>').attr('id', "connect_" + node_div_id).addClass('skill_node_connect');
 	var desc_skill = $('<div>').attr('id', "desc_" + node_div_id).addClass('skill_desc');
-	var	desc_top = $("<div>").attr('id','desc_area_titleline_'+node_div_id).addClass('skill_desc_top');
+	var	desc_top = $("<div>").attr('id','desc_area_titleline_'+node_div_id).addClass('skill_desc_top navbar');
 	var desc_icon = $('<img>').attr('src', icon_path).attr('width','48').attr('height','48').addClass('skill_desc_icon');
-
+	var desc_back_button = $('<ul>').addClass("nav navbar-nav navbar-right")
+														.append($('<button type="button" class="btn btn-default navbar-btn">Save</button>'))
+														.append($('<button type="button" onclick="hide_desc();" class="btn btn-default navbar-btn">Back to the Tree</button>'));
 
 	var desc_content,	desc_title, desc_title_input;
 	
@@ -344,7 +347,7 @@ function createNode(param){
 	//if editable, the desc_box is an textarea, else just a regular div
 	if  ( param["editable"] == true && param["nodetype"] != "reference" ){
 		desc_skill.append(desc_top);
-		desc_top.append(desc_icon);
+		desc_top.append("<br>").append(desc_icon);
 		
 		desc_title = $("<div>").addClass("skill_desc_title");
 		desc_title_input = $("<textarea>").attr('id', 'desc_area_title_' + node_div_id).attr('wrap','soft').attr("cols", "10").attr("rows","2").attr("type", "text").attr("maxlength", "26").val(name);
@@ -352,7 +355,7 @@ function createNode(param){
 		desc_title.append(desc_title_input);
 
 		desc_content = $('<textarea>').attr('id', 'desc_area_' + node_div_id).addClass('skill_desc_content').addClass('jqte-test');
-		desc_skill.append("<br><br>Description").append(desc_content);
+		desc_skill.append("<br><br>").append(desc_content);
 		desc_content.val(decodeURI(param["content"]));
 
 		skill_node.append(skill_node_connect);
@@ -370,6 +373,7 @@ function createNode(param){
 		
 	}
 	desc_top.append(desc_title);
+	desc_top.append(desc_back_button);
 
 	//try to align to see //alignmet problem on chrome
 	var altop = param["offsetTop"] - (param["offsetTop"] % 40);
@@ -383,29 +387,19 @@ function createNode(param){
 
 	
 	$('#graphContainer').append(skill_node);
-	$('#graphContainer').append(desc_skill);
-	//jsPlumb.addEndpoint(node_div_id, sourceEndpoint);	
+	$('body').append(desc_skill);
+	
 	
 	//creates a dialog box with the skill content on click the box
-		if ( param["nodetype"] != "reference" ) {
+	//TODO: if link is a reference, nothing (yet) maybe description of the graph referred to
+	if ( param["nodetype"] != "reference" ) {
 		skill_node.click(function(e) {
 			hide_desc();
-				
-			var s = document.getElementById(node_div_id);
-			var l = s.offsetLeft + 80;
-			//TODO: we move the desc box next to the skill box (in case it's been dragged)
+
 			if (param["editable"] === true ) { $('#desc_area_' + node_div_id).jqte(); }
-			$("#desc_" + node_div_id).dialog({
-				title: desc_title.val(),
-				dialogClass: 'ui-alert',
-				maxHeight: 600,
-				width: 600,
-				close: function(){
-					if ( param["editable"] === true ) {
-						skill_node_title_span.text(desc_title_input.val());
-					}
-				}
-			}).enableSelection();
+
+			$("#main-container").css({"display":"none"});
+			$("#desc_" + node_div_id).addClass("container container-white").css({"display":""});
 		});	
 	}
 	
@@ -473,8 +467,7 @@ function createNode(param){
 
 
 
-/*
- * 
+/* preload_external_skill: looks for a skill based on the id number provided
  */
 	var skill_preloaded;
 	function preload_external_skill(){
@@ -593,7 +586,7 @@ function icon_selector_dialog ( icon_div , optional_icon_div) {
 /* hide_desc: hides the description boxes
  */
 function hide_desc(){
-	$(".ui-dialog-content").dialog("close");
+	$("#main-container").css({"display":""});
 	$('div').filter(function() {
 		return /^desc_(new|load|external)/.test(this.id);
 	}).each(function() {

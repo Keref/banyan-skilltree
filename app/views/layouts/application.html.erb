@@ -14,7 +14,7 @@
   <body>
     <%= render 'layouts/header' %>
 
-    <div class="container container-white">
+    <div id="main-container" class="container container-white">
 
       <% flash.each do |message_type, message| %>
         <div class="alert alert-<%= message_type %>"><%= message %></div>
