@@ -331,7 +331,7 @@ function createNode(param){
 	var	desc_top = $("<div>").attr('id','desc_area_titleline_'+node_div_id).addClass('skill_desc_top navbar');
 	var desc_icon = $('<img>').attr('src', icon_path).attr('width','48').attr('height','48').addClass('skill_desc_icon');
 	var desc_back_button = $('<ul>').addClass("nav navbar-nav navbar-right")
-														.append($('<button id="close_desc_btn" type="button" class="btn btn-default navbar-btn">Back to the Tree</button>'));
+														.append($('<button id="close_desc_btn'+node_div_id+'" type="button" class="btn btn-default navbar-btn">Back to the Tree</button>'));
 
 	var desc_content,	desc_title_input;
 	var desc_title = $("<div>").addClass("skill_desc_title");
@@ -385,7 +385,7 @@ function createNode(param){
 	$('body').append(desc_skill);
 	
 	//on clicking the close button of a desc
-	$("#close_desc_btn").click(function(e){
+	$("#close_desc_btn"+node_div_id).click(function(e){
 		if (param["editable"] === true ){
 			//we update the title of the skill if necessary
 			skill_node_title_span.text(desc_title_input.val());
