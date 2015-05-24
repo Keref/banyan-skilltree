@@ -331,11 +331,10 @@ function createNode(param){
 	var	desc_top = $("<div>").attr('id','desc_area_titleline_'+node_div_id).addClass('skill_desc_top navbar');
 	var desc_icon = $('<img>').attr('src', icon_path).attr('width','48').attr('height','48').addClass('skill_desc_icon');
 	var desc_back_button = $('<ul>').addClass("nav navbar-nav navbar-right")
-														.append($('<button type="button" class="btn btn-default navbar-btn">Save</button>'))
 														.append($('<button type="button" onclick="hide_desc();" class="btn btn-default navbar-btn">Back to the Tree</button>'));
 
-	var desc_content,	desc_title, desc_title_input;
-	
+	var desc_content,	desc_title_input;
+	var desc_title = $("<div>").addClass("skill_desc_title");
 	skill_node.append(skill_node_icon);
 	skill_node.append(skill_node_title);
 	
@@ -343,21 +342,17 @@ function createNode(param){
 	var name = decodeURI(param["name"]);
 	desc_skill.attr("title",name);
 	skill_node_title_span.text(name);
+	desc_skill.append(desc_top);
+	desc_top.append("<br>").append(desc_icon);
 	
 	//if editable, the desc_box is an textarea, else just a regular div
 	if  ( param["editable"] == true && param["nodetype"] != "reference" ){
-		desc_skill.append(desc_top);
-		desc_top.append("<br>").append(desc_icon);
-		
-		desc_title = $("<div>").addClass("skill_desc_title");
-		desc_title_input = $("<textarea>").attr('id', 'desc_area_title_' + node_div_id).attr('wrap','soft').attr("cols", "10").attr("rows","2").attr("type", "text").attr("maxlength", "26").val(name);
-		//desc_title.append("Skill name")
+		desc_title_input = $("<textarea>").attr('id', 'desc_area_title_' + node_div_id).attr('wrap','soft')
+																.attr("cols", "10").attr("rows","2").attr("type", "text").attr("maxlength", "26").val(name);
+
 		desc_title.append(desc_title_input);
-
 		desc_content = $('<textarea>').attr('id', 'desc_area_' + node_div_id).addClass('skill_desc_content').addClass('jqte-test');
-		desc_skill.append("<br><br>").append(desc_content);
 		desc_content.val(decodeURI(param["content"]));
-
 		skill_node.append(skill_node_connect);
 		
 		//initializes the icon selector dialog
@@ -365,13 +360,12 @@ function createNode(param){
 
 	}
 	else {
-		//displaying the graph: no fancy choosing, inputs...
-		desc_title = $("<div>").attr('id', 'desc_area_title_' + node_div_id);
+		desc_title.attr('id', 'desc_area_title_' + node_div_id).text(name);
 		desc_content = $('<p>').attr('id', 'desc_area_' + node_div_id).addClass('skill_desc_content');
-		desc_skill.append(desc_content);
 		desc_content.append( decodeURI(param["content"]));
 		
 	}
+	desc_skill.append("<hr>").append(desc_content);
 	desc_top.append(desc_title);
 	desc_top.append(desc_back_button);
 
