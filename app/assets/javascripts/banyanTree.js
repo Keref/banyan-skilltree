@@ -331,7 +331,7 @@ function createNode(param){
 	var	desc_top = $("<div>").attr('id','desc_area_titleline_'+node_div_id).addClass('skill_desc_top navbar');
 	var desc_icon = $('<img>').attr('src', icon_path).attr('width','48').attr('height','48').addClass('skill_desc_icon');
 	var desc_back_button = $('<ul>').addClass("nav navbar-nav navbar-right")
-														.append($('<button type="button" onclick="hide_desc();" class="btn btn-default navbar-btn">Back to the Tree</button>'));
+														.append($('<button id="close_desc_btn" type="button" class="btn btn-default navbar-btn">Back to the Tree</button>'));
 
 	var desc_content,	desc_title_input;
 	var desc_title = $("<div>").addClass("skill_desc_title");
@@ -369,7 +369,8 @@ function createNode(param){
 	desc_top.append(desc_title);
 	desc_top.append(desc_back_button);
 
-	//try to align to see //alignmet problem on chrome
+	//TODO: fix the alignment
+	//try to align to see //alignment problem on chrome
 	var altop = param["offsetTop"] - (param["offsetTop"] % 40);
 	var alleft = param["offsetLeft"] - (param["offsetLeft"] % 40);
 		
@@ -383,6 +384,15 @@ function createNode(param){
 	$('#graphContainer').append(skill_node);
 	$('body').append(desc_skill);
 	
+	//on clicking the close button of a desc
+	$("#close_desc_btn").click(function(e){
+		if (param["editable"] === true ){
+			//we update the title of the skill if necessary
+			skill_node_title_span.text(desc_title_input.val());
+		}
+		
+		hide_desc();
+	});
 	
 	//creates a dialog box with the skill content on click the box
 	//TODO: if link is a reference, nothing (yet) maybe description of the graph referred to
@@ -577,7 +587,7 @@ function icon_selector_dialog ( icon_div , optional_icon_div) {
 
 
 
-/* hide_desc: hides the description boxes
+/* hide_desc: hides the description boxes (and displays the main-container
  */
 function hide_desc(){
 	$("#main-container").css({"display":""});
