@@ -6,7 +6,7 @@ jscript_code = ""
 #looping through node to display them
 node.node_hash.each do |node_div_name, n|
 	if n.nodetype != "graph"
-		jscript_code += "createNode( { name: \"#{n.name}\",
+		jscript_code += "createNode( { name: \"#{n.name.gsub("\n"," ")}\",
 					node_div_name: \"#{node_div_name}\",
 					nodeid: \"#{n.id.to_s}\",
 					content: \"#{n.content}\",

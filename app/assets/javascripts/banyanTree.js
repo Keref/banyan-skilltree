@@ -34,7 +34,7 @@ function listContainer(is_new_graph){
 					var pos=$(this).position();
 					var icon_name = $('#icon_'+this.id).attr('src').replace(/.*\//g,'').replace(/-[0-9a-f]{12,50}.png$/, '.png');
 
-					treeSave["node"][idd] = { title: $("#skill_node_title_span_"+this.id).text(),
+					treeSave["node"][idd] = { title: encodeURI($("#skill_node_title_span_"+this.id).text()),
 																			content: content,
 																				 icon: icon_name,
 																		 maxlevel: $('#badge_' + this.id).text(),
@@ -48,7 +48,7 @@ function listContainer(is_new_graph){
 				}).each(function() {
 					var pos=$(this).position();
 					treeSave["node"][this.id] = { nodetype: "reference",
-																				content: $("#desc_area_"+this.id).html(),
+																				content: encodeURI($("#desc_area_"+this.id).html()),
 																			offsetTop: pos.top,
 																			offsetLeft: pos.left
 																			};
