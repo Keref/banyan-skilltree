@@ -43,6 +43,11 @@
 <script>
 
 	var default_icon = "<%= image_url('0-pignon-128.png', id: "default_icon" )%>";
+	// test test
+	loadCSS("<%= asset_url('tileable_wood.css') %>");
+	<% if ! @node.style.blank? %>
+		loadCSS("<%= asset_url(@node.style) %>");
+	<% end %>
   jsPlumb.ready(function(){
 		var editable = true;
 		init_jsplumb(default_icon, editable);

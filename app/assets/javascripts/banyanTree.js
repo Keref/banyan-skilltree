@@ -1,3 +1,18 @@
+// a bunche of vars we need in different functions
+var jsPlumbInstance;
+
+
+/* Load CSS: dynamically load a CSS style for the page. The main tree-related style can be changed.
+ */
+function loadCSS(css_path){
+	var css_link = $("#tree_css");
+	if ( css_link.length == 0 ){
+		css_link = $('<link rel="stylesheet" type="text/css">').attr('id','tree_css');
+		$('head').append(css_link);
+	}
+	css_link.attr('href',css_path);
+}
+
 
 /*
  * listContainer: lists and returns the elements of the graph container (nodes and links)
@@ -227,6 +242,8 @@ var dynamicAnchors = [ "Top", "Right", "Bottom", "Left"],
 				hoverPaintStyle: endpointHoverStyle,
 				connectorHoverStyle: connectorHoverStyle,
 				dragOptions: {},
+				isSource: true,
+				container:$('#graphContainer'),
 				overlays: [ [ "Arrow", { width:15, length:15, location:1 }	] ]
 		},
 		// the definition of target endpoints (will appear when the user drags a connection)
@@ -238,6 +255,7 @@ var dynamicAnchors = [ "Top", "Right", "Bottom", "Left"],
 				maxConnections: -1,
 				dropOptions: { hoverClass: "hover", activeClass: "active" },
 				isTarget: true,
+				container:$('#graphContainer'),
 				overlays: [ [ "Arrow", { width:15, length:15, location:1 }	] ]
 		}
 
@@ -652,7 +670,7 @@ function resize_container(direction, amount){
 function init_jsplumb(default_icon, editable) {
 	
 		//from jsplumb flowchart demo
-	   var jsPlumbInstance = jsPlumb.getInstance({
+	   jsPlumbInstance = jsPlumb.getInstance({
         // default drag options
         DragOptions: { cursor: 'pointer', zIndex: 2000 },
         // the overlays to decorate each connection with.  note that the label overlay uses a function to generate the label text; in this

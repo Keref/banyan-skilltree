@@ -35,17 +35,18 @@ end
 
 %>
 
+
+
 $("#graphContainer").height(<%= node.offsetTop %>);
 $("#graphContainer").width(<%= node.offsetLeft %>);
 
-<!-- detach all conections otherwise problems appear on browser back button//doesnot work
-jsPlumb.detachEveryConnection(); //>
+
 function filltree(){
 	<%= raw jscript_code %>
 };
 
+// suspend draqing while adding blocks for quicker display
 jsPlumb.setSuspendDrawing(true);
 filltree();
 jsPlumb.setSuspendDrawing(false, true);
-
 
