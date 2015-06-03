@@ -15,4 +15,4 @@ Rails.application.config.assets.version = '1.0'
 #Rails.application.config.assets.precompile += %w( banyanTree.js )
 Rails.application.config.assets.precompile += %w( forem.css )
 Rails.application.config.assets.precompile += %w( forem.js )
-Rails.application.config.assets.precompile += %w( *.scss *.css *.jpg *.png)
+Rails.application.config.assets.precompile += %w( treestyle/*.scss treestyle/*.css *.jpg *.png)
