@@ -27,6 +27,7 @@ class Node < ActiveRecord::Base
 		self.offsetLeft = params["width"]
 		self.icon = params["icon"]
 		self.tag_list = params["tags"]
+		self.style = params["style"]
 
 		#default main node, also called the Tree!
 		@node_hash["graph"] = self

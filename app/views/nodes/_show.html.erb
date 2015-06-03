@@ -26,7 +26,11 @@
 
 <script>
   jsPlumb.ready(function(){
-  
+  	//loads the CSS of the graph
+		<% if ! @node.style.blank? %>
+			loadCSS("<%= asset_url(@node.style) %>");
+		<% end %>
+		
 		init_jsplumb();
 		<%= render 'nodes/filltree', :node => @node, :edit => false, :learn => true %>
 		$("#tree_tags").prop('disabled', true);

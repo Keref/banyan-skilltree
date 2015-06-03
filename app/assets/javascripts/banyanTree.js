@@ -6,6 +6,7 @@ var jsPlumbInstance;
  */
 function loadCSS(css_path){
 	var css_link = $("#tree_css");
+	console.log(css_path);
 	if ( css_link.length == 0 ){
 		css_link = $('<link rel="stylesheet" type="text/css">').attr('id','tree_css');
 		$('head').append(css_link);
@@ -34,6 +35,7 @@ function listContainer(is_new_graph){
         //if the icon is an uploaded image
         treeSave["icon"] = $('#tree_icon').attr('src').replace(/.*\//g,'').replace(/-[0-9a-f]{12,50}.png$/, '.png');
         treeSave["tags"] = $('#tree_tags').val();
+        treeSave["style"] = $("#tree_style_select").val().replace(/^.*\//,'').replace(/-[0-9a-f]{12,50}.css$/, '');
         
 				$('div').filter(function() {
 					return /^(new|load)_state\d+$/.test(this.id);
@@ -756,6 +758,10 @@ function init_jsplumb(default_icon, editable) {
 		$("#edit_reduce_height").click(function(e){ resize_container("height" , -50); });
 		$("#edit_enlarge_width").click(function(e){ resize_container("width" , 50); });
 		$("#edit_enlarge_height").click(function(e){ resize_container("height" , 50); });
+		
+		$("#tree_style_select").change( function() {
+			loadCSS( this.value );
+		});
 		
 }
 
