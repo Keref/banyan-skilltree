@@ -1,0 +1,40 @@
+A/ Profil utilisateur
+ 
+1) Quels sont les éléments à considérer lors de la création d'un profil ?
+ 
+* Courriel et mot de passe, for sure.
+* Pseudo associé. (Peut être utile pour signer les créations d'arbre visibles en public. Utile pour l'identité Web que recherchent certains.)
+* URL associé. (Certains utilisateurs aimeront associer leur compte TSN à leur site perso pour leur propre visibilité. Je pense par exemple aux blogueurs, youtubeurs. Utile pour TSN aussi sur le long terme pour une meilleure diffusion et un meilleur référencement.)
+* Comptes sociaux associés. Type Facebook, LinkedIn, Instagram. (Aucune idée de la pertinence. Peut être utile pour constituer une DB sur les utilisateurs. À voir quel usage, if any, tu souhaites faire de ta DB.)
+* En vrac : pays, âge, sexe, mots de présentation de l'utilisateur, ...
+ 
+• Certains éléments peuvent être proposés lors de la création du profil, d'autres à partir d'un onglet "Mon profil". L'utilisateur choisira de remplir ou non les éléments qu'ils souhaitent après coup. (D'autres éléments sont peut-être inutiles, comme dis plus haut je te laisse voir ça.)
+ 
+2) Quels sont les interactions entre profils d'utilisateur ?
+ 
+* Messagerie interne privée. (Peut-être utile pour certains types d'interactions. Les commentaires des arbres – voir plus bas – ne se sont pas forcément adaptés à tout type d'échange.)
+* Fonction Ajout d'amis. (Peut-être utile pour une diffusion "semi-privée" des arbres créées. Public : visible par tous, Amis : visible par les amis, Privé : visible par l'utilisateur seulement. Peut être utile pour une édition entre amis.)
+ 
+3) Autres
+ 
+* Password Recovery.
+* Suppression de compte.
+ 
+B/ Création et édition d'un arbre
+ 
+1) Quels sont les éléments à considérer et à mettre à disposition pour la création d'un arbre ?
+ 
+* Forme et taille du cadre de compétence.
+* Coloration du cadre de compétence : bordure, fond, dégradé, opacité.
+* Autre cadre. (Peut être utile si l'utilisateur veut ajouter du texte hors des cadres de compétence, par exemple pour mettre un titre à l'arbre. L'utilisateur peut choisir si les bordures des cadres sont visibles ou non dans la visualition finale de l'arbre. Un cadre invisible peut être nécessaire simplement pour organiser le texte visuellement – voir ci-dessous.)
+* Texte : police, taille, emphase (italique, gras, ...), couleur.
+* Cadre et cadre de compétence VS Texte : justification (droite, gauche, centrée) et placement verticale (haut, bas, centré).
+* Flèche : couleur, épaisseur, forme du trait, forme finale de la flèche.
+ 
+• Ces points demandent l'intégration d'un éditeur de texte et de dessin. À voir si tu le crées toi ou si tu en intègres un d'extérieur. J'imagine que le dernier choix est possible, et il doit en exister des libres. (Inkscape propose ça ?)
+ 
+* Importation. (Utile pour les personnes souhaitant travailler leur arbre hors-ligne et l'updater par la suite sur TSN. Ces personnes se serviront de ton site en partie comme lieu d'exposition. Les autres continueront d'utiliser les outils de texte et de dessin intégrés à TSN pour l'édition.)
+ 
+2) Que peut-on faire avec un arbre ?
+ 
+* Exportation. (Utile pour les personnes souhaitant travailler leur arbre hors-ligne et l'updater par la suite sur TSN. Utile pour les personnes souhaitant mettre leur arbre sur leur site personnel. Utile pour les personnes créant des jeux (PC, smartphone, ...) et souhaitant y intégrer leur arbre. Types de format d'exportation à étudier. Par défaut, seul le propriétaire du dessin peut choisir d'exporter son arbre dans tous les formats proposés. Si une possibilité d'exportation est proposée aux autres (#pseudo_user, amis, public), alors par défaut seulement dans des formats images. L'auteur gère les propriétés d'exportation des autres (#pseudo_user, amis, public) pour ses dessins.)
